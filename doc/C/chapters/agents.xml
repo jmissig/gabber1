@@ -1,0 +1,59 @@
+<!-- BEGIN: AGENTS -->
+<chapter id="agents">
+  <title>Agents</title>
+
+  <para>Jabber servers can have <wordasword>agents</wordasword>
+  (or <wordasword>services</wordasword>) to give the user extra functionality.
+  An agent is simply a server module that the server loads for things like
+  searching for users through the Jabber directory, or 
+  <link linkend="msg-gc">group chats</link>.</para>
+
+  <para>A <wordasword>transport</wordasword> is a subset of agents that
+  seamlessly bridges users to foreign protocols. By registering with a
+  transport agent, a user can communicate with users on other networks
+  with little effort.</para>
+
+  <sect1 id="agents-reg">
+    <title>Registration</title>
+
+    <para>In order to use most agents, they must be registered
+    with. After <link linkend="login">logging in</link>
+    to a server, the <interface>Agents Browser</interface>, available via 
+    <guimenuitem>Browse Agents/IM Systems</guimenuitem>
+    on the <guimenu>Services</guimenu>
+    menu, lists agents on the current server. Other servers can be
+    browsed by typing the address in the server text box and
+    clicking the <guibutton>Browse</guibutton> button.</para>
+
+    <para>To register with an agent, highlight the agent's name in
+    the agent list and click 
+    <guibutton>Register...</guibutton>. The 
+    <interface>Agent Registration</interface>
+    druid will load to allow the user to enter specific information
+    that the agent requires.</para>
+
+    <note>
+      <title>Agent Reliability</title>
+
+      <para>Since the various agents are not actually a part of
+      Gabber, they may experience unexpected outages that are
+      beyond Gabber's control. If messages such as "error
+      attempting to register with agent" or "error attempting to
+      search agent" appear, they mean something is wrong with the
+      agent on the server. Contact the server administrator.</para>
+    </note>
+  </sect1>
+
+  <sect1 id="agents-search">
+    <title>Searching</title>
+
+    <para>By selecting an agent and clicking on 
+    <guibutton>Search...</guibutton>, <application>Gabber</application>
+	will load the <interface>Add a User to Your Roster</interface>
+    druid. From there, users on the agent's network can be searched
+    and added to the roster.</para>
+  </sect1>
+</chapter>
+
+<!-- END: AGENTS -->
+

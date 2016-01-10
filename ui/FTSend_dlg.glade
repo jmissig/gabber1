@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<GTK-Interface>
+
+<project>
+  <name>Gabber</name>
+  <program_name>Gabber</program_name>
+  <directory></directory>
+  <source_directory>src</source_directory>
+  <pixmaps_directory>pixmaps</pixmaps_directory>
+  <language>C</language>
+  <gnome_support>True</gnome_support>
+  <gettext_support>True</gettext_support>
+  <use_widget_names>True</use_widget_names>
+  <gnome_help_support>True</gnome_help_support>
+</project>
+
+<widget>
+  <class>GnomeDialog</class>
+  <name>FTSend_dlg</name>
+  <title>Send a File - Gabber</title>
+  <type>GTK_WINDOW_TOPLEVEL</type>
+  <position>GTK_WIN_POS_NONE</position>
+  <modal>False</modal>
+  <default_width>300</default_width>
+  <default_height>250</default_height>
+  <allow_shrink>False</allow_shrink>
+  <allow_grow>True</allow_grow>
+  <auto_shrink>False</auto_shrink>
+  <wmclass_name>file_send</wmclass_name>
+  <wmclass_class>Gabber</wmclass_class>
+  <auto_close>False</auto_close>
+  <hide_on_close>False</hide_on_close>
+
+  <widget>
+    <class>GtkVBox</class>
+    <child_name>GnomeDialog:vbox</child_name>
+    <name>dialog-vbox21</name>
+    <homogeneous>False</homogeneous>
+    <spacing>8</spacing>
+    <child>
+      <padding>4</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+
+    <widget>
+      <class>GtkHButtonBox</class>
+      <child_name>GnomeDialog:action_area</child_name>
+      <name>dialog-action_area39</name>
+      <layout_style>GTK_BUTTONBOX_END</layout_style>
+      <spacing>8</spacing>
+      <child_min_width>85</child_min_width>
+      <child_min_height>27</child_min_height>
+      <child_ipad_x>7</child_ipad_x>
+      <child_ipad_y>0</child_ipad_y>
+      <child>
+	<padding>0</padding>
+	<expand>False</expand>
+	<fill>True</fill>
+	<pack>GTK_PACK_END</pack>
+      </child>
+
+      <widget>
+	<class>GtkButton</class>
+	<name>FTSend_Cancel_btn</name>
+	<can_default>True</can_default>
+	<can_focus>True</can_focus>
+	<stock_button>GNOME_STOCK_BUTTON_CANCEL</stock_button>
+      </widget>
+
+      <widget>
+	<class>GtkButton</class>
+	<name>FTSend_Send_btn</name>
+	<sensitive>False</sensitive>
+	<can_default>True</can_default>
+	<can_focus>True</can_focus>
+	<label>Send</label>
+	<stock_pixmap>GNOME_STOCK_PIXMAP_JUMP_TO</stock_pixmap>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GtkVBox</class>
+      <name>vbox156</name>
+      <homogeneous>False</homogeneous>
+      <spacing>8</spacing>
+      <child>
+	<padding>0</padding>
+	<expand>True</expand>
+	<fill>True</fill>
+      </child>
+
+      <widget>
+	<class>GtkHBox</class>
+	<name>hbox110</name>
+	<homogeneous>False</homogeneous>
+	<spacing>4</spacing>
+	<child>
+	  <padding>0</padding>
+	  <expand>False</expand>
+	  <fill>False</fill>
+	</child>
+
+	<widget>
+	  <class>GnomePixmap</class>
+	  <name>Contact_contact_pix</name>
+	  <filename>glade-send-file-menu.xpm</filename>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>True</fill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>label516</name>
+	  <label>Send this file to:</label>
+	  <justify>GTK_JUSTIFY_CENTER</justify>
+	  <wrap>False</wrap>
+	  <xalign>1</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>True</fill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkHBox</class>
+	  <name>FTSend_JIDInfo_hbox</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>4</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>Placeholder</class>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GtkFrame</class>
+	<name>frame116</name>
+	<label>Send a File</label>
+	<label_xalign>0</label_xalign>
+	<shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	<child>
+	  <padding>0</padding>
+	  <expand>True</expand>
+	  <fill>True</fill>
+	</child>
+
+	<widget>
+	  <class>GtkTable</class>
+	  <name>table1</name>
+	  <border_width>6</border_width>
+	  <rows>3</rows>
+	  <columns>2</columns>
+	  <homogeneous>False</homogeneous>
+	  <row_spacing>4</row_spacing>
+	  <column_spacing>4</column_spacing>
+
+	  <widget>
+	    <class>GnomeFileEntry</class>
+	    <name>FTSend_File_gfe</name>
+	    <history_id>FTSendFile</history_id>
+	    <max_saved>10</max_saved>
+	    <title>File to Send - Gabber</title>
+	    <directory>False</directory>
+	    <modal>False</modal>
+	    <child>
+	      <left_attach>1</left_attach>
+	      <right_attach>2</right_attach>
+	      <top_attach>0</top_attach>
+	      <bottom_attach>1</bottom_attach>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <xexpand>True</xexpand>
+	      <yexpand>False</yexpand>
+	      <xshrink>False</xshrink>
+	      <yshrink>False</yshrink>
+	      <xfill>True</xfill>
+	      <yfill>False</yfill>
+	    </child>
+
+	    <widget>
+	      <class>GtkEntry</class>
+	      <child_name>GnomeEntry:entry</child_name>
+	      <name>FTSend_File_ent</name>
+	      <can_focus>True</can_focus>
+	      <editable>True</editable>
+	      <text_visible>True</text_visible>
+	      <text_max_length>0</text_max_length>
+	      <text></text>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>label603</name>
+	    <label>File to Send:</label>
+	    <justify>GTK_JUSTIFY_CENTER</justify>
+	    <wrap>False</wrap>
+	    <xalign>1</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <child>
+	      <left_attach>0</left_attach>
+	      <right_attach>1</right_attach>
+	      <top_attach>0</top_attach>
+	      <bottom_attach>1</bottom_attach>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <xexpand>False</xexpand>
+	      <yexpand>False</yexpand>
+	      <xshrink>False</xshrink>
+	      <yshrink>False</yshrink>
+	      <xfill>True</xfill>
+	      <yfill>True</yfill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>label602</name>
+	    <label>Description:</label>
+	    <justify>GTK_JUSTIFY_RIGHT</justify>
+	    <wrap>False</wrap>
+	    <xalign>1</xalign>
+	    <yalign>0</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <child>
+	      <left_attach>0</left_attach>
+	      <right_attach>1</right_attach>
+	      <top_attach>1</top_attach>
+	      <bottom_attach>2</bottom_attach>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <xexpand>False</xexpand>
+	      <yexpand>False</yexpand>
+	      <xshrink>False</xshrink>
+	      <yshrink>False</yshrink>
+	      <xfill>True</xfill>
+	      <yfill>True</yfill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkScrolledWindow</class>
+	    <name>scrolledwindow1</name>
+	    <height>50</height>
+	    <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	    <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	    <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+	    <child>
+	      <left_attach>1</left_attach>
+	      <right_attach>2</right_attach>
+	      <top_attach>1</top_attach>
+	      <bottom_attach>2</bottom_attach>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <xexpand>True</xexpand>
+	      <yexpand>True</yexpand>
+	      <xshrink>False</xshrink>
+	      <yshrink>False</yshrink>
+	      <xfill>True</xfill>
+	      <yfill>True</yfill>
+	    </child>
+
+	    <widget>
+	      <class>GtkText</class>
+	      <name>FTSend_Description_txt</name>
+	      <can_focus>True</can_focus>
+	      <editable>True</editable>
+	      <text></text>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>label604</name>
+	    <label>IP address:</label>
+	    <justify>GTK_JUSTIFY_CENTER</justify>
+	    <wrap>False</wrap>
+	    <xalign>1</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <child>
+	      <left_attach>0</left_attach>
+	      <right_attach>1</right_attach>
+	      <top_attach>2</top_attach>
+	      <bottom_attach>3</bottom_attach>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <xexpand>False</xexpand>
+	      <yexpand>False</yexpand>
+	      <xshrink>False</xshrink>
+	      <yshrink>False</yshrink>
+	      <xfill>True</xfill>
+	      <yfill>False</yfill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GnomeEntry</class>
+	    <name>FTSend_FromIP_gent</name>
+	    <history_id>FTFromIP</history_id>
+	    <max_saved>10</max_saved>
+	    <child>
+	      <left_attach>1</left_attach>
+	      <right_attach>2</right_attach>
+	      <top_attach>2</top_attach>
+	      <bottom_attach>3</bottom_attach>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <xexpand>True</xexpand>
+	      <yexpand>False</yexpand>
+	      <xshrink>False</xshrink>
+	      <yshrink>False</yshrink>
+	      <xfill>True</xfill>
+	      <yfill>False</yfill>
+	    </child>
+
+	    <widget>
+	      <class>GtkEntry</class>
+	      <child_name>GnomeEntry:entry</child_name>
+	      <name>FTSend_FromIP_ent</name>
+	      <can_focus>True</can_focus>
+	      <editable>True</editable>
+	      <text_visible>True</text_visible>
+	      <text_max_length>0</text_max_length>
+	      <text></text>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+    </widget>
+  </widget>
+</widget>
+
+</GTK-Interface>

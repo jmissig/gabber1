@@ -1,0 +1,42 @@
+There are some problems when trying to compile Gabber on FreeBSD.
+Thats why I write down a little step-by-step instruction to compile
+and install. This is for Gabber 0.6.x and FreeBSD 4.0+
+
+1. Install the necessary libs (this list is by no means complete -
+   its just what I needed to add to my system)
+   /usr/ports/devel/libglade
+   /usr/ports/devel/libsigc++
+   /usr/ports/deve/gmake
+   with "make install"
+
+   /usr/ports/x11-toolkits/gtk--
+
+   here you should change the Makefile
+   CONFIGURE_ARGS= --enable-static=yes
+   #               --without-gnome
+
+   (dont know if you really need this because gnomemm should be
+   installed anyway)
+   then "make install"
+   after that
+   "cp /usr/ports/x11-toolkits/gtk--/work/gtkmm-1.2.0/gtk--.m4 \
+   /usr/local/share/aclocal"
+
+2. download gnomemm from sourceforge and untar the sources
+   "configure --prefix=/usr/X11R6"
+   "gmake install"
+   "ldconfig -m /usr/X11R6/lib"
+   
+3. get the gabber sources via cvs (instructions on their site)
+   (taken from README.FreeBSD)
+   First off, you need to:
+   export GNOME_LIBCONFIG_PATH="/usr/lib:/usr/local/lib"
+
+   You then need to edit the following files, making the changes listed:
+   jabberoo/src/sha.c: #include <endian.h> should be 
+   #include    <machine/endian.h
+
+   jabberoo/test/Makefile.am: -ldl should be -lc
+
+   After doing the above, run "./autogen.sh --prefix=/usr/local".
+   Then gmake install.

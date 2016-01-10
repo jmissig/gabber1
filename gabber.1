@@ -1,0 +1,122 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH GABBER 1 "March 31, 2001"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+gabber \- A GNOME Jabber client.
+.SH SYNOPSIS
+.B gabber [OPTION...]
+.br
+.SH DESCRIPTION
+This manual page documents briefly the
+.B gabber
+command.
+.PP
+\fBgabber\fP is documented extensively in html format.  You can find this
+documentation in the Gnome Help Browser.
+.PP
+.\" TeX users may be more comfortable with the \fB<whatever>\fP and
+.\" \fI<whatever>\fP escape sequences to invode bold face and italics, 
+.\" respectively.
+\fBgabber\fP client for an instant messaging system called Jabber. Jabber is
+a Free and Open Source distributed instant messaging system. It does not rely
+on a single server, and the protocol is well documented. Jabber allows 
+communication with many different instant messaging systems, including ICQ 
+and AIM.  
+.SH OPTIONS
+These programs follow the usual GNU command line syntax, with long
+options starting with two dashes (`-').
+A summary of options is included below.
+.P
+.B Help options
+.TP
+.B \-\-help
+Show summary of options.
+.TP
+.B \-\-usage
+Display brief usage message.
+.P
+.B GNOME options
+.TP
+.B \-\-disable-sound
+Disable sound server usage
+.TP
+.B \-\-enable-sound
+Enable sound server usage
+.TP
+.B \-\-espeaker=HOSTNAME:PORT
+Host:port on which the sound server to use is running
+.P
+.B GTK options
+.TP
+.B \-\-gdk-debug=FLAGS
+Gdk debugging flags to set
+.TP
+.B \-\-gdk-no-debug=FLAGS
+Gdk debugging flags to unset
+.TP
+.B \-\-display=DISPLAY
+X display to use
+.TP
+.B \-\-sync
+Make X calls synchronous
+.TP
+.B \-\-no-xshm
+Don't use X shared memory extension
+.TP
+.B \-\-name=NAME
+Program name as used by the window manager
+.TP
+.B \-\-class=CLASS
+Program class as used by the window manager
+.TP
+.B \-\-gxid_host=HOST
+.TP
+.B \-\-gxid_port=PORT
+.TP
+.B \-\-xim-preedit=STYLE
+.TP
+.B \-\-xim-status=STYLE
+.TP
+.B \-\-gtk-debug=FLAGS
+Gtk+ debugging flags to set
+.TP
+.B \-\-gtk-no-debug=FLAGS
+Gtk+ debugging flags to unset
+.TP
+.B \-\-g-fatal-warnings
+Make all warnings fatal
+.TP
+.B \-\-gtk-module=MODULE
+Load an additional Gtk module
+.P
+.B GNOME GUI options
+.TP
+.B \-\-disable-crash-dialog
+.P
+.B Session management options
+.TP
+.B \-\-sm-client-id=ID
+Specify session management ID
+.TP
+.B \-\-sm-config-prefix=PREFIX
+Specify prefix of saved configuration
+.TP
+.B \-\-sm-disable
+Disable connection to session manager
+.SH AUTHOR
+This manual page was written by Norbert Veber <nveber@debian.org>,
+for the Debian GNU/Linux system (but may be used by others).

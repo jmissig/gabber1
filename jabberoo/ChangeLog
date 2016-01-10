@@ -1,0 +1,319 @@
+2002-11-28  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-session.cc: patch from jcomellas@users.sourceforge.net
+
+2002-11-23  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-session.cc: Fix from juanjo@comellas.com.ar
+
+2002-08-07  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-session.cc: Fix parser_error loop
+
+2002-07-11  James Widman  <j-widman@cornellcollege.edu>
+
+	* include/jabberoo.hh: Re-inserted jabberoo::Packet::eraseX() 
+	   `cvs update` == good :)
+	* src/jabberoo-session.cc: Don't duplicate time zone
+
+2002-07-09  Julian Missig  <jkmissig@us.ibm.com>
+
+	* include/jabberoo.hh: Roster::getSession() added
+
+2002-03-28  Julian Missig  <julian@jabber.org>
+
+	* libjudo/src/expat/Makefile.am: Include expat.h and ascii.h (thanks mawis)
+
+2002-03-25  Julian Missig  <julian@jabber.org>
+
+	* libjudo/src/expat/Makefile.am: Makefile fixes
+	* libjudo/src/test/Makefile.am: same
+
+2002-03-14  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-message.cc: Add jabber:x:delay timestamp
+
+2002-03-09  Julian Missig  <jkmissig@us.ibm.com>
+
+	* include/jabberoo.hh: evtXMLParserError for XML parser errors
+	* src/jabberoo-session.cc: catch parser error exceptions
+
+2002-03-07  Julian Missig  <julian@jabber.org>
+
+	* libjudo/src/Element.cpp: operator= -- the implied one sucked
+	* libjudo/src/judo.hpp: same
+
+2002-03-05  Julian Missig  <jkmissig@us.ibm.com>
+
+	* libjudo/*: Updated to libjudo 1.1.5
+	* include/jabberoo.hh: same
+	* src/jabberoo-message.cc: same
+	* src/jabberoo-packet.cc: same
+	* src/jabberoo-presence.cc: same
+	* src/jabberoo-roster.cc: same
+	* src/jabberoo-session.cc: same
+	* src/jabberoox-agent.cc: same
+
+2002-03-02  Julian Missig  <julian@jabber.org>
+
+	Patch from James Widman
+	* include/jabberoo.hh: Allow time to be converted to UTF-8
+	* src/jabberoo-session.cc: same
+
+2002-02-16  Julian Missig  <julian@jabber.org>
+
+	* include/jabberoo.hh: Event for my presence
+	* src/jabberoo-session.cc: same
+
+2002-02-04  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-presence.cc: Better handling of invalid show
+
+2002-02-02  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-message.cc: Fix bug causing setBody to not work
+
+2002-01-30  Julian Missig  <julian@jabber.org>
+
+	* libjudo/src/expat/Makefile.am: Added xmlparse.h
+	* src/jabberoo-presence.cc: Some show selection fixes
+
+2002-01-29  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-presence.cc: Fixed bugs affecting invisibility
+
+2002-01-28  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-presence.cc: jabberd 1.4.2 has type="invisible"
+	* include/jabberoo.hh: same
+
+2002-01-27  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-session.cc: Properly reset ElementStream
+
+2002-01-27  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-message.cc: Properly check for Node::ntElement
+	* src/jabberoo-roster.cc: same
+	* src/jabberoox-agent.cc: same
+	* src/jabberoox-filter.cc: same
+
+2002-01-26  Julian Missig  <julian@jabber.org>
+
+	* include/jabberoo.hh: Username validity check
+	* src/jabberoo.cc: same
+
+2002-01-25  Julian Missig  <jkmissig@us.ibm.com>
+
+	* src/jabberoo-packet.cc: Fixed really stupid crash-causing typo
+	
+2002-01-22  Julian Missig  <jkmissig@us.ibm.com>
+
+	* src/jabberoo-message.cc: findElement_getCDATA to check for NULL
+	* src/jabberoo-packet.cc: same
+	* src/jabberoo-presence.cc: same
+	* src/jabberoo-roster.cc: same
+	* src/jabberoo-session.cc: same
+	* src/jabberoox-agent.cc: same
+
+2002-01-20  Julian Missig  <jkmissig@us.ibm.com>
+
+	* *: Updated to libjudo 1.1.1 from JECL
+	
+2001-12-02  Julian Missig  <julian@jabber.org>
+	
+	* include/jabberoox.hh: GCC3 fixes
+	* include/judo.hh: same
+	* src/jabberoox-agent.cc: same
+	* src/judo-tag.cc: same
+
+2001-11-27  Julian Missig  <julian@jabber.org>
+
+	* include/jabberoox.hh: "2.96" compatibility fixes
+
+2001-11-27  Thoams "temas" Muldowney <temas@jabber.org>
+
+    * include/jabberoox.h: == operator for gcc3
+
+2001-11-25  Julian Missig  <julian@jabber.org>
+
+	* Makefile.am: Don't build test normally
+
+2001-10-29  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Patch from Robey Pointer <robey@danger.com>
+	* src/jabberoo-roster.cc: same
+
+2001-09-29  Thomas "temas" Muldowney <temas@jabber.org>
+
+    * src/jabberoo-presencedb.cc:  Code for the ability to remove based on a jid
+    * inc/jabberoo.hh:  Add a remove ability to the presence db
+    * src/jabberoo-presencedb.cc:  Unnecessary debug, left over from my tests
+
+2001-09-26  Thomas "temas" Muldowney <temas@jabber.org>
+    
+    * src/jabberoo-presencedb.cc:  Remove the db entry we might have 
+                                   accidentally made
+    * src/jabberoo-presence.cc:  Understand the errror type
+    * include/jabberoo.hh:  Add the presence error type
+    
+2001-09-24  Thomas "temas" Muldowney <temas@jabber.org>
+
+    * src/jabberoo-session.cc:  Removed oob support, to put it in gabber app
+
+2001-09-13  Thomas "temas" Muldowney <temas@jabber.org>
+
+    * src/jabberoo-session.cc:  Add support for oob iq's.  We just spoof them as
+                                a message for now.
+
+2001-08-30  Julian Missig  <julian@jabber.org>
+
+	* .cvsignore: Ignore some more files
+	* src/jabberoo-message.cc: Use %c for time by default
+	* src/jabberoo-session.cc: same
+
+2001-08-03  Julian Missig  <jkmissig@us.ibm.com>
+
+	* include/jabberoo.hh: Updated docs
+	
+2001-07-25  Julian Missig  <julian@jabber.org>
+
+	* include/jabberoo.hh: Added a signal for roster received
+	* src/jabberoo-session.cc: same
+
+2001-07-21  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-message.cc: Finally added the fix for solaris not having timegm defined.
+
+2001-07-21  Julian Missig  <jkmissig@us.ibm.com>
+
+	* src/jabberoo-message.cc: Fixed the convenience functions.
+
+2001-07-21  Julian Missig  <jkmissig@us.ibm.com>
+
+	* include/jabberoo.hh: Updated docs a bit
+	* src/jabberoo-message.cc: Added some convenience functions.
+	* src/jabberoo-packet.cc: Same
+	* src/jabberoo-presence.cc: Same
+
+2001-07-07  Julian Missig  <jkmissig@us.ibm.com>
+
+	* include/jabberoo.hh: Many many comments intended for doxygen
+	* src/jabberoo-message.cc: Support for message events.
+	* src/jabberoo-packet.cc: Addition of several functions, some fixes
+	* src/jabberoo-presence.cc: same
+	* src/jabberoo-session.cc: same
+	* src/jabberoo.cc: same
+
+2001-06-04  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Attempt to get static binaries working. Attempt failed.
+	* src/Makefile.am: same
+	* test/Makefile.am: same
+
+2001-05-30  Julian Missig  <julian@jabber.org>
+
+	* include/jabberoo.hh: New Roster::Item constructor for when we don't want it placed on the roster - sometimes we like to deal with Roster::Item's a bit before putting them on roster
+	* src/jabberoo-roster.cc: same
+
+2001-05-22  Julian Missig  <julian@jabber.org>
+
+	* include/jabberoo.hh: getX() now requires a namespace. It is not wise to assume there's only one <x>
+	* src/jabberoo-message.cc: same
+	* src/jabberoo-presence.cc: same
+
+2001-05-19  Julian Missig  <julian@jabber.org>
+
+	* include/jabberoo.hh: Added Roster::Item::isPending()
+	* src/jabberoo-roster.cc: same
+	* src/jabberoo-session.cc: "powered by jabberoo" instead of "Powered by: jabberoo"
+
+2001-04-25  Julian Missig  <julian@jabber.org>
+
+	* Makefile.am: Only install libsigc++ if necessary
+	* acconfig.h: Added to make a more complete build system
+	* autogen.sh: Changed to follow GNOME build system standard
+	* config.h.in: Added to make a more complete build system
+	* configure.in: Now check for libsigc++ and install only if necessary
+	* macros/: Added to make a more complete build system
+
+2001-03-31  Julian Missig  <julian@jabber.org>
+
+	* include/jabberoo.hh: Added JID::compare to compare JabberIDs, since resources are case sensitive but the userhost part is not
+	* src/jabberoo-presencedb.cc: Use JID::compare instead of strcasecmp
+	* src/jabberoo.cc: Added JID::compare to compare JabberIDs, since resources are case sensitive but the userhost part is not
+
+2001-03-27  Julian Missig  <julian@jabber.org>
+	
+	* include/jabberoo.hh: getError and getErrorCode are now part of jabberoo::Packet instead of jabberoo::Message
+	* src/jabberoo-message.cc: same
+	* src/jabberoo-packet.cc: same
+	* src/sha.c: (shahash): Patch from Josh Huber <huber@alum.wpi.edu> to fix big endian problems
+
+2001-03-21  Julian Missig  <julian@jabber.org>
+
+	* include/jabberoo.hh: setThread for messages
+	* src/jabberoo-message.cc: same
+
+2001-03-18  Julian Missig  <julian@jabber.org>
+
+	* include/jabberoo.hh: getErrorCode() for messages
+	* src/jabberoo-message.cc: same
+
+2001-03-14  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-session.cc: Don't send initial <presence/> - leave that up to the client.
+
+2001-03-13  Brandon  <brandon@aspect.net>
+
+	* expat/Makefile.am: changed to make builddir work
+	* src/Makefile.am: same
+	* test/Makefile.am: not sure, probably something to do with same
+
+2001-03-12  Julian Missig  <julian@jabber.org>
+
+	* test/Makefile.am: Patch from Fabien Ninoles to make builddir/srcdir work properly
+
+2001-03-05  Julian Missig  <julian@jabber.org>
+
+	* src/jabberoo-session.cc: The display of iq:time is more how I like it now ;)
+
+2001-02-27  Brandon  <brandon@aspect.net>
+
+	* src/jabberoo-session.cc: Fixed bug in jabber:iq:time so it now returns
+	the correct timezone and local time.  
+
+2001-02-26  Julian Missig  <julian@jabber.org>
+
+	* include/jabberoo.hh: Merged in mass's findExact function which 
+	returns the presence for a specific resource.
+	* src/jabberoo-presencedb.cc: same
+
+2001-02-19  Brandon  <brandon@aspect.net>
+
+	* src/jabberoo-session.cc: now reply to jabber:iq:time
+
+2001-02-17  Brandon  <brandon@aspect.net>
+
+	* src/jabberoo-presencedb.cc: fixed bug in presenceDB::available
+
+2001-02-14  Brandon  <brandon@aspect.net>
+	* src/jabberoo-presencedb.cc: Fixed a bug in presencedb::find not throwing an
+	InvalidJID exception under certain circumstances when no presence was found. 
+
+02-15-2000	DizzyD <dave@jabber.org>
+	* DOM is now functionally complete. All that's missing at this point is copy operators and the query implementation
+
+	* TagStream(used to be Parser) object is working great. No memory leaks that i can find. Only thing that bothers me is
+	the fact that it delete the entire document after you close the session...this might need to be adjusted later.
+
+02-13-2000 	DizzyD <dave@jabber.org>
+
+	* Got domtester building (on linux) and have started testing basic
+	functionality of the DOM. It looks like I'll need a wrapper class
+	for the iterators that can keep track of begin/end stuff..I'm not
+	so sure how to handle that since I've got different types of iterators
+	for maps and lists...templates are prolly the key
+
+	* Got basic build system in place (I think). FWIW all the libs
+	build and don't complain.

@@ -1,0 +1,57 @@
+<!-- BEGIN: PANEL -->
+	<chapter id="panel">
+		<title>Status Docklet</title>
+		<para>
+			<application>Gabber</application>'s status docklet allows users of the
+			GNOME panel to have quick and easy access to hiding the main window,
+			viewing the current status, preferences and more. In future revisions,
+			<application>Gabber</application> will allow for viewing of waiting
+			messages from the status docklet.
+		</para>
+		<para>
+			To add a Status Dock to the GNOME panel, simply right click on an
+			existing panel, and select <guimenuitem>Status Dock</guimenuitem>
+			from the <guimenuitem>Add to Panel</guimenuitem> menu. Whenever
+			<application>Gabber</application> runs, it will place a small
+			light bulb in the Status Dock. To hide and unhide the main
+			<application>Gabber</application> window, simply left click on the
+			light bulb. The following options are also available from the right
+			click menu:
+			<itemizedlist>
+				<listitem><para>
+					Presence - Allows quick access to change the current <link 
+					linkend="main-status-user">status</link>.
+				</para></listitem>
+				<listitem><para>
+					Login... - If the user has not logged in yet,
+					this menu item loads the <link linkend="login">Login</link>
+					dialog to allow the user to specify login information and to
+					connect to the server.
+				</para></listitem>
+				<listitem><para>
+					Logout - If the user is already logged in, this item will
+					allow the user to log off the server.
+				</para></listitem>
+				<listitem><para>
+					Preferences... - Loads the <link linkend="pref">Preferences</link>
+					dialog to allow the user to customize <application>Gabber</application>.
+				</para></listitem>
+				<listitem><para>
+					About... - Shows basic information about <application>Gabber</application>.
+				</para></listitem>
+				<listitem><para>
+					Hide Main Window - Hides the display of the main
+					<application>Gabber</application> window. Does not hide
+					any conversations or sub-dialogs.
+				</para></listitem>
+				<listitem><para>
+					Show Main Window - Redisplays the main window after
+					hiding it.
+				</para></listitem>
+			</itemizedlist>
+		</para>
+		<note>
+			<para>For more information about the Status Dock, see the <ulink type="help" url="gnome-help:panel?specialobjects">Panel manual</ulink>.</para>
+		</note>
+	</chapter>
+<!-- END: PANEL -->

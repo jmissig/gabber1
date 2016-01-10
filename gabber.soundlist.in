@@ -1,0 +1,40 @@
+[__section_info__]
+_description=Gabber
+
+[Startup]
+file=gabber/gabber_startup.wav
+_description=Startup
+
+[Connected]
+file=gabber/gabber_connected.wav
+_description=Connected to server
+
+[QueueMessage]
+file=gabber/gabber_message_queue.wav
+_description=Normal Message added to queue
+
+[RecvMessage]
+file=gabber/gabber_message_recv.wav
+_description=Received Normal Message
+
+[QueueOOOChat]
+file=gabber/gabber_ooochat_queue.wav
+_description=One-on-One Chat added to queue
+description[ms]Chat Satu-dgn-Satu ditambah ke queue
+
+[RecvOOOChat]
+file=gabber/gabber_ooochat_recv.wav
+_description=Received One-on-One Chat
+
+[SubRequest]
+file=gabber/gabber_subrequest.wav
+_description=Subscription Request
+
+[UserAvailable]
+file=gabber/gabber_online.wav
+_description=User is now online
+
+[UserOffline]
+file=gabber/gabber_offline.wav
+_description=User went offline
+

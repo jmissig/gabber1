@@ -1,0 +1,149 @@
+<!-- BEGIN: USERS -->
+	<chapter id="users">
+		<title>Managing Users</title>
+		<para>
+			Since the <link linkend="main-roster">roster</link> is the central point of
+			<application>Gabber</application>, several functions are provided for managing
+			the users and groups that make up the roster.
+		</para>
+		<sect1 id="users-subscription">
+			<title>Subscriptions</title>
+			<para>
+				A subscription request must be sent and approved by a user before being able to see
+				their status. When <link linkend="users-adduser">adding
+				a user</link>, Gabber automatically sends a subscription request to the user being added.
+				To manually send a subscription request (useful for when a friend accidentally denied
+				a request), select <guimenuitem>Resubscribe</guimenuitem>
+				from the <guimenu>User Context Menu</guimenu> (see <xref linkend="main-roster-menu"/>).
+			</para>
+			<para>
+				On the receiving end of a subscription request, Gabber displays the <interface>Subscription
+				Request</interface> dialog.
+				This dialog also allows the user to add the sender to the roster and to rename the nickname used
+				for the user (to be displayed throughout <application>Gabber</application>).
+				After changing the customizable information, simply approve or deny the
+				request by clicking <guibutton>Yes</guibutton> or <guibutton>No</guibutton>.
+			</para>
+		</sect1>
+		<sect1 id="users-adduser">
+			<title>Adding Users</title>
+			<para>
+				To add a user, load the <interface>Add User</interface> druid by selecting <guimenuitem>Add
+				Contact...</guimenuitem> from the <guimenu>Services</guimenu> menu or the first icon on the <link
+				linkend="main-toolbar">toolbar</link>. The <interface>Add User</interface> druid will step through the entire process of adding
+				a new user. If the new user's address is not known, the druid allows for searching through several Jabber
+				user databases to find the user. Directions are provided through every step of the process. 
+			</para>
+		</sect1>
+		<sect1 id="users-edituser">
+			<title>Editing Existing Users</title>
+			<para>
+				The <link linkend="users-edituser-info">Contact Information</link> dialog (loaded from <guimenu>User Context
+				Menu</guimenu>, <guimenuitem>View Contact Info...</guimenuitem>), displays a dialog for editing the user's nickname and and viewing
+				personal information, current status, client information, location, and other specifics.
+			</para>
+			<para>
+				Group management is accessible via the <link linkend="users-edituser-groups">Edit Groups dialog</link> (available
+				from <guimenu>User Context Menu</guimenu>, <guimenuitem>Edit Groups...</guimenuitem>).
+			</para>
+			<sect2 id="users-edituser-info">
+				<title>User Information</title>
+				<para>
+					To find out all of the little details about a person on the roster, the <interface>Contact Information</interface>
+					dialog is where to do it. Everything from their presence and status to their email address to their birth date
+					to their operating system is listed within the tabs of the <interface>Contact Information</interface> dialog.
+				</para>
+				<para>
+					Above the tabs are two important fields that list the person's Jabber ID and their resource. Use the drop down
+					box to fetch resource specific information such as presence, GnuPG signature and client information.
+				</para>
+				<para>
+					The <interface>General Info</interface>, <interface>Personal Info</interface>, <interface>Location</interface>,
+					<interface>Organization</interface> and <interface>About</interface> tabs
+					provides current vCard information (full name, email address, address, web site, etc.) about a user. This information
+					is submitted through the user's client. Gabber provides editing of vCard information from the <link
+					linkend="userinfo">My Information</link> dialog. The value of the <guilabel>Nickname</guilabel> field is used for
+					display in the <link linkend="main-roster">roster</link> and in <link linkend="msg">messages</link>. The
+					nickname field is edit-able.
+				</para>
+				<para>
+					In addition to vCard information, the <interface>General Info</interface> tab shows two valuable bits of
+					information. Exact status (or "away") messages given by the user are listed in the <interface>Presence and Status</interface>
+					text area. This status information is set in <application>Gabber</application> through the Status toolbar (see
+					<xref linkend="main-status"/> for more information). Below is a small icon that provides
+					information about the GnuPG signature of this user. Hovering over this icon will indicate if the user has signed
+					their presence and is thus able to receive encrypted messages. If the person did sign their presence, clicking on
+					this icon will provide information on the signature. See <xref linkend="msg-encrypt"/> for more information about
+					signatures and encrypted messages. Another useful bit of information is found in the
+					<interface>Subscription</interface> area where the current status of subscriptions with this user is displayed.
+					<xref linkend="users-subscription"/> explains subscriptions in greater detail.
+				</para>
+				<para>
+					The <interface>Client Info</interface> tab shows information queried from the user's client application.
+					If no information is shown or if the fields are blank, the user's client does not support that type
+					of query.
+				</para>
+			</sect2>
+		
+			<sect2 id="users-edituser-groups">
+				<title>Edit Groups</title>
+				<para>
+					The context sensitive <interface>Edit Groups</interface> dialog allows users to be easily added and
+					removed from groups. At the top of the dialog the user's nickname and JID is listed for reference.
+					The left side of the dialog lists groups that the user currently belongs to. Using the central
+					<guibutton>Add</guibutton> and <guibutton>Remove</guibutton> buttons, the user can be added and removed
+					from the available groups on the right side of the dialog by selecting a group in one of the two lists
+					and clicking the appropriate button. To add a new group, simply type the name
+					in the Group text box and click the <guibutton>Add</guibutton> button.
+				</para>
+			</sect2>
+		</sect1>	
+
+		<sect1 id="users-send">
+			<title>Send Contact(s)</title>
+			<para>
+				An extremely handy feature of <application>Gabber</application> is found in the
+				<interface>Send Contact(s)</interface> dialog. This dialog allows contacts from the roster
+				to be easily sent to other users.
+			</para>
+			<para>
+				After loading the dialog from the <guimenu>User Context</guimenu> menu, drag users
+				from the main roster to the list in the dialog. Then information about the user can be
+				displayed or the contact can be removed from the list. When all of the desired contacts
+				are added, click the <guibutton>Send</guibutton> button to send the list to the specified
+				user. As a small warning, there will be no confirmation if the list is received or not.
+			</para>
+		</sect1>
+
+<!--
+		<sect1 id="users-ignore">
+			<title>Ignore List</title>
+			<para>
+				<application>Gabber</application> can protect users from bothersome contacts by keeping
+				a contact ignore list. Users put on the ignore list will be blocked from sending messages
+				and seeing current status updates. To start building an ignore list, simply add users from
+				the roster or by Jabber ID to the <interface>Ignore List</interface> accessible from the
+				<guimenu>Services</guimenu> menu. For even tighter control, disable the <guilabel>
+				Allow people not on my roster to contact me</guilabel> option.
+			</para>
+		</sect1>
+-->		
+		<sect1 id="users-deluser">
+			<title>Deleting Users</title>
+			<para>
+				To delete a user from the roster, simply right click on the user and select
+				<guimenuitem>Delete User</guimenuitem> from the <guimenu>User Context Menu</guimenu>
+				(see <xref linkend="main-roster-menu"/>).
+			</para>
+		</sect1>
+		<sect1 id="users-history">
+			<title>View History</title>
+			<para>
+				If set in the <link linkend="pref">Preferences</link>, <application>Gabber</application> will
+				log conversations between users. If logs are set to be saved as XHTML, <guimenuitem>View History...</guimenuitem>
+				on the <guimenu>User Context Menu</guimenu> will load the log into the default GNOME web browser.
+			</para>
+		</sect1>
+		
+	</chapter>
+<!-- END: USERS -->

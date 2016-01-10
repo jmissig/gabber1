@@ -1,0 +1,97 @@
+<!-- BEGIN: PREF -->
+	<chapter id="pref">
+		<title>Preferences</title>
+		<para>
+			The <interface>Preferences</interface> is accessible via the <guimenuitem>Preferences...</guimenuitem>
+			option in the <guimenu>Gabber</guimenu> menu. It provides a central location for the user to 
+			customize various levels of the way <application>Gabber</application> behaves. Options are available
+			to customize logging, the appearance of the roster, the way messages are sent and received by
+			default, among others.
+		</para>
+		<sect1 id="pref-interface">
+			<title>Interface</title>
+			<para>
+				The Interface preferences tab has several options to affect the
+				display of the <link linkend="main">main window</link>, as well
+				as options to enable spelling and the status docklet.
+			</para>
+			<sect2 id="pref-interface-mainwindow">
+				<title>Main Window</title>
+				<para>
+					<application>Gabber</application> can keep a memory of the main window size and position
+					if desired. Note that some window managers will conflict with this memory and may cause
+					the window to not appear exactly in the right position.
+				</para>
+				<para>
+					The other option available here is whether or not <application>Gabber</application>
+					should display icons on the roster or not.
+				</para>
+			</sect2>
+			<sect2 id="pref-interface-toolbars">
+				<title>Toolbars</title>
+				<para>
+					In addition to being able to manually move the toolbars on the main window around,
+					they can also be disabled. For more information about the main toolbar and the 
+					status indicator, see <xref linkend="main-toolbar"/> and <xref linkend="main-status-user"/>.
+				</para>
+			</sect2>
+			<sect2 id="pref-interface-spelling">
+				<title>Spelling</title>
+				<para>
+					If this option is enabled, <application>Gabber</application> will attempt to spell
+					check messages while the message is being composed. If the text turns red, the word
+					has been identified to be misspelled. Right click on the word to load a menu with
+					possible words to replace the highlighted one.
+				</para>
+			</sect2>
+			<sect2 id="pref-interface-docklet">
+				<title>Status Docklet</title>
+				<para>
+					The <link linkend="panel">status docklet</link> can be added or removed from the GNOME panel
+					dock with this option.
+				</para>
+			</sect2>
+		</sect1>
+		<sect1 id="pref-msg">
+			<title>Messages and Chats</title>
+			<para>
+				Sending and receiving of messages can be customized in detail to suit a user's preference. If
+				<link linkend="msg-ooo">one-on-one chats</link> are always preferred, simply enable the option
+				to send all messages as a one-on-one chat by default and enable receiving all messages as
+				one-on-one chats.
+			</para>
+			<para>
+				All incoming messages can be queued, or stored, for viewing. To disable queuing for specific
+				types of messages, enable the option to automatically open the appropriate message type.
+				Most users will want to automatically open <link linkend="msg-ooo">one-on-one chats</link>.
+				See <xref linkend="msg-que"/> for more information about message queuing.
+			</para>
+		</sect1>
+		<sect1 id="pref-encryption">
+			<title>Encryption</title>
+			<para>
+				The <interface>Encryption</interface> preferences dialog has a few very simple options to enable <link
+				linkend="msg-encrypt">message encryption</link>.
+			</para>
+		</sect1>
+		<sect1 id="pref-autoaway">
+			<title>Auto-away</title>
+			<para>
+				<application>Gabber</application> can automatically change the current <link
+				linkend="main-status-user">status</link> in case the user forgets to change the status
+				before leaving. After a specified time, <application>Gabber</application> will 
+				change the status message to the one specified on this dialog as well as set the status
+				to away. After being Away for a specified time, the user will be put into Extended Away.
+			</para>
+		</sect1>
+		<sect1 id="pref-logs">
+			<title>Logs</title>
+			<para>
+				<application>Gabber</application> can keep a complete log of incoming and outgoing messages
+				for future retrieval. Most users will want to enable this feature for future use. To save
+				disk space, logs may be purged once a month. It is advisable to save the logs in XHTML format
+				for viewing in a web browser.
+			</para>
+		</sect1>
+	</chapter>
+<!-- END: PREF -->

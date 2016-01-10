@@ -1,0 +1,486 @@
+<?xml version="1.0"?>
+<GTK-Interface>
+
+<project>
+  <name>Gabber</name>
+  <program_name>Gabber</program_name>
+  <directory></directory>
+  <source_directory>src</source_directory>
+  <pixmaps_directory>pixmaps</pixmaps_directory>
+  <language>C</language>
+  <gnome_support>True</gnome_support>
+  <gettext_support>True</gettext_support>
+  <use_widget_names>True</use_widget_names>
+  <gnome_help_support>True</gnome_help_support>
+</project>
+
+<widget>
+  <class>GnomeApp</class>
+  <name>OOOChat_win</name>
+  <visible>False</visible>
+  <title>One-on-One Chat - Gabber</title>
+  <type>GTK_WINDOW_TOPLEVEL</type>
+  <position>GTK_WIN_POS_NONE</position>
+  <modal>False</modal>
+  <default_width>300</default_width>
+  <default_height>300</default_height>
+  <allow_shrink>False</allow_shrink>
+  <allow_grow>True</allow_grow>
+  <auto_shrink>False</auto_shrink>
+  <wmclass_name>ooochat</wmclass_name>
+  <wmclass_class>Gabber</wmclass_class>
+  <enable_layout_config>True</enable_layout_config>
+
+  <widget>
+    <class>GnomeDock</class>
+    <child_name>GnomeApp:dock</child_name>
+    <name>dock7</name>
+    <allow_floating>True</allow_floating>
+    <child>
+      <padding>0</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+
+    <widget>
+      <class>GnomeDockItem</class>
+      <name>dockitem9</name>
+      <border_width>1</border_width>
+      <placement>GNOME_DOCK_TOP</placement>
+      <band>0</band>
+      <position>0</position>
+      <offset>0</offset>
+      <locked>False</locked>
+      <exclusive>True</exclusive>
+      <never_floating>False</never_floating>
+      <never_vertical>False</never_vertical>
+      <never_horizontal>False</never_horizontal>
+      <shadow_type>GTK_SHADOW_OUT</shadow_type>
+
+      <widget>
+	<class>GtkToolbar</class>
+	<name>OOOChat_toolbar</name>
+	<border_width>1</border_width>
+	<orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
+	<type>GTK_TOOLBAR_ICONS</type>
+	<space_size>8</space_size>
+	<space_style>GTK_TOOLBAR_SPACE_LINE</space_style>
+	<relief>GTK_RELIEF_NONE</relief>
+	<tooltips>True</tooltips>
+
+	<widget>
+	  <class>GtkToggleButton</class>
+	  <child_name>Toolbar:button</child_name>
+	  <name>OOOChat_Message_chk</name>
+	  <tooltip>Send as Normal Message</tooltip>
+	  <label>Send as Normal Message</label>
+	  <icon>glade-sendasnormal.xpm</icon>
+	  <active>False</active>
+	</widget>
+
+	<widget>
+	  <class>GtkToggleButton</class>
+	  <child_name>Toolbar:button</child_name>
+	  <name>OOOChat_Encrypt_tglbtn</name>
+	  <tooltip>Encrypt this message</tooltip>
+	  <label>Encrypt this message</label>
+	  <icon>glade-unlock-key.xpm</icon>
+	  <active>False</active>
+	</widget>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <child_name>Toolbar:button</child_name>
+	  <name>OOOChat_AddUser_btn</name>
+	  <tooltip>Add this Contact...</tooltip>
+	  <label>Add to Roster</label>
+	  <icon>glade-new-user.xpm</icon>
+	  <child>
+	    <new_group>True</new_group>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <child_name>Toolbar:button</child_name>
+	  <name>OOOChat_EditUser_btn</name>
+	  <tooltip>View Contact Info...</tooltip>
+	  <label>Info</label>
+	  <icon>glade-edit-user.xpm</icon>
+	</widget>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <child_name>Toolbar:button</child_name>
+	  <name>OOOChat_History_btn</name>
+	  <tooltip>Message History...</tooltip>
+	  <label>History</label>
+	  <stock_pixmap>GNOME_STOCK_PIXMAP_INDEX</stock_pixmap>
+	</widget>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GtkFrame</class>
+      <child_name>GnomeDock:contents</child_name>
+      <name>frame66</name>
+      <label_xalign>0</label_xalign>
+      <shadow_type>GTK_SHADOW_OUT</shadow_type>
+
+      <widget>
+	<class>GtkVBox</class>
+	<child_name>GnomeDock:contents</child_name>
+	<name>OOOChat_Inner_vbox</name>
+	<border_width>4</border_width>
+	<homogeneous>False</homogeneous>
+	<spacing>8</spacing>
+
+	<widget>
+	  <class>GtkHBox</class>
+	  <name>hbox99</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>4</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkHBox</class>
+	    <name>OOOChat_JIDInfo_hbox</name>
+	    <homogeneous>False</homogeneous>
+	    <spacing>0</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>Placeholder</class>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkEventBox</class>
+	    <name>OOOChat_GPG_evt</name>
+	    <tooltip>This message is not encrypted</tooltip>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GnomePixmap</class>
+	      <name>OOOChat_GPG_pix</name>
+	      <filename>gpg-unencrypted.xpm</filename>
+	    </widget>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkHBox</class>
+	  <name>OOOChat_Show_hbox</name>
+	  <visible>False</visible>
+	  <homogeneous>False</homogeneous>
+	  <spacing>4</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>OOOChat_Show_lbl</name>
+	    <label>online:</label>
+	    <justify>GTK_JUSTIFY_CENTER</justify>
+	    <wrap>False</wrap>
+	    <xalign>1</xalign>
+	    <yalign>0</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>OOOChat_Status_lbl</name>
+	    <label></label>
+	    <justify>GTK_JUSTIFY_LEFT</justify>
+	    <wrap>True</wrap>
+	    <xalign>0</xalign>
+	    <yalign>0</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkVPaned</class>
+	  <name>OOOChat_v_pane</name>
+	  <handle_size>12</handle_size>
+	  <gutter_size>12</gutter_size>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkHBox</class>
+	    <name>OOOChat_Chatview</name>
+	    <homogeneous>False</homogeneous>
+	    <spacing>0</spacing>
+	    <child>
+	      <shrink>True</shrink>
+	      <resize>True</resize>
+	    </child>
+
+	    <widget>
+	      <class>Placeholder</class>
+	    </widget>
+
+	    <widget>
+	      <class>Placeholder</class>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkHBox</class>
+	    <name>hbox97</name>
+	    <height>50</height>
+	    <homogeneous>False</homogeneous>
+	    <spacing>4</spacing>
+	    <child>
+	      <shrink>True</shrink>
+	      <resize>False</resize>
+	    </child>
+
+	    <widget>
+	      <class>GtkVBox</class>
+	      <name>OOOChat_Icon_vbox</name>
+	      <visible>False</visible>
+	      <homogeneous>False</homogeneous>
+	      <spacing>0</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>False</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkEventBox</class>
+		<name>OOOChat_Icon_evt</name>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+
+		<widget>
+		  <class>GtkFrame</class>
+		  <name>OOOChat_Icon_frame</name>
+		  <label_xalign>0</label_xalign>
+		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+
+		  <widget>
+		    <class>GnomePixmap</class>
+		    <name>OOOChat_Icon_pix</name>
+		  </widget>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkScrolledWindow</class>
+	      <name>OOOChat_Message_scroll</name>
+	      <height>40</height>
+	      <hscrollbar_policy>GTK_POLICY_NEVER</hscrollbar_policy>
+	      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkText</class>
+		<name>OOOChat_Message_txt</name>
+		<can_default>True</can_default>
+		<has_default>True</has_default>
+		<can_focus>True</can_focus>
+		<has_focus>True</has_focus>
+		<editable>True</editable>
+		<text></text>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+    </widget>
+  </widget>
+
+  <widget>
+    <class>GnomeAppBar</class>
+    <child_name>GnomeApp:appbar</child_name>
+    <name>OOOChat_statusbar</name>
+    <has_progress>False</has_progress>
+    <has_status>True</has_status>
+    <child>
+      <padding>0</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+  </widget>
+</widget>
+
+<widget>
+  <class>GnomeDialog</class>
+  <name>OOOChat_CloseChat_dlg</name>
+  <visible>False</visible>
+  <title>Attempting to close chat - Gabber</title>
+  <type>GTK_WINDOW_POPUP</type>
+  <position>GTK_WIN_POS_NONE</position>
+  <modal>True</modal>
+  <allow_shrink>False</allow_shrink>
+  <allow_grow>False</allow_grow>
+  <auto_shrink>False</auto_shrink>
+  <wmclass_name>ooochat_close</wmclass_name>
+  <wmclass_class>Gabber</wmclass_class>
+  <auto_close>False</auto_close>
+  <hide_on_close>False</hide_on_close>
+
+  <widget>
+    <class>GtkVBox</class>
+    <child_name>GnomeDialog:vbox</child_name>
+    <name>dialog-vbox3</name>
+    <homogeneous>False</homogeneous>
+    <spacing>8</spacing>
+    <child>
+      <padding>4</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+
+    <widget>
+      <class>GtkHButtonBox</class>
+      <child_name>GnomeDialog:action_area</child_name>
+      <name>dialog-action_area3</name>
+      <layout_style>GTK_BUTTONBOX_END</layout_style>
+      <spacing>8</spacing>
+      <child_min_width>85</child_min_width>
+      <child_min_height>27</child_min_height>
+      <child_ipad_x>7</child_ipad_x>
+      <child_ipad_y>0</child_ipad_y>
+      <child>
+	<padding>0</padding>
+	<expand>False</expand>
+	<fill>True</fill>
+	<pack>GTK_PACK_END</pack>
+      </child>
+
+      <widget>
+	<class>GtkButton</class>
+	<name>OOOChat_CloseChat_Close_btn</name>
+	<can_default>True</can_default>
+	<can_focus>True</can_focus>
+	<stock_button>GNOME_STOCK_BUTTON_CLOSE</stock_button>
+      </widget>
+
+      <widget>
+	<class>GtkButton</class>
+	<name>OOOChat_CloseChat_Keep_btn</name>
+	<can_default>True</can_default>
+	<has_default>True</has_default>
+	<can_focus>True</can_focus>
+	<has_focus>True</has_focus>
+	<label>Keep Open</label>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GtkHBox</class>
+      <name>hbox100</name>
+      <homogeneous>False</homogeneous>
+      <spacing>8</spacing>
+      <child>
+	<padding>0</padding>
+	<expand>True</expand>
+	<fill>True</fill>
+      </child>
+
+      <widget>
+	<class>GnomePixmap</class>
+	<name>pixmap1</name>
+	<filename>gnome-question.png</filename>
+	<child>
+	  <padding>0</padding>
+	  <expand>False</expand>
+	  <fill>True</fill>
+	</child>
+      </widget>
+
+      <widget>
+	<class>GtkVBox</class>
+	<name>vbox1</name>
+	<homogeneous>False</homogeneous>
+	<spacing>8</spacing>
+	<child>
+	  <padding>0</padding>
+	  <expand>True</expand>
+	  <fill>True</fill>
+	</child>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>OOOChat_CloseChat_lbl</name>
+	  <label>You just received a message from %s.</label>
+	  <justify>GTK_JUSTIFY_LEFT</justify>
+	  <wrap>True</wrap>
+	  <xalign>0</xalign>
+	  <yalign>0</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>label1</name>
+	  <label>Do you want to close the chat window anyway?</label>
+	  <justify>GTK_JUSTIFY_LEFT</justify>
+	  <wrap>False</wrap>
+	  <xalign>0</xalign>
+	  <yalign>0</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
+	  </child>
+	</widget>
+      </widget>
+    </widget>
+  </widget>
+</widget>
+
+</GTK-Interface>

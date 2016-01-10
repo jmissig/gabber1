@@ -1,0 +1,32 @@
+Gabber now has support for using http proxies like Squid. We support
+three kinds of proxy usage. Gabber will try to automatically detect the
+kind of request that works with your proxy.
+
+- Making a CONNECT request (preferred)
+
+  We make a "CONNECT server:port HTTP/1.0" request. This is normally
+  used by browsers for https requests.
+  In most proxy installations it is only allowed to connect to port 443
+  (used normally by https). Therefore, I encourage the administrators of
+  Jabber servers to open port 443 for Jabber connects. This can be done with
+  tools like rinetd. Normally you can't do it with the <ip port="443"/>
+  tag in the Jabber server config because only root can bind to this port.
+  Proxy administrators who like to support connections to every Jabber server
+  just have to allow CONNECTs to port 5222.
+
+  This method has be suggested in http://jabber.org/?oid=2047 by yiminzheng.
+  
+
+- Making a PUT request
+
+  We also can make a "PUT http://server:port/ HTTP/1.0" request. But we
+  cannot send a "Content-Length" header, this is often needed by
+  proxy servers.
+  On the Jabber server side this is supported by version 1.4.1+.
+
+  For information about this method see http://jabber.org/?oid=971.
+
+
+- Making a POST request
+
+  Like the PUT request but we send "POST http://server:port/ HTTP/1.0".

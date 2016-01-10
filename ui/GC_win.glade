@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+<GTK-Interface>
+
+<project>
+  <name>Gabber</name>
+  <program_name>Gabber</program_name>
+  <directory></directory>
+  <source_directory>src</source_directory>
+  <pixmaps_directory>pixmaps</pixmaps_directory>
+  <language>C</language>
+  <gnome_support>True</gnome_support>
+  <gettext_support>True</gettext_support>
+  <use_widget_names>True</use_widget_names>
+  <gnome_help_support>True</gnome_help_support>
+</project>
+
+<widget>
+  <class>GnomeApp</class>
+  <name>GC_win</name>
+  <visible>False</visible>
+  <title>Group Chat - Gabber</title>
+  <type>GTK_WINDOW_TOPLEVEL</type>
+  <position>GTK_WIN_POS_NONE</position>
+  <modal>False</modal>
+  <default_width>500</default_width>
+  <default_height>300</default_height>
+  <allow_shrink>False</allow_shrink>
+  <allow_grow>True</allow_grow>
+  <auto_shrink>True</auto_shrink>
+  <wmclass_name>groupchat</wmclass_name>
+  <wmclass_class>Gabber</wmclass_class>
+  <enable_layout_config>True</enable_layout_config>
+
+  <widget>
+    <class>GnomeDock</class>
+    <child_name>GnomeApp:dock</child_name>
+    <name>dock8</name>
+    <allow_floating>True</allow_floating>
+    <child>
+      <padding>0</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+
+    <widget>
+      <class>GnomeDockItem</class>
+      <name>dockitem11</name>
+      <border_width>1</border_width>
+      <placement>GNOME_DOCK_TOP</placement>
+      <band>0</band>
+      <position>0</position>
+      <offset>0</offset>
+      <locked>False</locked>
+      <exclusive>True</exclusive>
+      <never_floating>False</never_floating>
+      <never_vertical>True</never_vertical>
+      <never_horizontal>False</never_horizontal>
+      <shadow_type>GTK_SHADOW_OUT</shadow_type>
+
+      <widget>
+	<class>GtkHBox</class>
+	<name>hbox61</name>
+	<homogeneous>False</homogeneous>
+	<spacing>4</spacing>
+
+	<widget>
+	  <class>GtkToolbar</class>
+	  <name>GC_toolbar</name>
+	  <border_width>1</border_width>
+	  <orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
+	  <type>GTK_TOOLBAR_ICONS</type>
+	  <space_size>8</space_size>
+	  <space_style>GTK_TOOLBAR_SPACE_LINE</space_style>
+	  <relief>GTK_RELIEF_NONE</relief>
+	  <tooltips>True</tooltips>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>GC_Invite_btn</name>
+	    <tooltip>Invite Contacts...</tooltip>
+	    <label>Invite</label>
+	    <icon>glade-send-gci.xpm</icon>
+	  </widget>
+
+	  <widget>
+	    <class>GtkToggleButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>GC_Users_toggle</name>
+	    <tooltip>Show/Hide Users in Group</tooltip>
+	    <label>User List</label>
+	    <icon>glade-users.xpm</icon>
+	    <active>True</active>
+	    <child>
+	      <new_group>True</new_group>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <child_name>Toolbar:button</child_name>
+	    <name>GC_History_btn</name>
+	    <tooltip>Message History...</tooltip>
+	    <label>History</label>
+	    <stock_pixmap>GNOME_STOCK_PIXMAP_INDEX</stock_pixmap>
+	    <child>
+	      <new_group>True</new_group>
+	    </child>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkHBox</class>
+	  <name>hbox60</name>
+	  <border_width>1</border_width>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>label353</name>
+	    <label>_Subject:</label>
+	    <justify>GTK_JUSTIFY_CENTER</justify>
+	    <wrap>False</wrap>
+	    <xalign>1</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <focus_target>GC_Subject_txt</focus_target>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkEntry</class>
+	    <name>GC_Subject_txt</name>
+	    <can_focus>True</can_focus>
+	    <editable>True</editable>
+	    <text_visible>True</text_visible>
+	    <text_max_length>10000</text_max_length>
+	    <text></text>
+	    <child>
+	      <padding>4</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
+	</widget>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GtkFrame</class>
+      <child_name>GnomeDock:contents</child_name>
+      <name>frame67</name>
+      <label_xalign>0</label_xalign>
+      <shadow_type>GTK_SHADOW_OUT</shadow_type>
+
+      <widget>
+	<class>GtkVBox</class>
+	<child_name>GnomeDock:contents</child_name>
+	<name>vbox76</name>
+	<border_width>4</border_width>
+	<homogeneous>False</homogeneous>
+	<spacing>8</spacing>
+
+	<widget>
+	  <class>GtkHBox</class>
+	  <name>hbox97</name>
+	  <visible>False</visible>
+	  <homogeneous>False</homogeneous>
+	  <spacing>8</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
+	  </child>
+
+	  <widget>
+	    <class>GnomePixmap</class>
+	    <name>GC_groupchat_pix</name>
+	    <filename>glade-groupchat-menu.xpm</filename>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>GC_Group_lbl</name>
+	    <label></label>
+	    <justify>GTK_JUSTIFY_CENTER</justify>
+	    <wrap>False</wrap>
+	    <xalign>0</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+	  </widget>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>GC_MemberNumOld_lbl</name>
+	    <label>0 members</label>
+	    <justify>GTK_JUSTIFY_CENTER</justify>
+	    <wrap>False</wrap>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	    <child>
+	      <padding>0</padding>
+	      <expand>False</expand>
+	      <fill>False</fill>
+	    </child>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkHPaned</class>
+	  <name>GC_hpane</name>
+	  <handle_size>12</handle_size>
+	  <gutter_size>12</gutter_size>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVPaned</class>
+	    <name>vpaned1</name>
+	    <handle_size>12</handle_size>
+	    <gutter_size>12</gutter_size>
+	    <child>
+	      <shrink>True</shrink>
+	      <resize>True</resize>
+	    </child>
+
+	    <widget>
+	      <class>GtkHBox</class>
+	      <name>GC_Chatview</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>0</spacing>
+	      <child>
+		<shrink>True</shrink>
+		<resize>True</resize>
+	      </child>
+
+	      <widget>
+		<class>Placeholder</class>
+	      </widget>
+
+	      <widget>
+		<class>Placeholder</class>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkScrolledWindow</class>
+	      <name>GC_Message_scroll</name>
+	      <height>40</height>
+	      <hscrollbar_policy>GTK_POLICY_NEVER</hscrollbar_policy>
+	      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+	      <child>
+		<shrink>True</shrink>
+		<resize>False</resize>
+	      </child>
+
+	      <widget>
+		<class>GtkText</class>
+		<name>GC_Message_txt</name>
+		<can_default>True</can_default>
+		<has_default>True</has_default>
+		<can_focus>True</can_focus>
+		<has_focus>True</has_focus>
+		<editable>True</editable>
+		<text></text>
+	      </widget>
+	    </widget>
+	  </widget>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>GC_UserList_vbox</name>
+	    <width>120</width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>8</spacing>
+	    <child>
+	      <shrink>True</shrink>
+	      <resize>False</resize>
+	    </child>
+
+	    <widget>
+	      <class>GtkScrolledWindow</class>
+	      <name>GC_Users_scroll</name>
+	      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkCList</class>
+		<name>GC_Users_list</name>
+		<can_focus>True</can_focus>
+		<columns>1</columns>
+		<column_widths>80</column_widths>
+		<selection_mode>GTK_SELECTION_BROWSE</selection_mode>
+		<show_titles>True</show_titles>
+		<shadow_type>GTK_SHADOW_IN</shadow_type>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <child_name>CList:title</child_name>
+		  <name>GC_MemberNum_lbl</name>
+		  <label>0 members</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkOptionMenu</class>
+	      <name>GC_Show_opt</name>
+	      <visible>False</visible>
+	      <can_focus>True</can_focus>
+	      <items>Available
+Chatty
+Away
+Not Available
+Do Not Disturb
+</items>
+	      <initial_choice>0</initial_choice>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>False</fill>
+	      </child>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+    </widget>
+  </widget>
+</widget>
+
+<widget>
+  <class>GtkMenu</class>
+  <name>GCUser_menu</name>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>GCUser_OOOChat_item</name>
+    <accelerator>
+      <modifiers>GDK_CONTROL_MASK</modifiers>
+      <key>GDK_O</key>
+      <signal>activate</signal>
+    </accelerator>
+    <label>One-on-One Chat...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-ooochat.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>GCUser_Message_item</name>
+    <accelerator>
+      <modifiers>GDK_CONTROL_MASK</modifiers>
+      <key>GDK_M</key>
+      <signal>activate</signal>
+    </accelerator>
+    <label>Message...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-message.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkMenuItem</class>
+    <name>separator1</name>
+    <right_justify>False</right_justify>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>GCUser_SendContacts_item</name>
+    <label>Send Contacts...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-send-contact-menu.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkMenuItem</class>
+    <name>separator2</name>
+    <right_justify>False</right_justify>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>GCUser_ViewInfo_item</name>
+    <accelerator>
+      <modifiers>GDK_CONTROL_MASK</modifiers>
+      <key>GDK_I</key>
+      <signal>activate</signal>
+    </accelerator>
+    <label>View Contact Info</label>
+    <right_justify>False</right_justify>
+    <icon>glade-edit-user-menu.xpm</icon>
+  </widget>
+</widget>
+
+</GTK-Interface>

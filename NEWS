@@ -1,0 +1,221 @@
+Gabber NEWS
+
+2003-05-23 Gabber 0.8.8
+	* Read Previous in normal message receive dialog (julian)
+	* Send general invisible presence /and/ directly to agents (julian)
+	* A few small bug fixes/interface fixes from Benedikt Roth <Benedikt.Roth@gmx.net>
+	* Fix for crash on sending time (James Widman)
+	* Jabberoo updated to latest libjudo (julian)
+	* Gabber updated to work with latest Jabberoo (James Widman)
+	* Several wide character bug fixes (James Widman)
+	* Several configure fixes for various architectures (julian)
+	* Updated Gabber Manual! (Eliot Landrum)
+	* "Default" button in Contact Information fixed (julian)
+	* Fixed crash when agent is left selected (thanks Bac9) (julian)
+	* PGP/GnuPG keyserver is now configurable (julian)
+	* New version of xtext fixes hidden line problem (julian, Andreas Fuchs)
+	* Nickname highlighting in group chats (julian)
+	* Experimental festival support (Mike Szczerban)
+	* No more autoupdate (julian)
+	* Status Icon for GNOME2/KDE3 using the freedesktop.org protocol (julian)
+
+2002-02-17 Gabber 0.8.7
+	* URLs are now handled by the normal message interface (julian)
+	* Support for three types of HTTP Proxy; see README.proxy (mawis)
+	* Support for SOCKS 4 (mawis)
+	* Support for SOCKS 5 (mawis)
+	* Updated to latest libjudo from JECL, which fixes XML parsing bugs (julian)
+	* Fixed crashes on things such as searching jabber.com's JUD (julian)
+	* Fixed crash on extraneous whitespace in roster (julian)
+	* Log out reason support (julian)
+	* New music icon; music icon changes for paused and stopped (Kenny Graunke)
+	* File transfer detects IP address a bit better (mawis)
+	* Agent detection fixed (julian)
+	* Groups default to expanded instead of collapsed (julian)
+	* Several patches from James Widman <j-widman@cornellcollege.edu> to simplify and fix code
+	* Support for jabberd 1.4.2's presence invisibility (julian)
+	* A lot of dialogs have their parents properly set (James Widman, julian)
+	* Better normal message queuing (julian)
+
+2002-01-07 Gabber 0.8.6
+	* Fixed a bug with GPG encryption which caused unencryptable messages (julian)
+	* New normal message dialog (julian)
+	* Basic roster import functionality (julian)
+	* Fixed bugs in registering with the AIM transport (Mike Szczerban <mike@aspect.net>)
+	* GCC3 compliance thanks to many people, especially temas
+
+2001-11-12 Gabber 0.8.5
+	* Fixes to many UTF-8 issues (Patch from Alexandre N. Safiullin <alex_@unis-ru.com>)
+	* Quoting reply on selected text only uses that text (Patch from Alexandre N. Safiullin <alex_@unis-ru.com>)
+	* Warn when closing an ooochat which just received a message (julian)
+	* "User went offline"/"User came online" disappears after 30 seconds (julian)
+	* Roster case sensitivity fixes (brandon2)
+	* Fixed some cases where contacts accidentally get added to the "Pending" group (julian)
+	* Drag-n-Drop JabberIDs to/from many widgets. Just try things. (julian)
+	* Basic file sending support. (temas)
+	* Flashing message on roster unopenable bug fixed. (temas)
+	* Crash on presence error fixed. (temas)
+	* Other obscure crashes fixed. (temas)
+	* Experimental XMMS music information. (julian)
+	* Minor bug fixes. (julian, temas)
+	* README finally updated (julian)
+	* Lots of translation updates (gnome-i18n)
+
+2001-07-22 Gabber 0.8.4
+	* Various GnuPG fixes (Taral)
+	* Preference-saving backend rewritten, fixes many bugs with not saving preferences properly (brandon2)
+	* Numpad Enter key now works properly (julian)
+	* Added "Pending" virtual group for people whose subscription requests have not been confirmed/denied (julian)
+	* Many bugs with searching user directories fixed (julian)
+	* Ability to export Jabber roster to file (julian)
+	* Ability to change nickname back to the default one the contact set (bratislav)
+	* Dialog buttons rearranged to be more user friendly (julian)
+	* Right-click menu to hide the various toolbars (julian)
+	* GnomeDock now refreshes properly when a toolbar is removed (julian)
+	* Ability to raise the window when a new message is received (julian)
+	* Added a Status toolbar (disabled by default) which displays various kinds of information (julian)
+	* Message manager completely rewritten, should solve many roster/message bugs (brandon2)
+	* Backend now supports message events, thanks to new message manager (julian)
+	* TCP connection should now support being SOCKSified (konrad)
+
+2001-05-13 Gabber 0.8.3
+	* "Online" is now called "Available" (julian)
+	* Basic manpage added (Norbet Veber)
+	* Fixed bug where the spell checking option wouldn't be saved (julian)
+	* Roster no longer jumps to the top whenever someone logs on/off (julian)
+	* Fixed a very large bug with reconnect code (konrad)
+	* Rearranged window titles (julian)
+	* Welcome druid redone (jimbob, julian)
+	* Fixed crashes when receiving contacts (julian)
+	* Add user druid redone (jimbob, julian)
+	* Now support GnuPG 1.0.5 (brandon2)
+	* Don't display messages with no body (julian)
+	* No longer cuts off large text in the roster (julian)
+
+2001-03-28 Gabber 0.8.2
+	* Fixed problem getting information for users not on roster (julian)
+	* Added additional keyboard accelerators to labels (julian)
+	* Reorganized all source code, cleaned up style (everyone)
+	* Updated e-font from GAL, this fixes some big UTF-8 bugs
+	* Fixed bug searching "small" Jabber Users Directory (julian)
+	* Remember the state of groups (julian)
+	* Automatically set away after being idle for a while (brandon2)
+	* Report/view idle time and last time logged out (julian, brandon2)
+	* Shift+Enter inserts newline in chats (konrad)
+	* eMail-like quoting in normal messages (Benedikt "bratislav" Roth)
+	* Right-clickable URLs in normal messages (bratislav)
+	* Send and Receive Contacts (brandon2)
+	* Group Chat Invitations (brandon2)
+	* Spell checking via gtkspell (julian)
+
+2001-01-17 Gabber 0.8.1
+	* Ability to select resources in View User Info (julian, dave)
+	* Support for using GnuPG to encrypt and/or sign messages (brandon2)
+	* Gabber now has optional SSL support using OpenSSL (konrad)
+	* Support for sounds on several events (julian)
+	* Sounds for Gabber's sound events by Todd Bradley <ToddBradley@bigfoot.com>
+	* Additional fields have been added to User Information (julian)
+	* Roster reorganizing with drag and drop (brandon2)
+	* Presence is shown in One-on-One Chats (julian)
+	* Only set "user is online" and "user went offline" messages only when appropriate (julian)
+	* ru translation: Eugene Sandulenko <sev@interhack.net>
+	
+2000-12-12 Gabber 0.8.0
+	* Group Chat Join dialog greatly improved (julian)
+	* Menus rearranged (julian)
+	* Transport information, logging in/out from the roster (julian)
+	* Jabber autoupdate notification of new releases from now on (julian)
+	* User Information dialog now displays subscription information (julian)
+	* New lines now properly displayed in chats (dave)
+	* Jabber Filter support! (dave)
+	* Add User Druid and Welcome Druid updated (julian)
+	* Backend code cleaned up (dave)
+	* Edit Groups dialog (julian)
+	* Browse Agent/Other IM System support rewritten (dave)
+	* Show/Hide Agents independent of users on roster (julian)
+	* Client priority can now be set (julian)
+	* UTF-8 support - Gabber now support extended characters. (julian)
+	* Timestamps in messages are now displayed. (brandon)
+	* Agent Registration/Searching now works. (brandon)
+	* HTML history instead of raw XML history. (bigdave)
+	* Chat colors now mimic GTK+ theme colors. (julian)
+	* Messages now wait in tray/roster until opened. (brandon2)
+	* Danish translation by Halfdan aka Rasmus Toftdahl Olesen <rto@post.tele.dk>
+	* German translation by Matthias Wimmer <matthias@matthias-wimmer.de>
+	* French translation by Frédéric Crozat <fred@crozat.net>
+	
+2000-07-31 Gabber 0.7.0
+	* Status Docklet! (julian)
+	* Debug submenu, Raw XML Input (julian)
+	* Basic per-user history (julian)
+	* Icons and status color are back in the roster! (dave)
+	* Chats now use X-Chat's xtext widget! (dave)
+	* Groupchat greatly improved (dave)
+	* Groupchat status changing (dave)
+	* Added support for bitmap masks in status icons (jwise)
+	* Read and set message subjects (julian)
+	* Save conversation logs of chats (julian)
+	
+2000-06-21 Gabber 0.6.1
+	* "Show as" is now a pulldown menu instead of a button (julian)
+	* Status/show dialog now closes when enter is pressed (julian)
+	* Message dialog UI rearranged. 'Keep dialog open after send' option. (julian)
+	* 'Add User to Roster...' in Message dialog now works (julian)
+	* Small bug fixes (julian)
+	* Now grabs user info (vCard) for people in Edit User dialog! (julian)
+	* Also grabs vCard for people in Add User druid (julian)
+	* Sets vCard in User Info (julian)
+	* Gabber Manual bug fix (eliot)
+	* Many small UI fixes (julian)
+	* Message dialog and OOOChat dialog now have toolbars (julian)
+	* OOOChat dialog now has a mutiple line input box (julian)
+	
+2000-06-09 Gabber 0.6.0
+	** Ported everything to work with gtkmm 1.2.0 and gnomemm 1.1.10 (julian)
+	* Gabber now has gnome mini-icons if you have gnome-libs >= 1.0.59 (julian)
+	* Merged Message Received Dialog and Message Dialog, less code, same
+	effect. (julian)
+	* Added support for basic headlines to jabberoo and gabber, along with
+	an ugly dialog. (julian)
+	* Made subscription request dialog nicer. (dave)
+	* Added Agents submenu, renamed Agents dialog to Transports. (julian)
+	* Transports are now automatically added to the roster. (julian)
+	** GROUP SUPPORT! (dave)
+	** Many roster improvements (dave)
+	* i18n support and en_SE (swedish chef) translation. (julian)
+	* Colored text for status (dave - roster-side, julian - ui-side)
+	* Add User Druid makes it easier for everyone to add new users. (julian)
+	* Toolbar for commonly-used menu items. (julian)
+	* Welcome Druid completely rewritten. (julian)
+	* Basic User Information dialog. (julian)
+	
+2000-05-06 Gabber 0.5.1
+	* Status changing bug fix. (julian)
+	* Stalker icon now used when you do not have the proper subscription
+	to receive someone's presence. (julian)
+	* Major disconnect bugs now fixed. (dave)
+	* Re-request Subscription right-click menu item added. (julian)
+	* Messages to/from transports now work without crashing. (dave)
+	* Registered agents can now be editted by clicking "Register..." (dave)
+
+2000-05-01 Gabber 0.5
+	* Status changing is 100% operational. (dave)
+	
+2000-04-30 Gabber 0.5pre2
+	* Now only using username in OOOChat and RecvdMsg titles. (julian)
+	* Updated manual for group chat and other changes. (eliot)
+	* Now using a different dialog if it's creating an account from
+	within the wizard. (julian)
+	* Status bar now informs user of logging in/out, people coming
+	online/offline, and deleting from/adding to roster. (julian)
+	* Status changing is (almost) working! (julian)
+	* Abtrary message sending is now working. (julian)
+	* Displaying icons for show is working. (julian)
+	
+2000-04-26  Gabber 0.5pre1
+	* First RPMs/DEBs of pre-0.5 series. (julian, eliot)
+	* ChangeLog will now take this format. We'll just keep a running
+	list of all new features. 'cvs log' will then be able to tell us
+	when which lines were added, thus giving us the same details we
+	get sorting the ChangeLog by commits. (julian)
+	* Everything is new, since we've had no prior releases! (julian)

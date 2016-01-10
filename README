@@ -1,0 +1,115 @@
+
+Gabber: The GNOME Jabber Client
+*******
+
+CVS users, CVS notes are now in README.cvs.
+FreeBSD users, please also see README.FreeBSD.
+
+Some notes
+-------
+Gabber is a Jabber client for GNOME. No, it's not a GTK+ client, it's a 
+GNOME client. Originally there was a GTK+ client called cabbar, but it 
+has not been worked on for quite some time. GAIM can be GTK+-only, and 
+it has a Jabber module.
+
+Gabber is young, but progressing very rapidly. We're aiming for 
+1.0 to contain everything we originally intended upon supporting, and 
+then just going from there. :)
+
+Gabber is a C++ project. If C++ gives you seizures, please do not 
+proceed any further. Dave and I (Julian) are of the opinion that C++ 
+can be great if done properly, but absolutely horrible if not. Gtkmm is 
+an excellent binding of GTK+ to C++, and both of us like it much more 
+than GTK+. It's beautiful.
+
+Gabber's user interface is done in glade, and dynamically loaded with 
+libglade. If libglade gives you seizures, well, you probably shouldn't 
+be using GNOME. Julian has become quite the User Interface freak, and 
+is trying his hardest to give Gabber the best UI he can, while still 
+providing most of Jabber's features.
+
+Gabber could not exist if it were not for the Jabber people, the GNOME 
+people, and the gtkmm people, but it really couldn't exist without Dave. 
+Jabberoo is cool, and he's an amazing coder, I (Julian) am glad to have 
+this opportunity to learn much about coding from him.
+
+Now, back to your regularly scheduled program.
+
+
+Dependencies
+-------
+At absolute minimum, to compile Gabber you need:
+
+GNOME      >= 1.2
+libsigc++  >= 1.0.0  (http://libsigc.sourceforge.net/)
+gtkmm      >= 1.2.0  (aka gtk--, http://gtkmm.sourceforge.net/)
+gnomemm    >= 1.1.10 (aka gnome--, http://gtkmm.sourceforge.net/)
+libglade   >= 0.11   (Your favorite GNOME mirror, or ftp.ximian.com)
+libgal     >= 0.5(?) (ftp.ximian.com)
+openssl    >= 0.9.5a (If you want SSL support; it's not required)
+
+If you do not already have Ximian's packaged version of GNOME (aka 
+Ximian GNOME), I highly recommend it. Yes, it can be quite a large 
+download, but it's worth it if you use GNOME. If you have Ximian GNOME, 
+all of the dependencies can be found in it. No, Ximian GNOME is not 
+required.
+
+
+Compiling Gabber
+-------
+Given ${prefix} is your prefix, such as /usr, /usr/local, or /opt/gnome 
+and that /etc is the place you have sound/events :
+./configure --prefix=${prefix} --sysconfdir=/etc --localstatedir=/var/lib
+make
+su
+make install
+
+That should be all you need to do.
+
+KNOWN ISSUES
+-------
+Problem: Typing certain extended characters causes crashes.
+  Gabber has spell checking enabled by default. Gabber uses gtkspell 
+  (and thus aspell or ispell) for spell-checking, and it appears that 
+  aspell (or possibly gtkspell) crashes on some character sets. If you 
+  get weird crashes when typing specific characters, it's probably this 
+  bug. Disable spell checking in the Preferences for now.
+
+Problem: Symbol undefined, symbol errors, crashes before/during startup.
+  Please be sure that binaries for libsigc++, gtkmm, and gnomemm were
+  built for your specific distribution. SuSE is not the same as Red Hat, 
+  which is not the same as Mandrake. If you built them, be sure they 
+  were built for and installed into the same location as the rest of 
+  GNOME and GTK+. I cannot stress enough how important it is that the 
+  C++ libraries be built for your distribution and for your GNOME 
+  installation.
+
+Problem: Issues with normal messages.
+  The code for normal messages is being completely rewritten.
+
+Problem: I don't run GNOME, how can I get GNOME sounds?
+  It is possible to start the GNOME sound server by running the command
+  `sound-properties --init-session-settings`
+
+Problem: Dialogs sometimes appear partially offscreen or flicker.
+  The GNOME default settings for dialog handling are somewhat odd.
+  "Place dialogs over application window when possible" should be 
+  disabled in the Look and Feel -> Dialogs section of Gnome Control 
+  Center (gnomecc). It defaults to enabled. Dialog position should 
+  also be set to "Let window manager decide" and Dialog hints should 
+  be "Dialogs are treated specially by window manager." This assumes 
+  you are using a modern window manager which mostly conforms to 
+  the window manager specifications.
+    For those who lack gnomecc (thanks Michael Leuchtenburg):
+  In ~/.gnome/Gnome:
+  in the [UI_Dialogs] section:
+  DialogType=Dialog
+  DialogPosition=None
+  Dialog_is_Centered=false
+
+
+Authors
+-------
+See AUTHORS
+The presence icons are available under the GPL, but please give credit 
+to Youngjin "artwiz" Hahn <artwiz@artramp.org> for creating them.

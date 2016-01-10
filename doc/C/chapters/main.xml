@@ -1,0 +1,469 @@
+<!-- BEGIN: MAIN -->
+<chapter id="main">
+	<title>Main Window</title>
+	<para>
+		After the <link linkend="first">step-by-step druid</link> is complete,
+		<application>Gabber</application>'s main window will appear as shown in
+		<xref linkend="figure-main" />.
+		<screenshot id="figure-main">
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="main.png" format="PNG"/>
+				</imageobject>
+				<textobject>
+					<phrase>A screenshot of the main Gabber window.</phrase>
+				</textobject>
+				<caption>
+					<para>Gabber</para>
+				</caption>
+			</mediaobject>
+		</screenshot>
+	</para>
+	<sect1 id="main-roster">
+		<title>Roster</title>
+		<para>
+			The majority of space on the main window is taken up by the list of
+			contacts or	<wordasword>roster</wordasword>. Roster items (contacts) are
+			grouped within separate user-definable groups. If no group is specified
+			for a user, they will fall within the <wordasword>Unfiled</wordasword>
+			group. Server <link linkend="agents">agents</link> are listed in the
+			special group, <wordasword>Agents</wordasword>. If users within a group
+			are online,	<application>Gabber</application> will display the number of
+			users online within parenthesis	following the group name. The next
+			section, <xref linkend="main-status" /> explains user status
+			information. Several options to manipulate the roster view are available
+			from the <guimenuitem>Roster</guimenuitem> sub-menu in the
+			<guimenu>Gabber</guimenu> menu.
+		</para>
+		<note>
+			<title>Server-Side Roster</title>
+			<para>
+				Jabber clients keep a list of the user's contacts in a server-side
+				<wordasword>roster</wordasword> or a "Buddy List." All roster
+				information is kept on the server. This makes it easy to move between
+				different clients and makes the pain much less after
+				accidentally erasing the client information.
+			</para>
+		</note>
+		<sect2 id="main-roster-menu">
+			<title>User Context Menu</title>
+			<para>
+				The user context menu is available by right clicking on a user
+				on the roster. See the <link linkend="main-roster-menu-agent">next
+				section</link> for Agent specific options.
+				The following options are available:
+				<itemizedlist>
+					<listitem><para>
+						<menuchoice>
+							<shortcut><keysym>Ctrl-O</keysym></shortcut>
+							<guimenuitem>One-on-One Chat...</guimenuitem>
+						</menuchoice>
+						Begins a <link linkend="msg-ooo">one-on-one chat</link> with
+						the user.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<shortcut><keysym>Ctrl-M</keysym></shortcut>
+							<guimenuitem>Message...</guimenuitem>
+						</menuchoice>
+						Sends a <link linkend="msg-normal">regular message</link> to
+						the user.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<guimenuitem>Send Contacts...</guimenuitem>
+						</menuchoice>
+						Loads the <link linkend="users-send">Send Contact(s)</link>
+						dialog.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<guimenuitem>Send File...</guimenuitem>
+						</menuchoice>
+						Loads the <link linkend="file">Send File</link>
+						dialog.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<shortcut><keysym>Ctrl-I</keysym></shortcut>
+							<guimenuitem>View Contact Info...</guimenuitem>
+						</menuchoice>
+						Loads the <link linkend="users-edituser">Edit User</link>
+						dialog.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<guimenuitem>Edit Groups...</guimenuitem>
+						</menuchoice>
+						Loads the <link linkend="users-edituser-groups">Edit
+						Groups</link> dialog.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<guimenuitem>View History...</guimenuitem>
+						</menuchoice>
+						Loads a log of messages sent to this user. The <link
+						linkend="pref-logs">Logs</link> preferences allows
+						the output format of the logs to be customized.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<guimenuitem>Resubscribe</guimenuitem>
+						</menuchoice>
+						Sends a <link
+						linkend="users-subscription">subscription</link> request to
+						the specified user.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<shortcut><keysym>Ctrl-D</keysym></shortcut>
+							<guimenuitem>Remove Contact</guimenuitem>
+						</menuchoice>
+						Removes the user from the roster.
+					</para></listitem>
+				</itemizedlist>
+			</para>	
+		</sect2>
+		<sect2 id="main-roster-menu-agent">
+			<title>Agent Context Menu</title>
+			<para>
+				Like the user context menu, the agent context menu provides
+				specific options available to work with an <link
+				linkend="agents">agent</link>. The following options are available:
+				<itemizedlist>
+					<listitem><para>
+						<menuchoice>
+							<guimenuitem>One-on-One Chat...</guimenuitem>
+						</menuchoice>
+						Begins a <link linkend="msg-ooo">one-on-one chat</link> with
+						the agent.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<guimenuitem>Message...</guimenuitem>
+						</menuchoice>
+						Sends a <link linkend="msg-normal">regular message</link> to
+						the agent.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<guimenuitem>Log into Agent</guimenuitem>
+						</menuchoice>
+						Connect to the agent.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<guimenuitem>Log out of Agent</guimenuitem>
+						</menuchoice>
+						Disconnect from an agent. Note that this will disconnect
+						conversations with users connected through the agent.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<guimenuitem>Agent Information...</guimenuitem>
+						</menuchoice>
+						View specific information about the agent.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<guimenuitem>Edit Groups...</guimenuitem>
+						</menuchoice>
+						Loads the <link linkend="users-edituser-groups">Edit
+						Groups</link> dialog.
+					</para></listitem>
+					<listitem><para>
+						<menuchoice>
+							<guimenuitem>Remove Agent</guimenuitem>
+						</menuchoice>
+						Removes the agent from the roster. Any users that are
+						accessed through this agent will no longer be available.
+					</para></listitem>
+				</itemizedlist>
+			</para>
+		</sect2>
+					
+	</sect1>
+	<sect1 id="main-status">
+		<title>Status</title>
+		<sect2 id="main-status-roster">
+			<title>Status for Roster Items</title>
+			<para>
+				Status information (Available, Free to Chat, Away, Extended Away,
+				Busy) for users on the roster can be represented by icons to the
+				left of the user and by the text color of the user's name.
+				A lighted bulb and light blue text, for example, means the user is
+				online and available; a XA sign and dark green text reflects that
+				the user is Extended Away.
+			</para>
+			<para>
+				The latest status information about a user on the roster will be
+				shown on the status bar. <xref linkend="figure-main" /> gives an
+				example of an active status bar and the status of various users.
+			</para>
+			<para>
+				Status information about a user will not appear until a
+				<wordasword>subscription</wordasword> has been successfully approved
+				and processed by the other user. See <xref
+				linkend="users-subscription" /> for more information about
+				subscriptions.
+			</para>
+			<para>
+				Status icons can be disabled from the <link
+				linkend="pref">Preferences</link> dialog.
+			</para>
+		</sect2>
+		<sect2 id="main-status-user">
+			<title>User Status</title>		
+			<para>
+				If the <application>Gabber</application> user is currently logged
+				into Jabber, the user's online status information will be displayed        
+				in the Status button on the toolbar underneath the <link 
+				linkend="main-roster">Roster</link>. The previous <link 
+				linkend="figure-main">screenshot</link> shows the user as Available.
+			</para>
+			<para>
+				To change the status information, click the drop down status box and
+				select the desired status. The <interface>User Status</interface> 
+				dialog will then load so that a custom message can be entered. After
+				clicking <guibutton>Update Status</guibutton>, the updated status 
+				will be sent to users on the roster.
+			</para>
+			<para>
+				The status toolbar can be disabled in the <link 
+				linkend="pref">Preferences</link> dialog. Current status can still 
+				be changed from the <guimenuitem>Presence</guimenuitem> sub-menu on 
+				the <link linkend="main-menubar-gabber">Gabber</link> menu.
+			</para>
+		</sect2>
+	</sect1>
+	<sect1 id="main-toolbar">
+		<title>Toolbar</title>
+		<para>
+			The toolbar gives the user quick access to commonly used functions
+			such as adding a new user, joining a group chat, and loading the manual.
+			By hovering over each icon on the toolbar, a short description of the 
+			function of each icon will be displayed.
+			<itemizedlist>
+				<listitem><para>Add Contact - Loads the 
+					<link linkend="users-adduser">Add User</link> dialog.
+				</para></listitem>
+				<listitem><para>Browse Agents/IM Systems - Loads the 
+					<link linkend="agents">Agents Browser</link> to register with 
+					agents and other Instant Messaging systems.</para></listitem>
+				<listitem><para>Join a Group Chat - Loads the 
+					<link linkend="msg-gc">Group Chat</link> login dialog to
+					begin a group chat (conference).</para></listitem>
+				<listitem><para>Gabber Manual - Shows this manual.</para></listitem>
+			</itemizedlist>
+		</para>
+		<para>
+			The toolbar can be disabled from the <link 
+			linkend="pref">Preferences</link> dialog.
+		</para>
+	</sect1>
+	<sect1 id="main-menubar">
+		<title>Menu Bar</title>
+		<para>
+			The menu bar located at the top of <application>Gabber</application>'s 
+			main window, provides the following commands:
+		</para>
+		<variablelist>
+			<varlistentry id="main-menubar-gabber">
+				<term><guimenu>Gabber</guimenu></term>
+				<listitem><para>
+					<itemizedlist>
+						<listitem><para>
+							<menuchoice>
+								<guimenuitem>Presence</guimenuitem>
+							</menuchoice>
+							Allows the current status to be changed. See the
+							<link linkend="main-status-user">User Status</link>
+							dialog for complete information.
+						</para></listitem>
+						<listitem><para>
+							<menuchoice>
+								<shortcut><keysym>Ctrl-L</keysym></shortcut>
+								<guimenuitem>Login...</guimenuitem>
+							</menuchoice>
+							If the user has not logged in yet, this menu item loads the
+							<link linkend="login">Login</link> dialog to allow the user to 
+							specify login information and to connect to the server.
+						</para></listitem>
+						<listitem><para>
+							<menuchoice>
+								<guimenuitem>Log out</guimenuitem>
+							</menuchoice>
+							After being logged in, the <guimenuitem>Logout</guimenuitem> 
+							menu item allows the connection to be terminated. Activating 
+							log out during a log in procedure will cancel the current
+							log in routine.
+						</para></listitem>
+						<listitem><para>
+							<menuchoice>
+								<guimenuitem>Log out with a Reason...</guimenuitem>
+							</menuchoice>
+							Instead of abruptly leaving conversations, the connection can
+							be ended with a specific reason. Users on the roster will
+							often appreciate the explained exit.
+						</para></listitem>
+						<listitem><para>
+							<menuchoice>
+								<guimenuitem>Roster</guimenuitem>
+							</menuchoice>
+							A sub-menu that includes several options for the manipulation
+							of the <link linkend="main-roster">roster</link>:
+							<itemizedlist>
+								<listitem><para>
+									<menuchoice>
+										<guimenuitem>Export Roster...</guimenuitem>
+									</menuchoice>
+									Exports the entire roster to a file for backup purposes.
+								</para></listitem>
+								<listitem><para>
+									<menuchoice>
+										<guimenuitem>Import Roster...</guimenuitem>
+									</menuchoice>
+									Imports a roster from a file that was previously
+									exported.
+								</para></listitem>
+								<listitem><para>
+									<menuchoice>
+										<shortcut><keysym>Ctrl-H</keysym></shortcut>
+										<guimenuitem>Hide Offline Contacts</guimenuitem>
+									</menuchoice>
+									Hides contacts who are currently offline.
+								</para></listitem>
+								<listitem><para>
+									<menuchoice>
+										<guimenuitem>Hide Agents</guimenuitem>
+									</menuchoice>
+									Hides the entire Agents group.
+								</para></listitem>
+							</itemizedlist>
+						</para></listitem>
+						<listitem><para>
+							<menuchoice>
+								<guimenuitem>Connection Settings...</guimenuitem>
+							</menuchoice>
+							Loads the Connection Settings dialog to edit the information
+							used when <link linkend="login">logging in</link> to a Jabber
+							server.
+						</para></listitem>
+						<listitem><para>
+							<menuchoice>
+								<guimenuitem>My Information...</guimenuitem>
+							</menuchoice>
+							Loads the <link linkend="userinfo">My Information</link> dialog
+							for editing information stored in the Jabber Users Directory.
+						</para></listitem>
+						<listitem><para>
+							<menuchoice>
+								<guimenuitem>Preferences...</guimenuitem>
+							</menuchoice>
+							Loads the <link linkend="pref">Preferences</link> dialog
+							to allow the user to customize
+							<application>Gabber</application>.
+						</para></listitem>
+						<listitem><para>
+							<menuchoice>
+								<shortcut><keysym>Ctrl-Q</keysym></shortcut>
+								<guimenuitem>Exit</guimenuitem>
+							</menuchoice>
+							Exits <application>Gabber</application>.
+						</para></listitem>
+					</itemizedlist>
+				</para></listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><guimenu>Services</guimenu></term>
+				<listitem><para>
+					<itemizedlist>
+						<listitem><para>
+							<menuchoice>
+								<guimenuitem>New Blank Message...</guimenuitem>
+							</menuchoice>
+							Creates a new blank <link linkend="msg-normal">message</link>
+							to an unspecified user.
+						</para></listitem>
+						<listitem><para>
+							<menuchoice>
+								<shortcut><keysym>Ctrl-U</keysym></shortcut>
+								<guimenuitem>Add Contact...</guimenuitem>
+							</menuchoice>
+							Loads the <link linkend="users-adduser">Locate User</link>
+							druid.
+						</para></listitem>
+						<listitem><para>
+							<menuchoice>
+								<guimenuitem>Add Group...</guimenuitem>
+							</menuchoice>
+							Assists in adding a new user group to the roster.
+						</para></listitem>
+						<listitem><para>
+							<menuchoice>
+								<shortcut><keysym>Ctrl-B</keysym></shortcut>
+								<guimenuitem>Browse Agents/IM Systems...</guimenuitem>
+							</menuchoice>
+							Loads the <link linkend="agents">Agents Browser</link> to
+							register with agents and other Instant Messaging systems.
+						</para></listitem>
+						<listitem><para>
+							<menuchoice>
+								<shortcut><keysym>Ctrl-C</keysym></shortcut>
+								<guimenuitem>Join Group Chat...</guimenuitem>
+							</menuchoice>
+							Loads the <link linkend="msg-gc">Group Chat</link> login dialog
+							to begin a group chat (conference).
+						</para></listitem>
+<!--						<listitem><para>
+							<menuchoice>
+								<guimenuitem>Ignore List...</guimenuitem>
+							</menuchoice>
+							Allows the user to edit the <link
+							linkend="users-ignore">Ignore List</link>
+							to add or remove users to block.
+						</para></listitem> -->
+						<listitem><para>
+							<menuchoice>
+								<shortcut><keysym>Ctrl-R</keysym></shortcut>
+								<guimenuitem>Jabber Message Rules</guimenuitem>
+							</menuchoice>
+							Loads the <link linkend="msg-rules">Jabber Message Rules 
+							List</link> dialog to allow the customization of how incoming 
+							messages are handled.
+						</para></listitem>
+					</itemizedlist>
+				</para></listitem>
+				</varlistentry>
+				<varlistentry> 
+					<term><guimenu>Help</guimenu></term>
+					<listitem><para>
+						<itemizedlist>
+							<listitem><para>
+								<menuchoice>
+									<guimenuitem>Gabber Manual...</guimenuitem>
+								</menuchoice>
+								Shows this manual.
+							</para></listitem>
+							<listitem><para>
+								<menuchoice>
+									<guimenuitem>About...</guimenuitem>
+								</menuchoice>
+								Shows basic information about
+								<application>Gabber</application>.
+							</para></listitem>
+							<listitem><para>
+								<menuchoice>
+									<guimenuitem>Debug</guimenuitem>
+								</menuchoice>
+								Contains several options for debugging or testing the Jabber
+								connection. Often used by developers to get more "hands-on"
+								access to the Jabber stream.
+							</para></listitem>
+						</itemizedlist></para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</sect1>
+	</chapter>
+<!-- END: MAIN -->

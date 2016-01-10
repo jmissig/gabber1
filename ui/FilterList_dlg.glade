@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<GTK-Interface>
+
+<project>
+  <name>Gabber</name>
+  <program_name>Gabber</program_name>
+  <directory></directory>
+  <source_directory>src</source_directory>
+  <pixmaps_directory>pixmaps</pixmaps_directory>
+  <language>C</language>
+  <gnome_support>True</gnome_support>
+  <gettext_support>True</gettext_support>
+  <use_widget_names>True</use_widget_names>
+  <gnome_help_support>True</gnome_help_support>
+</project>
+
+<widget>
+  <class>GnomeDialog</class>
+  <name>FilterList_dlg</name>
+  <title>Jabber Message Rules List - Gabber</title>
+  <type>GTK_WINDOW_TOPLEVEL</type>
+  <position>GTK_WIN_POS_NONE</position>
+  <modal>False</modal>
+  <default_width>300</default_width>
+  <default_height>300</default_height>
+  <allow_shrink>False</allow_shrink>
+  <allow_grow>True</allow_grow>
+  <auto_shrink>False</auto_shrink>
+  <wmclass_name>filterlist</wmclass_name>
+  <wmclass_class>Gabber</wmclass_class>
+  <auto_close>False</auto_close>
+  <hide_on_close>False</hide_on_close>
+
+  <widget>
+    <class>GtkVBox</class>
+    <child_name>GnomeDialog:vbox</child_name>
+    <name>dialog-vbox10</name>
+    <homogeneous>False</homogeneous>
+    <spacing>8</spacing>
+    <child>
+      <padding>4</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+
+    <widget>
+      <class>GtkHButtonBox</class>
+      <child_name>GnomeDialog:action_area</child_name>
+      <name>dialog-action_area28</name>
+      <layout_style>GTK_BUTTONBOX_END</layout_style>
+      <spacing>8</spacing>
+      <child_min_width>85</child_min_width>
+      <child_min_height>27</child_min_height>
+      <child_ipad_x>7</child_ipad_x>
+      <child_ipad_y>0</child_ipad_y>
+      <child>
+	<padding>0</padding>
+	<expand>False</expand>
+	<fill>True</fill>
+	<pack>GTK_PACK_END</pack>
+      </child>
+
+      <widget>
+	<class>GtkButton</class>
+	<name>FilterList_Help_btn</name>
+	<can_default>True</can_default>
+	<can_focus>True</can_focus>
+	<stock_button>GNOME_STOCK_BUTTON_HELP</stock_button>
+      </widget>
+
+      <widget>
+	<class>GtkButton</class>
+	<name>FilterList_Cancel_btn</name>
+	<can_default>True</can_default>
+	<can_focus>True</can_focus>
+	<stock_button>GNOME_STOCK_BUTTON_CANCEL</stock_button>
+      </widget>
+
+      <widget>
+	<class>GtkButton</class>
+	<name>FilterList_OK_btn</name>
+	<can_default>True</can_default>
+	<has_default>True</has_default>
+	<can_focus>True</can_focus>
+	<has_focus>True</has_focus>
+	<stock_button>GNOME_STOCK_BUTTON_OK</stock_button>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GtkFrame</class>
+      <name>FilterList_frame</name>
+      <label>Jabber Message Rules List</label>
+      <label_xalign>0</label_xalign>
+      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+      <child>
+	<padding>0</padding>
+	<expand>True</expand>
+	<fill>True</fill>
+      </child>
+
+      <widget>
+	<class>GtkHBox</class>
+	<name>hbox62</name>
+	<border_width>6</border_width>
+	<homogeneous>False</homogeneous>
+	<spacing>8</spacing>
+
+	<widget>
+	  <class>GtkScrolledWindow</class>
+	  <name>FilterList_Filters_scroll</name>
+	  <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+	  <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+	  <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+	  <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkCList</class>
+	    <name>FilterList_Filters_clist</name>
+	    <can_focus>True</can_focus>
+	    <columns>1</columns>
+	    <column_widths>80</column_widths>
+	    <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
+	    <show_titles>False</show_titles>
+	    <shadow_type>GTK_SHADOW_IN</shadow_type>
+
+	    <widget>
+	      <class>GtkLabel</class>
+	      <child_name>CList:title</child_name>
+	      <name>label354</name>
+	      <label>label354</label>
+	      <justify>GTK_JUSTIFY_CENTER</justify>
+	      <wrap>False</wrap>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	    </widget>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkVButtonBox</class>
+	  <name>vbuttonbox4</name>
+	  <layout_style>GTK_BUTTONBOX_START</layout_style>
+	  <spacing>4</spacing>
+	  <child_min_width>0</child_min_width>
+	  <child_min_height>0</child_min_height>
+	  <child_ipad_x>0</child_ipad_x>
+	  <child_ipad_y>0</child_ipad_y>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <name>FilterList_New_btn</name>
+	    <can_focus>True</can_focus>
+	    <label>Add...</label>
+	    <relief>GTK_RELIEF_NORMAL</relief>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <name>FilterList_Edit_btn</name>
+	    <can_focus>True</can_focus>
+	    <label>Edit...</label>
+	    <relief>GTK_RELIEF_NORMAL</relief>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <name>FilterList_Remove_btn</name>
+	    <can_focus>True</can_focus>
+	    <label>Remove</label>
+	    <relief>GTK_RELIEF_NORMAL</relief>
+	  </widget>
+
+	  <widget>
+	    <class>GtkHSeparator</class>
+	    <name>hseparator3</name>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <name>FilterList_Promote_btn</name>
+	    <can_focus>True</can_focus>
+	    <stock_button>GNOME_STOCK_BUTTON_UP</stock_button>
+	    <relief>GTK_RELIEF_NORMAL</relief>
+	  </widget>
+
+	  <widget>
+	    <class>GtkButton</class>
+	    <name>FilterList_Demote_btn</name>
+	    <can_focus>True</can_focus>
+	    <stock_button>GNOME_STOCK_BUTTON_DOWN</stock_button>
+	    <relief>GTK_RELIEF_NORMAL</relief>
+	  </widget>
+	</widget>
+      </widget>
+    </widget>
+  </widget>
+</widget>
+
+</GTK-Interface>

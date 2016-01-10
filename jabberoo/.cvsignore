@@ -1,0 +1,14 @@
+autom4te.cache
+Makefile.in
+configure
+config.log
+config.status
+config.guess
+config.sub
+libtool
+ltmain.sh
+Makefile
+stamp-h.in
+stamp-h
+stamp-h1
+config.h

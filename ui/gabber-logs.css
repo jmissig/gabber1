@@ -1,0 +1,108 @@
+/*
+ * Gabber Logs Cascading Style Sheets
+ * Cascading Style Sheets version 2.0
+ * 
+ * This style sheet defines how Gabber logs should be displayed.
+ */
+
+/*
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ * 
+ *  Gabber Logs Cascading Style Sheets
+ *  Copyright (C) 1999-2000 Julian Missig, Dave Smith, & Dave Lee
+ */
+
+/* This CSS defaults to an IRC-like look.
+ * Feel free to change it however you want.
+ */
+
+html body {
+    background-color: white;
+    color: black;
+    font-size: medium;
+}
+
+.title {
+    font-size: x-large;
+    font-weight: bold;
+    visibility: visible;
+    display: block;
+}
+
+.message {
+    visibility: visible;
+    display: block;
+}
+
+.date {
+    font-family: Courier monospaced;
+    font-size: small;
+    color: gray;
+    visibility: visible; /* Change to 'collapse' or 'hidden' to hide */
+    display: inline;
+}
+
+.tag {
+    color: blue;
+    visibility: collapse; /* If the browser supports this, hopefully it supports :before */
+    display: inline;
+}
+
+.me:before {
+    color: blue;
+    content: "<";
+}
+
+.me {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    visibility: visible;
+    display: inline;
+}
+
+.me:after {
+    color: blue;
+    content: ">";
+}
+
+.them:before {
+    color: red;
+    content: "<";
+}
+
+.them {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    visibility: visible;
+    display: inline;
+}
+
+.them:after {
+    color: red;
+    content: ">";
+}
+
+.subject {
+    font-size: large;
+    visibility: visible;
+    display: inline;
+}
+
+.body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    visibility: visible;
+    display: inline;
+}

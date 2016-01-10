@@ -1,0 +1,78 @@
+TODO
+Key:
+DONE (version) - version number this feature will appear in
+?? - Should we even implement this? Will it be possible?
+* item0
+	* item1 - item1 requires item0 be completed
+
+TODO for 0.8.8 (short-term)
+	* Extra visual notification of new messages in open windows:
+		* It would be nice to make the tasklist flash
+		* but we can't do that, afaik
+		* so add an asterisk to the title
+		* remove notification after window has been viewed (made active?)
+	* DONE (0.8.8) Group chat window show/hide users resizing bug (James Widman)
+	* ContactRecv should ask for request reason when adding people (julian)
+	* Error checking for file transfer
+		* Need to check URIs before attempting to download (James Widman)
+	* DONE (0.8.8) Figure out /who/ is currently selected in the roster before a refresh,
+	  and then after the refresh select the same person (amx)
+		* If the user is no longer being displayed, select a user above or below
+	* popSpool function in MessageManager, which removes on the XML for a given message,
+	  not the whole spool like clearSpool -- display needs popSpool
+	* look into updating xtext again (julian)
+	* look into queuing presence requests with MessageManager,
+	  this probably involves faking the MessageManager out
+		* possibly use an <x> on a message and stick the <presence> in there
+			* yeah, it's hackish, but it will never see the light of day
+				* outside the spool files, that is
+	* ?? auto-accept presence requests
+		* ?? with auto-add contact
+	* Modify the way we do sounds to allow for anything, not just gnome (julian)
+		* ?? Put in some hooks so we can hook up things like festival (julian)
+	* Start fixing up XML logging
+		* possibly move to XML logging per default
+	* Replace GABBER_ variables with calls to appropriate gnome functions (Dekar?)
+	* Look at bugs in Gabber's SourceForge bug list!
+
+	* subscription denial stuffs
+
+TODO for 0.9.0 (long-term)
+	* PASS support!
+		* autodetermine whether to use PASS or normal OOB
+			* maybe do it via iq:browse and other methods
+	* Start fixing up XML logging
+		* move to XML logging per default
+			* internal history viewer
+	* iq:browse support in jabberoo (julian/temas)
+		* redo agent info for iq:browse (julian)
+		* redo reg druid for iq:browse (julian)
+		* redo agent browser for iq:browse (julian)
+		* agent_replace() for iq:browse (julian)
+	* maybe fix some of xtext's horrible bugs (temas)
+	* make a vcard handler in jabberoo (julian)
+	* better error handling
+		This has been started by julian, in ErrorManager (0.8.2)
+		* Create an ErrorViews.cc which handles every single error
+		  we can think of, including a default errorview if Gabber
+		  has no clue about the error.
+		* ?? Possibly create ErrorManager to do the initial error check
+		  and then hand off to the appropriate ErrorView?
+		* if trying to send something to a user on a transport which 
+		  is down, warn them instead of waiting for an error 
+		  server-side
+	* Headline support!!! <--- Needed soon... really should discuss UI
+	* better Transmitter error handling and more descriptive error 
+	  messages (konrad)
+	* DONE (0.8.1) Drag and Drop (DnD) roster items
+		* Support to drag users to/from Evolution (julian will work 
+		  with clahey)
+		* Ignore list
+		* ?? Send to multiple users
+	* Make MessageManager thread-based
+		* add more details of what new MessageManager should do (julian)
+	* ?? Top-level unified group editor, instead of editing groups on a 
+	  per user basis
+	* PUT OFF (IRC-t is dead) Specialized handling of IRC in group chat win (julian)
+
+

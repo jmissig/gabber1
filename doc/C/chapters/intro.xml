@@ -1,0 +1,31 @@
+<!-- BEGIN: INTRO -->
+<chapter id="intro">
+	<title>Introduction</title>
+	<para>
+		<application>Gabber</application> is a complete <ulink type="http"
+		url="http://gnome.org">Gnome</ulink> Jabber client. This document describes
+		version 0.8.7 of <application>Gabber</application>. More information about
+		the authors of <application>Gabber</application> and a link to
+		<application>Gabber</application>'s web site can be found in <xref
+		linkend="authors" />.
+	</para>
+	<para>
+		To run <application>Gabber</application>, select
+		<application>Gabber</application> from the <guimenuitem>Internet</guimenuitem>
+		sub-menu of the <guimenu>Main Menu</guimenu>, or type
+		<application>gabber</application> from the command line.
+	</para>
+	<sect1 id="intro-jabber">
+		<title>Jabber</title>
+		<para>
+			<ulink type="http" url="http://jabber.org">Jabber</ulink> is an
+			extensible, Open Source	Instant Messaging (IM) system that provides
+			advanced IM features in a completely distributed environment.
+		</para>
+		<para>
+			The complete Jabber protocol specification is available to anyone at
+			Jabber.org.
+		</para>
+	</sect1>
+</chapter>
+<!-- END: INTRO -->

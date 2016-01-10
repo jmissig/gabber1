@@ -1,0 +1,3367 @@
+2003-05-26  Julian Missig  <julian@jabber.org>
+
+	* src/EventManager.cc: Added an #include for some setups.
+
+2003-05-24  Julian Missig  <julian@jabber.org>
+
+	* src/GladeHelper.hh: Fix compilation on some setups. Forgot to commit. Damn.
+
+2003-05-23  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped Version number
+	* gabber.spec.in: Remove scrollkeeper crud
+	* src/MessageViews.cc: Only disconnect connected signals
+
+2003-05-23  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Further changes to ensure composing signal is only connected once
+
+2003-05-10  Julian Missig  <julian@jabber.org>
+
+	* Makefile.am: Don't distribute config.rpath
+	* src/MessageViews.cc: Fix some <composing/> issues
+
+2003-04-21  Julian Missig  <julian@jabber.org>
+
+	* src/GabberLogger.cc: Fixed the file open
+	* src/MessageManager.cc: same
+
+2003-04-05  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: Patch from Mikhail Zabaluev
+	* src/AddContactDruid.hh: same
+	* src/AgentInterface.cc: same
+	* src/AgentInterface.hh: same
+
+2003-04-05  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/gnome-gabber.xpm: New icon from Kenny Graunke
+	* src/GabberLogger.cc: Patch from Gary Peck to hopefully fix logs
+	* src/GabberLogger.hh: same
+	* src/Makefile.am: Disable OpenSSL kerberos auth, we don't use it.
+	* src/MessageManager.cc: Patch from Gary Peck to hopefully fix logs
+	* src/MessageManager.hh: same
+
+2003-03-19  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/Makefile.am: Fixed typo
+	* src/Makefile.am: added xembed.h to make dist
+
+2003-03-12  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/ConfigManager.cc: Added Status Icon pref
+	* src/ConfigManager.hh: same
+	* src/GabberWin.cc: Removed _dockWindow
+	* src/GabberWin.hh: same
+	* src/Makefile.am: Compile new Status Icon files
+	* src/SSLAdapter.cc: Remove extra cerr's
+	* src/StatusInterface.cc: Added Status Icon -- using freedesktop.org spec
+	* src/StatusInterface.hh: same
+	* src/eggtrayicon.c: same
+	* src/eggtrayicon.h: same
+	* src/gtk2-funcs.c: same
+	* src/gtk2-funcs.h: same
+	* src/gtkplugxembed.c: same
+	* src/gtkplugxembed.h: same
+	* src/xembed.h: same
+
+2003-01-15  Julian Missig  <julian@jabber.org>
+	
+	* src/GabberWin.cc: Removed "serious" privacy bug. Aka autoupdate.
+	  No updates for you.
+
+2002-11-15  Julian Missig  <julian@jabber.org>
+
+	* src/FTInterface.cc: Patch from Mikhail Zabaluev to not use strstream everywhere
+	* src/FTInterface.hh: same
+	* src/GPGInterface.cc: same
+	* src/GPGInterface.hh: same
+	* src/GabberGPG.cc: same
+
+2002-10-28  James Widman  <james@jwidman.com>
+
+	* src/GabberLogger.cc: actually, ios::app messes up
+    our messy XML/HTML log/spool system because it prevents us
+    from overwriting previously written closing tags like </spool>
+    Things will be much more sane in Gabber2, where we'll use the 
+    libxml2 goodness instead. 
+	* src/MessageManager.cc: same
+	
+2002-09-22  Julian Missig  <julian@jabber.org>
+
+	* autogen.sh: Note about ./macros being deprecated
+	* configure.in: Accidentally commented out something in previous commit
+	* src/GabberLogger.cc: Remove unnecessary include
+	
+2002-09-16  Frederic Crozat  <fred@crozat.net>
+
+	* src/GabberLogger.cc: see below
+	* src/MessageManager.cc: Fix for gcc >= 3.0 : default behaviour when opening 
+	ofstream with ios::ate has changed from append to truncate.. We must
+	explicitly add ios::app to prevent erasing spool/log
+
+2002-09-10  Julian Missig  <julian@jabber.org>
+	
+	* configure.in: Fix for gnome-common for newer auto*
+
+2002-08-20  James Widman  <j-widman@cornellcollege.edu>
+
+	* src/MessageManager.cc: raise ChatViews on activation (doesn't interfere
+          with the "raise" option in Preferences) as before, but less code this time
+	* src/MessageViews.cc: same; give windows focus when raising...only
+	  seems to work for iconified windows though...
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: same (reverted previous changes)
+
+2002-08-20  James Widman  <j-widman@cornellcollege.edu>
+
+	* src/MessageViews.cc: On roster entry activation, raise view.
+	* src/MessageViews.hh: Same
+	* src/RosterView.cc: Same
+
+2002-08-16  Julian Missig  <julian@jabber.org>
+
+	* src/ErrorManager.cc: Ugly hack because aim-t sucks
+
+2002-08-07  Julian Missig  <julian@jabber.org>
+
+	* Makefile.am: gabber.desktop.in and gabber.soundlist.in
+	* README: Instructions for non-gnomecc users
+	* gabber.desktop: gabber.desktop.in and gabber.soundlist.in
+	* gabber.desktop.in: same
+	* gabber.soundlist: same
+	* gabber.soundlist.in: same
+
+2002-07-25  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: create a new agent, rather than pointing around
+	* src/AgentInterface.cc: Help mrinal track down his bug, maybe?
+	* src/ContactInfoInterface.cc: gtkurl attached to About
+	* src/MessageViews.cc: proper sorting in groupchat
+
+2002-07-11  James Widman  <j-widman@cornellcollege.edu>
+
+	* src/ContactInfoInterface.cc: Don't repeat time zone info
+
+2002-07-09  Thomas "temas" Muldowney <temas@jabber.org>
+
+    * src/FTInterface.cc: Few fixes for HTTP handling
+
+2002-06-25  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Get rid of useless error
+	* src/Makefile.am: Fix automake 1.4 issues
+	* src/PrefsInterface.cc: Properly hide proxy server
+	* ui/Login_dlg.glade: same
+
+2002-06-24  Julian Missig  <julian@jabber.org>
+
+	* src/ChatView.cc: Nickname highlighting support
+	* src/ChatView.hh: same
+	* src/MessageViews.cc: Nickname highlighting in groupchat
+
+2002-06-22  James Widman  <j-widman@cornellcollege.edu>
+
+	* src/RosterView.cc: spooled normal msgs and ooochats from groupchat
+	  rooms now behave more sensibly when double-clicked.
+
+2002-06-22  Julian Missig  <julian@jabber.org>
+
+	* src/ChatView.cc: Patch from Andreas Fuchs <asfuchs@gmx.at> for \n\n
+	  problem with new xtext
+
+2002-06-22  Julian Missig  <julian@jabber.org>
+
+	* src/ChatView.cc: Work with new xtext
+	* src/ChatView.hh: same
+	* src/xtext.c: Grabbed from xchat 1.8.9
+	* src/xtext.h: same
+
+2002-06-16  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Only check for double clicks from lmb
+	* src/RosterView.cc: same
+
+2002-06-14  Julian Missig  <julian@jabber.org>
+
+	* src/Makefile.am: SSL stuff in EXTRA_DIST
+
+2002-06-13  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/AgentInterface.cc: Fixed crash when agent is left selected
+	* src/ConfigManager.cc: GPG keyserver is now configurable
+	* src/ConfigManager.hh: same
+	* src/GPGInterface.cc: same
+	* src/GPGInterface.hh: same
+	* src/PrefsInterface.cc: same
+	* src/PrefsInterface.hh: same
+	* ui/Prefs_win.glade: same
+
+2002-06-08  Julian Missig  <julian@jabber.org>
+	
+	* ui/Gabber_win.glade: Changed some menu names to be more GNOME2-ish
+
+2002-05-24  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: More fixes to "Default"
+
+2002-05-20  Julian Missig  <julian@jabber.org>
+
+	* src/MessageManager.cc: Properly play queue sound
+
+2002-05-19  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Don't sensitize "Default" if nick is ""
+
+2002-05-19  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* src/TCPTransmitter.cc: Fix to compile with gcc 3.1 (bug 557931)
+
+2002-05-17  Mike Szczerban  <mike@aspect.net>
+
+	* src/EventManager.cc: Add check for festival use
+
+2002-05-17  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Remove festival code
+
+2002-05-17  Mike Szczerban  <mike@aspect.net>
+
+	* src/ConfigManager.cc: Added Speech/UseFestival config option in
+	  ~/.gnome/Gabber
+	* src/ConfigManager.hh: same
+	* src/MessageViews.cc: Check config for festival use
+
+2002-05-16  Mike Szczerban  <mike@aspect.net>
+
+	* src/MessageViews.cc: Remove old testing festival stuff so
+	  we don't end up executing it twice upon getting an ooochat msg
+
+2002-05-16  Mike Szczerban  <mike@aspect.net>
+
+	* src/EventManager.cc: Add double-quote escaping so festival
+	  is executed properly when it is called
+	* README.cvs: Add explanation of new i18n stuff and glib2
+	  and glib2-devel packages
+
+2002-05-16  Julian Missig  <julian@jabber.org>
+
+	* src/TCPTransmitter.cc: memleak patch from Morten Brix Pedersen
+
+2002-05-12  Julian Missig  <julian@jabber.org>
+
+	* src/EventManager.cc: Only init festival path once
+	* src/EventManager.hh: same
+
+2002-05-12  Julian Missig  <julian@jabber.org>
+	
+	* configure.in: Upped version
+	* src/EventManager.cc: Check for festival first
+
+2002-05-12  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Don't give an event for our own gc msgs
+
+2002-05-12  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Group chat server messages now use 
+	  fromnick "Server"
+
+2002-05-12  Julian Missig  <julian@jabber.org>
+
+	* src/EventManager.cc: Checked in the basics of Mike Szczerban's
+	  festival patch -- more to come later
+
+2002-05-12  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Updates for new gettext (grr)
+	* src/EventManager.cc: New event manager for sounds and the like
+	* src/EventManager.hh: same
+	* src/GabberApp.cc: same
+	* src/GabberApp.hh: same
+	* src/Makefile.am: same
+	* src/MessageManager.cc: same
+	* src/MessageViews.cc: same
+	* src/MessageViews.hh: same
+
+2002-04-25  James Widman  <j-widman@cornellcollege.edu>
+
+	* src/RosterView.cc: on_DeleteUser_activate(): Yet another character
+	  encoding fix.
+
+2002-04-21  Julian Missig  <julian@jabber.org>
+
+	* src/GroupsInterface.cc: include vector
+
+2002-04-17  Julian Missig  <julian@jabber.org>
+
+	* src/RosterView.cc: Patch from Antoine Büsch <amx@free.fr>
+	  for the TODO item:
+		* Figure out /who/ is currently selected in the roster 
+		  before a refresh, and then after the refresh select 
+		  the same person 
+
+2002-04-17  James Widman  <j-widman@cornellcollege.edu>
+
+	* src/GabberLogger.cc: Decrypt messages before logging them in XML.
+
+2002-04-14  James Widman  <j-widman@cornellcollege.edu>
+
+	* src/GabberWin.cc: Added to/fromUTF8() calls.
+	* src/MessageViews.cc: same
+	* src/StatusInterface.cc: same
+
+2002-04-05  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Reply properly uses previous message
+
+2002-04-03  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Check for size_t to be used for socklen_t
+	* src/TCPTransmitter.cc: Use size_t for socklen_t when appropriate
+
+2002-04-03  Julian Missig  <julian@jabber.org>
+
+	* src/SSLAdapter.cc: Attempt to fix some SSL lockups
+
+2002-04-01  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Normal messages encrypt by default when they should
+
+2002-04-01  Julian Missig  <julian@jabber.org>
+
+	Patch from Phil Oleson <oz@nixil.net>
+	* configure.in: Proper socklen_t checking
+
+2002-03-30  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/ConfigManager.cc: Allow file transfer port to be set
+	* src/ConfigManager.hh: same
+	* src/FTInterface.cc: Fix several bugs
+	* src/StatusInterface.cc: Don't allow empty status
+	* src/StatusInterface.hh: same
+
+2002-03-28  Julian Missig  <julian@jabber.org>
+
+	* src/GabberLogger.cc: Use @ instead of _
+	* src/Makefile.am: ghttp.c (thanks mawis)
+
+2002-03-27  Julian Missig  <julian@jabber.org>
+
+	* src/FTInterface.cc: Got rid of unnecessary #includes
+	* src/TCPTransmitter.cc: same
+
+2002-03-26  Julian Missig  <julian@jabber.org>
+
+	* src/gtkspell.c: (change_color): Fix wide character bug (James Widman)
+
+2002-03-25  Julian Missig  <julian@jabber.org>
+
+	* doc/C/Makefile.am: Attempts to get XML docs to work
+	* doc/xmldocs.make: same
+
+2002-03-25  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Patch from James Widman to not convert
+	  toUTF8 multiple times in group chats
+
+2002-03-25  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: No more freeze/thaw
+	* src/RosterView.cc: same
+	* src/gtkurl.c: (change_color): Fix wide character bug (James Widman)
+
+2002-03-24  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Freeze/thaw tree during clicks
+	* src/RosterView.cc: Freeze/thaw tree during clicks
+
+2002-03-22  Julian Missig  <julian@jabber.org>
+
+	* src/xtext.c: Patch from Ryutaroh Matsumoto to fix line-wrapping
+
+2002-03-21  Julian Missig  <julian@jabber.org>
+
+	* acconfig.h: Changes in how AC_DEFINE is used
+	* configure.in: same
+	* src/TCPTransmitter.cc: same
+
+2002-03-21  Julian Missig  <julian@jabber.org>
+
+	* HACKING: Notes on glade
+	* configure.in: SOCKLEN_T
+	* src/FTInterface.cc: Patch from James Widman for http checking
+	* src/TCPTransmitter.cc: SOCKLEN_T
+
+2002-03-15  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: 'jabber' room appears before 'jdev'
+
+2002-03-15  Julian Missig  <julian@jabber.org>
+
+	* src/TCPTransmitter.hh: No need to include <sys/socket.h>
+
+2002-03-14  Julian Missig  <julian@jabber.org>
+
+	* src/GabberLogger.cc: Patch from ? (sourceforge is down) 
+	  to save a timestamp with XML log
+	* src/MessageViews.cc: Patch from James Widman to fix members 
+	  list growing problems in Group Chat window
+
+2002-03-09  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Don't save password if user says so
+	* src/GabberApp.cc: Handle parser errors
+	* src/GabberApp.hh: same
+	* src/GabberWin.cc: Display info when reconnecting
+	* src/GabberWin.hh: same
+	* src/PrefsInterface.cc: Don't save password if user says so
+
+2002-03-08  Julian Missig  <julian@jabber.org>
+
+	* src/MessageManager.cc: Don't autopopup for vfQueueMessage
+
+2002-03-06  Julian Missig  <julian@jabber.org>
+
+	Patch from James Widman:
+	* src/*: Updated to work with jabberoo 1.1.1 and libjudo 1.1.5
+
+2002-03-04  Julian Missig  <julian@jabber.org>
+
+	* src/MessageManager.cc: Fix intermittent lockups (thanks Douglas Robertson)
+
+2002-03-04  Julian Missig  <julian@jabber.org>
+
+	* acconfig.h: Detect solaris
+	* configure.in: same
+	* src/MessageViews.cc: UTF-8 fix from James Widman
+
+2002-03-02  Julian Missig  <julian@jabber.org>
+
+	Patch from James Widman:
+	* src/GabberApp.cc: Convert time to UTF-8
+	* src/GabberApp.hh: same
+
+2002-03-02  Julian Missig  <julian@jabber.org>
+
+	* README: Information about dialog positioning
+	* configure.in: Upped version, fixed sstream detection
+	* gabber.spec.in: Some fixes from Matthias Saou
+	* src/ContactInfoInterface.cc: Default not sensitive if no nickname
+	* src/MessageManager.cc: Don't automatically open normal messages always
+	* src/TCPTransmitter.cc: sstream detection fix
+
+2002-02-26  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* src/FilterInterface.cc: UTF8 fixes
+	* src/GabberLogger.cc: same
+	* src/PrefsInterface.cc: same
+
+2002-02-25  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* src/TCPTransmitter.cc: gcc 2.95.2 compatibility code fix
+
+2002-02-21  Benedikt Roth  <Benedikt.Roth@gmx.net>
+
+	* src/ContactInfoInterface.cc:
+	(ContactInfoDlg::parse_vcard)
+	The ContactInfo_Nickname_Default_btn should only be sensitive if the
+	current nickname and the old nickname are different.
+
+	(MyContactInfoWin::get_vCard)
+	Always use the description in the vcard for MyContactInfo_About_txt,
+	this makes it possible to set the description to an empty string.
+	(Unfortunately the 'standard' description 'Plain old Gabber user'
+	won't be used anymore, or it should be set when creating a new user)
+
+	* src/GabberWin.cc: (GabberWin::on_Show_selected)
+	When updating just the presence status message,
+	use the old one as default in the dialog.
+
+	* src/StatusInterface.cc: (ShowDlg::ShowDlg)
+	Remove unused variable.
+	Fix bug where instead of the Presence type
+	the status message was shown next to the icon.
+	Reordered code to match appearance in the UI.
+	When clicking the cancel button just close the dialog.
+
+	* src/RosterView.cc: (RosterView::handle_RemoveUserDlg)	
+	When removing a transport first send an unavailable presence, so
+	that all users of that transport will go offline.
+
+2002-02-19  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: ++it instead of it++ for faster iterations
+	* src/GabberWin.cc: Send general invisible presence /and/ directly 
+	  to agents
+
+2002-02-19  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Read Previous!
+	* src/MessageViews.hh: same
+	* ui/MessageRecv_win.glade: same
+
+2002-02-19  Julian Missig  <julian@jabber.org>
+
+	* Makefile.am: Include README.proxy
+	* NEWS: Updated
+	* TODO: Updated
+	* configure.in: Upped version
+	* src/TCPTransmitter.cc: strstream, not stdstream
+
+2002-02-17  Julian Missig  <julian@jabber.org>
+
+	* acconfig.h: USING_STD_SSTREAM
+	* configure.in: Check for STL-compliant sstream
+	* src/TCPTransmitter.cc: #ifdef sstream
+
+2002-02-17  Julian Missig  <julian@jabber.org>
+
+	* TODO: Cleaned up. A LOT.
+	* configure.in: Upped version
+	* src/MessageManager.cc: Do not display multiple views of the same type
+	  from the same person; leave the rest queued.
+	* src/MessageManager.hh: Added vfQueueMessage flag, which means that
+	  a view can display multiple messages, but not all at once
+	* src/MessageViews.cc: Normal messages are vfQueueMessage
+	* src/MessageViews.hh: same
+	* src/S10nInterface.cc: This is a dialog, not a window. pfft.
+	* src/S10nInterface.hh: same
+
+2002-02-16  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: Ignore extensions in search replies
+	* src/GabberApp.cc: Handle presence errors (server not supporting invisible)
+	* src/GabberApp.hh: same
+	* src/MessageViews.cc: Hide body if no body present
+
+2002-02-15  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: toUTF8 call
+
+2002-02-12  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInterface.cc: Added toUTF8 call
+	* src/GCInterface.cc: Fixed toUTF8 call
+
+2002-02-10  Julian Missig  <julian@jabber.org>
+
+	* src/*: Patch from James Widman plus additional changes by me.
+	  This adds set_parent to many of the dialogs, making dialog 
+	  management *much* nicer.
+
+2002-02-09  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Removed --enable-optimize - it causes too many problems
+	* src/GCInterface.cc: Some UTF-8 changes
+	* src/GabberWin.cc: evtMyPresence changes
+	* src/GabberWin.hh: same
+	* src/Makefile.am: Fixed includes
+	* src/MessageViews.cc: evtMyPresence changes
+	* src/MessageViews.hh: same
+
+2002-02-04  Julian Missig  <julian@jabber.org>
+
+	* src/GabberUtility.cc: Invalid show
+	* src/MessageManager.cc: Patch from James Widman
+
+2002-02-04  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Fix IPv6 check
+
+2002-02-03  Julian Missig  <julian@jabber.org>
+
+	* src/GabberLogger.cc: Addition to James Widman's patch.
+
+2002-02-03  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWidgets.cc: Fixed XMMS display bug
+	* src/StatusInterface.cc: same
+
+2002-02-03  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version. Default IPv6 support off.
+
+2002-02-03  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Patch from 
+	  James Widman <j-widman@cornellcollege.edu> to simplify logging.
+	* src/ConfigManager.hh: same
+	* src/GabberApp.cc: same
+	* src/GabberLogger.cc: same
+	* src/GabberLogger.hh: same
+	* src/MessageManager.cc: same
+
+2002-02-03  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Default all groups to be expanded
+	* src/ConfigManager.hh: same
+	* src/GabberWin.cc: same
+	* src/RosterView.cc: same
+	* src/RosterView.hh: same
+	* ui/Login_dlg.glade: Default priority to 9
+	* ui/Status_dlg.glade: same
+
+2002-02-03  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* configure.in: --disable-ipv6 did enable the IPv6 code. Now fixed.
+			Without --enable-ipv6 and --disable-ipv6 there is
+			now auto detection if the libc can handle IPv6.
+
+2002-02-02  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* src/TCPTransmitter.cc: Bugfix
+
+2002-02-01  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Open agent info for agents
+
+2002-02-01  Julian Missig  <julian@jabber.org>
+
+	* src/GabberLogger.cc: Fixed log rotation bug
+
+2002-01-31  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Fixed bug with closing by wm "x"
+	* src/ContactInfoInterface.hh: same
+	* src/GabberWin.cc: Updated about dialog
+
+2002-01-31  Julian Missig  <julian@jabber.org>
+
+	* src/AutoAway.cc: Do set auto-away if user was Free to Chat
+	* src/GabberWin.cc: Don't set auto-away if user was invisible
+
+2002-01-31  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: Brandon's suggested fixes to logging
+	* src/PrefsInterface.cc: same
+	* src/PrefsInterface.hh: same
+
+2002-01-28  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/Makefile.am: Basic jabberd 1.4.2 invisibility support. 
+	                       it doesn't display in the status docklet
+	                       and there's no error checking. But it works
+	                       and that stuff will be added later.
+	* pixmaps/invisible.xpm: same
+	* src/GabberUtility.cc: same
+	* src/GabberWin.cc: same
+
+2002-01-28  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/Makefile.am: New icons from Kenny Graunke
+	* pixmaps/xmms_paused.xpm: same
+	* pixmaps/xmms_stopped.xpm: same
+	* src/GabberWidgets.cc: Music icon changes
+	* src/GabberWin.cc: Crash fixes
+	* src/MessageViews.cc: set_parent on close dialog
+	* src/StatusInterface.cc: Music icon changes
+	* src/TCPTransmitter.hh: port is guint
+
+2002-01-27  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/xmms.xpm: New music icon from Kenny Graunke!
+
+2002-01-27  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Fixed bug with Log out reason
+	* src/StatusInterface.cc: same
+
+2002-01-27  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Log out reason support
+	* src/GabberWin.hh: same
+	* src/StatusInterface.cc: same
+	* ui/Gabber_win.glade: same
+	* ui/Login_dlg.glade: same
+
+2002-01-26  Julian Missig  <julian@jabber.org>
+
+	* src/AgentInterface.cc: Made reg druid much nicer
+	* src/AgentInterface.hh: same
+	* src/PrefsInterface.cc: username validity check
+	* src/WelcomeDruid.cc: same
+	* ui/RegDruid_win.glade: Made reg druid much nicer
+
+2002-01-26  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: Properly check node types, which fixes many crashes
+	* src/ContactInterface.cc: same
+	* src/GabberApp.cc: same
+	* src/MessageViews.cc: same
+
+2002-01-26  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version since we're at a point where 
+	                Gabber should work again ;)
+
+2002-01-22  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: Trying to fix libjudo 1.1.1 issues
+	* src/AgentInterface.cc: same 
+	* src/ContactInfoInterface.cc: same
+	* src/FTInterface.cc: same
+	* src/GabberApp.cc: same
+	* src/GabberWidgets.cc: same
+	* src/MessageViews.cc: same
+	* src/RosterView.cc: same
+	* src/StatusInterface.cc: same
+	* src/WelcomeDruid.cc: same
+
+2002-01-21  Julian Missig  <julian@jabber.org>
+
+	* *: Updated to jabberoo 1.1.0, which fixes many bugs
+
+2002-01-21  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Fix for defining MACOSX
+	* src/FTInterface.cc: Default to insensitive properly
+	* ui/FTSend_dlg.glade: same
+
+2002-01-19  Mike Szczerban  <mike@aspect.net>
+
+	* src/FTInterface.cc: Make 'Send' button in send dialog insensitive
+	  unless the file exists
+	* src/FTInterface.hh: same
+
+2002-01-19  Julian Missig  <julian@jabber.org>
+
+	* README: Added info about GNOME sound server
+	* src/GabberApp.cc: indent cleanup
+
+2002-01-18  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* src/TCPTransmitter.cc: no auth to SOCKS5 if we don't have auth info
+
+2002-01-16  Julian Missig  <julian@jabber.org>
+
+	* src/PrefsInterface.cc: Added proxy auth UI and SOCKS5 UI
+	* src/PrefsInterface.hh: same
+	* ui/Login_dlg.glade: same
+
+2002-01-16  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* src/GabberApp.cc: support for SOCKS5
+	* src/TCPTransmitter.cc: same
+	* src/TCPTransmitter.hh: same
+
+2002-01-16  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* src/GabberApp.cc: password support for http proxy
+	* src/TCPTransmitter.cc: same
+	* src/TCPTransmitter.hh: same
+
+2002-01-16  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* src/TCPTransmitter.cc: some code cleanup
+	* src/TCPTransmitter.hh: same
+
+2002-01-15  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/ConfigManager.cc: Added more proxy keys
+	* src/ConfigManager.hh: same
+	* src/PrefsInterface.cc: Proxy UI
+	* ui/Login_dlg.glade: same
+
+2002-01-15  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Patch from James Widman 
+	  <j-widman@cornellcollege.edu> which should fix some log issues
+	* src/ConfigManager.hh: same
+	* src/GabberLogger.cc: same
+	* src/GabberLogger.hh: same
+
+2002-01-16  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* src/GabberApp.cc: SOCKS4 support for server connect
+	* src/TCPTransmitter.cc: same
+	* src/TCPTransmitter.hh: same
+
+2002-01-14  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* README.proxy: information updated
+	* src/GabberApp.cc: setting proxy type in TCPTransmitter
+	* src/TCPTransmitter.cc: automatically detect proxy request
+	* src/TCPTransmitter.hh: same
+
+2002-01-13  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Added extra proxy keys
+	* src/ConfigManager.hh: same
+	* ui/Login_dlg.glade: Working on proxy config
+
+2002-01-13  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* README.proxy: information on proxy support
+	* src/TCPTransmitter.cc: support for http proxies
+	* src/TCPTransmitter.hh: same
+
+2002-01-13  Julian Missig  <julian@jabber.org>
+
+	* src/AgentInterface.cc: Better agent error message
+	* ui/FTSend_dlg.glade: Better label for IP address
+	* ui/MessageRecv_win.glade: Better layout for JID
+
+2002-01-13  Julian Missig  <julian@jabber.org>
+
+	* src/MessageManager.cc: Fixed issue with confusion between groupchat
+	  messages and chat messages
+	* src/MessageViews.cc: same
+	* src/MessageViews.hh: same
+
+2002-01-13  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Now using PrettyJID for resource select
+	* src/ContactInfoInterface.hh: same
+	* src/MessageViews.cc: Try to fix up x:oob support some
+	* ui/ContactInfo_dlg.glade: Now using PrettyJID for resource select
+	* ui/MessageRecv_win.glade: Try to fix up x:oob support some
+
+2002-01-12  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWidgets.cc: Use substitute when truncating
+	* src/Makefile.am: Don't compile URLInterface
+	* src/MessageManager.cc: Don't use URLInterface
+	* src/MessageViews.cc: Normal messages now handle x:oob
+	* ui/MessageRecv_win.glade: same
+
+2002-01-11  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: "Force plaintext" checkbutton
+	* src/ConfigManager.hh: same
+	* src/GabberApp.cc: same
+	* src/PrefsInterface.cc: same
+	* src/PrefsInterface.hh: same
+	* ui/Gabber_win.glade: Renamed some things
+	* ui/Login_dlg.glade: same
+	* ui/Prefs_win.glade: same
+
+2002-01-12  Matthias Wimmer <mail@matthias-wimmer.de>
+
+	* src/TCPTransmitter.cc: bugfix in getsockname()
+
+2002-01-11  Matthias Wimmer <mail@matthias-wimmer.de>
+
+	* src/TCPTransmitter.cc: Send hostname in filetransfer URIs if
+	  configured with IPv6. Hostnames can be used by IPv4 and IPv6
+	  clients, pure IP addresses not.
+	  connect() now also accepts IPv4 addresses as host.
+	* src/FTInterface.cc: Adapted URI parser to parse IPv6
+
+2002-01-10  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: Default nickname to be the username
+	* src/GabberApp.cc: Fixed bug with detecting agents
+
+2002-01-09  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/MessageViews.cc: Implemented /join in group chats
+	* ui/FTSend_dlg.glade: Label re-alignment
+
+2002-01-10  Matthias Wimmer <mail@matthias-wimmer.de>
+
+	* TODO: Don't autoselect local IPs, if another is possible - done
+	* src/FTInterface.cc: basic support for file transfer over IPv6
+	* src/TCPTransmitter.cc: detection of sender's IP now in
+	* src/TCPTransmitter.hh: TCPTransmitter instead of FTInterface
+
+2002-01-09  Matthias Wimmer <mail@matthias-wimmer.de>
+
+	* src/TCPTransmitter.cc: removed inclusion of config.h / IPv6 updates
+	* src/TCPTransmitter.hh: inserted inclusion of GabberConfig.hh
+	* src/FTInterface.cc: IPv6 updates
+
+2002-01-07  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Release 0.8.6
+
+2002-01-06  Mike Szczerban  <mike@aspect.net>
+
+	* src/AutoAway.cc: Fixed various cases so that the auto-away timer and
+	  display do not kick in when they are not supposed to.
+
+2002-01-06  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWidgets.cc: Fixed issues with updating nickname
+
+2002-01-06  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Fixed add contact button in normal message dialogs
+
+2002-01-06  Matthias Wimmer <mail@matthias-wimmer.de>
+
+	* configure.in: Flagged --enable-ipv6 as experimental
+
+2002-01-06  Mike Szczerban  <mike@aspect.net>
+
+	* src/AutoAway.cc: fixed auto-away timer display to show time
+	  spent in auto-away mode, not just time spent idle
+
+2002-01-06  Mike Szczerban  <mike@aspect.net>
+
+	* src/AutoAway.cc: added auto-away notification and timer
+	* src/AutoAway.hh: same
+
+2002-01-06  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Properly detect whether to use last 
+	  logged out or idle
+
+2002-01-05  Julian Missig  <julian@jabber.org>
+
+	* doc/C/Makefile.am: Install gabber.sgml
+	* ui/Gabber_win.glade: Add handlebar again
+
+2002-01-03  Julian Missig  <julian@jabber.org>
+
+	* src/*.cc: Added #include "GabberConfig.hh" where appropriate
+
+2002-01-02  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Set the sensitivity of the Add Contact button
+	  in normal messages properly
+
+2002-01-01  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Additional XMMS checks for playlist length
+
+2001-12-31  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* acconfig.h: Added configure switch to enable IPv6
+	* configure.in: same
+
+2001-12-31  Julian Missig  <julian@jabber.org>
+
+	* src/FTInterface.cc: Mistake on my part. sorry
+	* src/FTInterface.hh: same
+
+2001-12-30  Julian Missig  <julian@jabber.org>
+
+	* src/FTInterface.cc: Changed disclosure triangle again
+	* src/Makefile.am: remove -DENABLE_NLS
+	* ui/FTTransfer_dlg.glade: Changed disclosure triangle again
+
+2001-12-29  Julian Missig  <julian@jabber.org>
+
+	* src/FTInterface.cc: More Information is now Show/Hide details
+	* src/FTInterface.hh: same
+	* src/MessageViews.cc: Update message title properly
+	* ui/FTTransfer_dlg.glade: More Information is now Show/Hide details button
+
+2001-12-29  Julian Missig  <julian@jabber.org>
+
+	* gabber.spec.in: Apparently some people do build RPMs straigt from CVS
+
+2001-12-29  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* gabber.spec.in: Some fixes based on freshrpms .spec
+	* po/ChangeLog: Updated from GNOME CVS
+	* po/el.po: same
+	* po/ja.po: same
+	* po/sv.po: same
+
+2001-12-28  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Display XMMS info in the status bar
+	* src/StatusInterface.cc: same
+	* src/StatusInterface.hh: same
+	* ui/Gabber_win.glade: same
+
+2001-12-27  Julian Missig  <julian@jabber.org>
+
+	* gabber.desktop: Updated from GNOME CVS
+	* po/pt.po: same
+	* src/AddContactDruid.cc: JabberID entry on first page
+	* src/AddContactDruid.hh: same
+	* src/ConfigManager.cc: Settings for message and chat width/height
+	* src/ConfigManager.hh: same
+	* src/MessageViews.cc: same
+	* ui/AUDruid_win.glade: JabberID entry on first page
+	* ui/MessageSend_win.glade: Settings for message and chat width/height
+
+2001-12-26  Julian Missig  <julian@jabber.org>
+
+	* src/ChatView.cc: Rolled back to earlier version of xtext, since
+	  the latest version crashes a lot, even though it does fix display
+	  bugs... sigh. Note that rev for new xtext was 1.28
+	* src/xtext.c: same rev for new xtext was 1.8
+	* src/xtext.h: same rev for new xtext was 1.5
+
+2001-12-24  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/GabberWidgets.cc: Added JID selection
+	* src/GabberWidgets.hh: same
+	* src/MessageViews.cc: New Blank Message uses PrettyJID's JID select
+
+2001-12-23  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInterface.cc: Use PrettyJID for resource selection
+	* src/ContactInterface.hh: same
+	* src/FTInterface.cc: same
+	* src/FTInterface.hh: same
+	* src/GabberWidgets.cc: Resource selection now built into PrettyJID
+	* src/GabberWidgets.hh: same
+	* src/MessageViews.cc: Use PrettyJID in MessageSend
+	* src/MessageViews.hh: same
+	* ui/ContactSend_dlg.glade: Use PrettyJID for resource selection
+	* ui/FTSend_dlg.glade: same
+	* ui/MessageSend_win.glade: same
+	* ui/OOOChat_win.glade: same
+
+2001-12-23  Julian Missig  <julian@jabber.org>
+
+	* src/GCInterface.cc: UTF-8 conversion bugfixes
+	* src/GabberWidgets.cc: Added resource selection capabilities to PrettyJID
+	* src/GabberWidgets.hh: same
+
+2001-12-19  Kenny Graunke  <kenny@whitecape.org>
+
+	* src/MessageViews.cc: Make Ctrl really do the opposite like it should
+
+2001-12-17  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWidgets.cc: Ability to get JID, since it may change
+	* src/GabberWidgets.hh: same
+	* src/MessageViews.cc: Some UTF-8 fixes inspired by alex_
+	* ui/Gabber_win.glade: Why can't libglade just use GNOME settings for
+	  GNOME widgets like the GNOME dock item?
+
+2001-12-14  Julian Missig  <julian@jabber.org>
+
+	* src/ChatView.cc: Updated for new xtext
+	* src/ConfigManager.cc: Added spelling lang 
+	* src/ConfigManager.hh: same
+	* src/GabberApp.cc: Getting ready for spelling lang...
+	* src/GabberUtility.cc: Removed tear-off from presence list
+	* src/GabberWidgets.cc: Getting ready for resource select
+	* src/GabberWidgets.hh: same
+	* src/PrefsInterface.cc: Fixed bug with port not being loaded properly
+	* src/xtext.c: Updated from latest xchat, speed improvements etc
+	* src/xtext.h: same
+
+2001-12-09  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Fixed bug with SSL compilation
+
+2001-12-09  Julian Missig  <julian@jabber.org>
+
+	* src/URLInterface.cc: Patch from safiullin@mail.ru to fix UTF-8 issues
+
+2001-12-09  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/GabberWin.cc: Fixed bug with displaying toolbars
+	* src/PrefsInterface.cc: Fixed crash on 'ok' - I *think*
+
+2001-12-02  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Only load messages from spool after G_Win
+	  is created.
+	* src/MessageManager.cc: same
+	* src/MessageManager.hh: same
+	* src/MessageViews.cc: Patch from Mike Szczerban to not display 
+	  "Offline:", only "Offline" if there is no status.
+	* src/PrefsInterface.cc: Try to fix some prefs bugs
+
+2001-11-29  Julian Missig  <julian@jabber.org>
+
+	* ui/*.glade: program_name should be Gabber instead of gabber
+
+2001-11-29  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Fixed bug with toolbar settings
+	* src/PrefsInterface.cc: same
+
+2001-11-29  Julian Missig  <julian@jabber.org>
+
+	* TODO: Added some stuff for temas
+	* configure.in: Upped version
+	* gabber.soundlist: Updated from GNOME CVS
+	* po/ChangeLog: same
+	* po/fr.po: same
+	* ui/FTSend_dlg.glade: Attempting to fix some GNOME Entry issues
+	* ui/GCJoin_dlg.glade: same
+	* ui/Login_dlg.glade: same
+
+2001-11-27  Thomas Muldowney <temas@jabber.org>
+
+    * src/GabberGPG.cc:  Use tmpnam so we can work with g++3
+
+2001-11-27  Julian Missig  <julian@jabber.org>
+
+	* src/ChatView.hh: gcc3 compatibility fixes
+	* src/FilterInterface.cc: gcc "2.96" comptability fixes
+	* src/MessageViews.cc: return true for /away in group chat
+
+2001-11-27  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: Added comments (woo)
+	* src/SSLAdapter.cc: include iostream (gcc3 fix)
+	* src/TCPTransmitter.cc: ::listen instead of std::listen (gcc3 fix)
+
+2001-11-25  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Changes to loading/saving gnome entry history
+	* src/GabberWin.cc: Use XMMS timer even if XMMS isn't running
+	* ui/FTSend_dlg.glade: GNOME Entry should have history id
+
+2001-11-25  Julian Missig  <julian@jabber.org>
+
+	* src/FTInterface.cc: UTF-8 conversion fixes
+	* src/MessageViews.cc: Don't display JabberID in message recv view
+	* ui/MessageRecv_win.glade: Wrap long subject lines
+
+2001-11-25  Julian Missig  <julian@jabber.org>
+
+	* src/ChatView.hh: GCC3 compliance fixes
+	* src/DebugInterface.hh: same
+
+2001-11-25  Julian Missig  <julian@jabber.org>
+
+	* src/GabberLogger.cc: Some gcc3 compliance fixes
+	* src/MessageManager.cc: same
+
+2001-11-25  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: Bug fix when adding users
+	* src/GabberWidgets.cc: Bug fix for whether user is on roster or not
+
+2001-11-25  Julian Missig  <julian@jabber.org>
+
+	* NEWS: Patch from Mike Szczerban <mike@aspect.net>
+	* src/AgentInterface.cc: same
+	* src/ConfigManager.cc: Trying for some gcc3 compliance
+	* src/ConfigManager.hh: same
+	* src/FTInterface.cc: LISTEN_PORT const at top of file
+	* src/MessageManager.cc: Trying for some gcc3 compliance
+	* src/MessageViews.cc: same
+	* src/PrefsInterface.cc: same
+	* src/RosterView.cc: same
+	* src/TCPTransmitter.cc: Bug fix when port is non-zero
+
+2001-11-25  Brandon  <brandon@aspect.net>
+
+	* src/GPGInterface.cc: removed throw-keyid from gpg command-line
+	* src/RosterView.cc: UTF conversion fix (finally checking this in!!)
+
+2001-11-24  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWidgets.cc: is_on_roster() function
+	* src/GabberWidgets.hh: same
+	* src/MessageManager.cc: New Normal Message Recv view has landed
+	* src/MessageViews.cc: same
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: same
+	* ui/Makefile.am: same
+	* ui/MessageRecv_win.glade: same
+	* ui/MessageSend_win.glade: same
+	* ui/Message_win.glade: same
+
+2001-11-24  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: Don't pop up for agents
+	* src/AgentInterface.cc: isTransport -> isAgent
+	* src/GabberApp.cc: same
+	* src/GabberApp.hh: same
+	* src/GabberWin.cc: accelerate() menus
+	* src/MessageViews.cc: Moved some common functions to MessageUtil
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: Agent removal is now all nice and stuff
+	* src/RosterView.hh: same
+
+2001-11-24  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Some fixes for normal message send dlg
+	* src/MessageViews.hh: same
+	* src/RosterInterface.cc: Roster Import Really Does Work Now
+	* src/RosterInterface.hh: same
+	* ui/Gabber_win.glade: Delete Contact -> Remove Contact
+	* ui/MessageSend_win.glade: Some fixes for normal message send dlg
+
+2001-11-23  Julian Missig  <julian@jabber.org>
+
+	* NEWS: Updated
+	* configure.in: Upped version
+	* src/GabberApp.cc: Logs are always resource-ignorant for now
+	* src/GabberWin.cc: New normal message send dialog has landed.
+	* src/MessageViews.cc: same
+	* src/MessageViews.hh: same
+	* src/PrefsInterface.cc: Fixed bug with GPG
+	* src/RosterView.cc: New normal message send dialog has landed.
+	* ui/Makefile.am: same
+	* ui/MessageSend_win.glade: same
+
+2001-11-21  Konrad Podloucky  <konrad@crunchy-frog.org>
+
+	* src/TCPTransmitter.cc: fixed a small bug. size_t != socklen_t
+	                         Now compiles fine on alpha once again.
+
+2001-11-20  Julian Missig  <julian@jabber.org>
+
+	* configure.in: New translations
+	* gabber.desktop: Updated from GNOME CVS
+	* gabber.soundlist: same
+	* po/ChangeLog: same
+	* po/POTFILES.in: Added URLInterface
+	* po/ja.po: Updated from GNOME CVS
+	* po/pt.po: same
+	* po/sk.po: same
+	* po/sv.po: same
+	* po/zh_TW.po: same
+	* src/RosterInterface.cc: Basic Roster Import attempt
+	* ui/Gabber_win.glade: same
+
+2001-11-18  Frédéric Crozat  <fred@crozat.net>
+
+	* src/MessageViews.cc: fix missing UTF8 conversion for username 
+	in chat view
+
+2001-11-18  Julian Missig  <julian@jabber.org>
+
+	* acconfig.h: ifdef's for MacOS X - hopefully it works fine now
+	* configure.in: same
+	* src/ConfigManager.cc: same
+	* src/TCPTransmitter.cc: same
+
+2001-11-16  Julian Missig  <julian@jabber.org>
+
+	* src/FTInterface.cc: Only One description for files
+	* src/GabberWin.cc: Try to fix some XMMS bugs
+	* ui/FTRecv_dlg.glade: Only One description for files
+
+2001-11-15  Julian Missig  <julian@jabber.org>
+
+	* src/FTInterface.cc: Fix compile errors for some g++ versions.
+
+2001-11-14  Julian Missig  <julian@jabber.org>
+
+	* ui/MyContactInfo_win.glade: Removing avatar tab, probably won't 
+	  need it for a while
+
+2001-11-12  Julian Missig  <julian@jabber.org>
+
+	* src/xtext.c: Allow for gdkxft anti-aliasing.
+
+2001-11-12  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version.
+	* gabber.desktop: Updated translation from GNOME CVS
+	* gabber.soundlist: same
+	* po/ChangeLog: same
+	* po/ca.po: same
+	* po/sk.po: same
+
+2001-11-10  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: No longer @ jump
+	* src/MessageViews.cc: Ctrl+w to close windows
+
+2001-11-09  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Added several translations
+	* po/*: same and updated several from GNOME CVS
+
+2001-11-08  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Added groupchat logging option
+	* src/ConfigManager.hh: same
+	* src/GabberLogger.cc: Fixed some things with XML logging
+	* src/MessageManager.cc: same
+	* src/PrefsInterface.cc: Added groupchat logging option
+	* src/PrefsInterface.hh: same
+	* src/TCPTransmitter.cc: Fixed #include <config.h> order
+
+2001-11-06  Julian Missig  <julian@jabber.org>
+
+	* src/FTInterface.cc: #include <gnome-util.h> as needed
+	* src/GabberApp.cc: same
+	* src/GabberLogger.cc: same
+	* src/GabberWidgets.cc: same
+	* src/MessageManager.cc: same
+	* src/RosterView.cc: same
+
+2001-11-05  Frédéric Crozat  <fred@crozat.net>
+
+	* configure.in: fix aclocal.m4 autogeneration
+
+2001-11-04  Julian Missig  <julian@jabber.org>
+
+	* src/FTInterface.cc: Make translations nicer
+
+2001-11-04  Thomas "temas" Muldowney <temas@jabber.org>
+
+    * src/FTInterface.cc:  Time left should be correct now.  The speed and
+                           size left labels should redraw better.  When one
+                           side disconnects we now get an error dialog.
+                           Dialog closes when the transfer is complete.  Store
+                           that we're cleaning up when we click the stop
+                           button to avoid a few nasty things.
+    * src/FTInterface.hh:  private variable for cleanup state on transfer.
+    * src/TCPTransmitter.cc:  when we get an error we still need disconnected
+                              events to fire.  You now have to tell the TCPT
+                              to start a poll on a connection (transfers
+                              really didn't like having extra bytes in them).
+    * src/TCPTransmitter.hh:  Added the startPoll() public Transmitter
+                              function
+    * src/GabberApp.cc:  Start the transmitter poller on the main connection.
+    * .cvsignore:  Ignore the jabberoo and po directories, they should be
+                   committed seperately.
+
+2001-11-04  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Use %s
+
+2001-11-04  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Removed reference to libunicode.a
+	* src/GroupsInterface.cc: Use %s
+	* ui/OOOChat_win.glade: Changed buttons slightly
+
+2001-11-04  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	
+2001-11-03  Thomas "temas" Muldowney <temas@jabber.org>
+    
+    * src/FTInterface.cc:  Fixed some nasty logic bugs that messed up
+                           receiving.  Cleaned up the recving UI a bit.
+                           Forced the progress bar to attempt and redraw when
+                           we update it's level.  The labels still seem to
+                           have some problems redrawing but I'm guessing
+                           that's a larger problem now.
+    * src/TCPTransmitter.cc:  Fixed some initial flag values that were unset
+                              resulting in some odd behaivour.
+                            
+2001-11-03  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Extra header
+	* src/GabberUtility.cc: substitute for simple %s strings
+	* src/GabberUtility.hh: same
+	* src/GabberWidgets.cc: same
+	* src/MessageViews.cc: same
+	* ui/Gabber_win.glade: Hide Import Roster
+	* ui/OOOChat_win.glade: Use %s in this dialog
+
+2001-11-03  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/Makefile.am: Added bigger send/receive pixmaps
+	* pixmaps/glade-receive-file.xpm: same
+	* pixmaps/glade-send-file.xpm: same
+	* src/MessageViews.cc: Minor change in history button
+
+2001-11-03  Julian Missig  <julian@jabber.org>
+
+	* src/FTInterface.cc: Show sending to/from, various UI fixes
+	* src/FTInterface.hh: same
+
+2001-11-03  Thomas "temas" Muldowney <temas@jabber.org>
+
+    * src/FTInterface.cc:  Show the transfer speed (mostly untested).
+    * src/FTInterface.hh:  same
+
+2001-11-03  Thomas "temas" Muldowney <temas@jabber.org>
+
+    * src/FTInterface.cc:  Moved to the newer and slicker transfer dialog.
+                           Shows what we think the best IP choice is in the
+                           send dialog.
+    * src/FTInterface.hh:  Added vars for the new transfer dialog
+    * ui/FTTransfer_dlg.glade:  Removed the old crap dialog, I have a backup
+                                if anyone actually cares.
+    * ui/FTSend_dlg.glade:  Added the combo for the best guess IP
+
+2001-11-02  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Dynamically shows only appropriate info
+	* src/ContactInfoInterface.hh: same
+	* src/GabberWin.cc: Changed default preset messages
+	* ui/ContactInfo_dlg.glade: Dynamically shows only appropriate info
+
+2001-10-31  Julian Missig  <julian@jabber.org>
+
+	* NEWS: Various updates
+	* README: Finally up-to-date
+	* configure.in: Upped version
+	* src/GabberUtility.cc: "Busy" instead of "Do Not Disturb"
+	* src/GabberWidgets.cc: Support gabber:x:music:info
+	* src/GabberWin.cc: Fixed an obvious presence bug (thanks stpeter)
+	* src/GabberWin.hh: same
+
+2001-10-26  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWidgets.cc: Using <state> in music:info now instead of 
+	  title hack.
+	* src/GabberWin.cc: same
+
+2001-10-26  Julian Missig  <julian@jabber.org>
+
+	* gabber.desktop: Updated from GNOME CVS
+	* gabber.soundlist: same
+	* gabber.spec.in: Added some BuildRequires
+	* po/ChangeLog: Updated from GNOME CVS
+	* po/da.po: same
+	* po/fr.po: same
+
+2001-10-20  Kenny Graunke  <kenny@whitecape.org>
+
+	* ui/GCJoin_dlg.glade: Make the window non-resizable.
+
+2001-10-20  Julian Missig  <julian@jabber.org>
+
+	* src/ChatView.cc: Fixed issues with /me *blush*
+
+2001-10-20  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Don't repeatedly send presence. Bad julian.
+
+2001-10-20  Julian Missig  <julian@jabber.org>
+
+	* src/PrefsInterface.cc: Pressing @ in Login dlg goes to server field
+	* src/PrefsInterface.hh: same
+
+2001-10-20  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* gabber.desktop: Updaed from GNOME CVS
+	* po/ChangeLog: same
+	* po/es.po: same
+	* src/AddContactDruid.cc: Pressing @ goes to server field
+	* src/AddContactDruid.hh: same
+
+2001-10-20  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Display whether the song is stopped or paused.
+
+2001-10-20  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Patch from Dekar to disable toolbar buttons when
+	  disconnected.
+	* src/URLInterface.cc: Let's try calling them Web Links
+	* ui/URLRecv_dlg.glade: same
+
+2001-10-18  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Fixed a crash if XMMS isn't running. (thanks Mozillion!)
+
+2001-10-13  Julian Missig  <julian@jabber.org>
+
+	* gabber.desktop: Updated from GNOME CVS
+	* gabber.soundlist: same
+	* po/ChangeLog: same
+	* po/da.po: same
+	* po/es.po: same
+	* po/fr.po: same
+	* po/no.po: same
+	* po/sv.po: same
+
+2001-10-13  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: Gnome::Client as a priv var
+	* src/GabberApp.hh: same
+	* src/GabberWidgets.cc: Convert song titles from UTF-8 (doh!)
+	* src/GabberWin.cc: Convert song titles to UTF-8 (doh!)
+
+2001-10-09  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: Pseudo-GNOME Session support kind of maybe
+	* src/GabberApp.hh: same
+
+2001-10-08  Julian Missig  <julian@jabber.org>
+
+	* TODO: Updated
+	* gabber.spec.in: --disable-xmms always
+	* ui/FTTransfer_dlg.glade: Nice transfer dialog
+	* ui/Login_dlg.glade: Wording change
+	* ui/Message_win.glade: Work on the new dialog
+	* ui/OOOChat_win.glade: Layout fix
+
+2001-10-06  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Fixed issues with people's presence changing
+	  to not support encryption while a chat is open. (Dekar's bug)
+
+2001-10-06  Julian Missig  <julian@jabber.org>
+
+	* README: Updated dependencies
+	* src/ConfigManager.cc: Fixed a logic error which would result 
+	  in the server being jabber.com for first time users.
+
+2001-10-06  Julian Missig  <julian@jabber.org>
+
+	* po/ChangeLog: Pulled from GNOME CVS
+	* po/ja.po: same
+
+2001-10-05  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* gabber.spec.in: --disable-xmms by default
+
+2001-10-02  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Check for running XMMS before timer hookup
+
+2001-10-02  Frédéric Crozat  <fred@crozat.net>
+
+	* po/fr.po: update french translation
+
+2001-10-01  Julian Missig  <julian@jabber.org>
+
+	* src/Makefile.am: Remove Gabber.hh
+
+2001-09-30  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/Makefile.am: Sorry temas, I made my own temp file icons
+	* pixmaps/glade-filetransfer.xpm: Removed temas's icon
+	* pixmaps/glade-send-file-menu.xpm: Added mine
+	* pixmaps/glade-file.xpm: same
+	* src/AgentInterface.cc: Added agent_replace function
+	* src/AgentInterface.hh: same
+	* src/ConfigManager.cc: Added XMMS update timer
+	* src/ConfigManager.hh: same
+	* src/GabberWin.cc: same
+	* src/GabberWin.hh: same
+	* src/URLInterface.cc: Use my file icon
+	* ui/FTRecv_dlg.glade: same
+	* ui/FTSend_dlg.glade: same
+	* ui/Gabber_win.glade: same
+	* ui/RegDruid_win.glade: Added agent_replace entry
+
+2001-09-29  Julian Missig  <julian@jabber.org>
+
+	* NEWS: Spreading the Good News of Temas
+	* configure.in: Upped version
+
+2001-09-29  Thomas "temas" Muldowney <temas@jabber.org>
+
+    * src/MessageViews.cc:  No more crash when changing GC nick by yourself
+    * src/MessageManager.cc:  Fixed getEvent() to return the end element if it
+                              cycles through all.
+    * removed some debug output
+
+2001-09-26  Thomas "temas" Muldowney <temas@jabber.org>
+
+    * src/ContactInfoInterface.cc:  Small change for the presence error type
+
+2001-09-25  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: file://file://file:// bug fixed for group chats
+
+2001-09-25  Thomas "temas" Muldowney <temas@jabber.org>
+
+    * src/MessageManager.cc:  Fixed the double click not showing the message.
+                              The problem was we were not checking resource in
+                              cases we should have been.
+
+2001-09-25  Julian Missig  <julian@jabber.org>
+
+	* ui/FTRecv_dlg.glade: Spiced up the UI a bit
+	* ui/FTSend_dlg.glade: same
+
+2001-09-25  Thomas "temas" Muldowney <temas@jabber.org>
+
+	* src/URLInterface.*: I can't spell
+	* src/FTInterface.*:  I can't spell
+	* src/MessageManager.cc:  Make the no types be normals, remove some 
+	                          extra code that didn't really do anything.
+
+2001-09-24  Julian Missig  <julian@jabber.org>
+
+	* configure.in: I'm tired. Upped version.
+	* src/GabberWin.cc: Oh so tired. Made the toolbar context menu update.
+	* src/MessageViews.cc: I really should. Minor bug fixes.
+	* src/RosterView.cc: get some sleep. Minor bug fixes.
+	* src/URLInterface.cc: Very soon now. Added an include.
+	* ui/OOOChat_win.glade: Yeah. Made it so the dialog displays decently.
+
+2001-09-24  Thomas "temas" Muldowney <temas@jabber.org>
+
+	* src/FTInterface.cc:  Made it not a msg view.  We cand send now.
+	* src/URLInterface.*:  x:oob now uses this interface
+
+2001-09-18  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Added ja.po
+	* po/ChangeLog: Updated from GNOME CVS
+	* po/POTFILES.in: Added a a file temas forgot to add ;)
+	* po/az.po: Updated from GNOME CVS
+	* po/ja.po: Added translation by Katsumi Saito <katsumi@jo1upk.ymt.prug.or.jp>
+
+2001-09-14  Thomas "temas" Muldowney <temas@jabber.org>
+
+	* src/FTInterface.cc:  Cleaned up the code to process the incoming 
+	                       URL, and we should watch for <desc> not 
+	                       <description>
+2001-09-16  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/xmms.xpm: Added song info XPM
+	* src/ConfigManager.cc: XMMS/Enable should be XMMS/Enabled
+	* src/GabberWidgets.cc: Added one possible way to display song title
+	* src/GabberWidgets.hh: same
+	* src/GabberWin.cc: Compile in HAVE_XMMS for now... 
+	  not enabled by default, but compiled nonetheless
+
+2001-09-16  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Changed enable to enabled
+	* src/ConfigManager.hh: same
+	* src/GabberWin.cc: Forgot G_App->getCfg() :)
+
+2001-09-16  Julian Missig  <julian@jabber.org>
+
+	* acconfig.h: Added HAVE_XMMS
+	* configure.in: same
+	* pixmaps/Makefile.am: Added gnome-question.png
+	* src/ConfigManager.cc: Added xmms.enabled
+	* src/ConfigManager.hh: Same
+	* src/GabberWin.cc: XMMS song title sending with presence - only if enabled
+	* src/Makefile.am: Added XMMS libs/cflags if enabled
+	* ui/OOOChat_win.glade: Fixed "issues" with the keep open dialog
+
+2001-09-13  Thomas "temas" Muldowney <temas@jabber.org>
+
+    * src/FTInterface.cc:  Fix up the labels a bit (man that dialog is ugly
+                           Julian?), and disconnect when done.
+    * jabberoo/jabberoo-session.cc:  IQ oob is spoofed back into the system as
+                                     a X oob.
+ 
+2001-09-11  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* pixmaps/Makefile.am: temas apparently committed stuff without ChangeLog ;)
+	* src/ContactInterface.cc: jabber: prefix on JIDs
+	* src/Makefile.am: temas
+	* src/MessageManager.cc: Bug fix (hopefully)
+
+2001-09-04  Julian Missig  <julian@jabber.org>
+
+	* *.cc, *.hh: Revamped headers to get rid of Gabber.hh and hopefully
+	  speed up compiles. Please try to follow the header conventions I
+	  started. Thanks.
+
+2001-09-03  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Show the iq:last status
+	* src/ContactInfoInterface.hh: same
+	* src/GCInterface.cc: Use PrettyJID
+	* src/GCInterface.hh: same
+	* src/MessageViews.cc: same
+	* ui/GCIRecv_dlg.glade: same
+
+2001-09-03  Julian Missig  <julian@jabber.org>
+
+	* po/POTFILES.in: Added GabberWidgets.cc
+	* src/ContactInfoInterface.cc: Using PrettyJID
+	* src/ContactInfoInterface.hh: same
+	* src/ContactInterface.cc: same
+	* src/ContactInterface.hh: same
+	* src/GabberUtility.cc: Add a space after a JID in GabberDnDText
+	* src/GabberWidgets.cc: PrettyJID - a nice display for a JabberID which is 
+	  draggable and keeps track of presence
+	* src/GabberWidgets.hh: same 
+	* src/GroupsInterface.cc: Using PrettyJID
+	* src/Makefile.am: Added GabberWidgets.cc
+	* src/MessageViews.cc: Using PrettyJID
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: Don't always get the default resource when we don't want it...
+	* ui/ContactInfo_dlg.glade: Using PrettyJID
+	* ui/ContactRecv_dlg.glade: same
+	* ui/ContactSend_dlg.glade: same
+	* ui/EditGroups_dlg.glade: same
+	* ui/OOOChat_win.glade: same
+
+2001-09-02  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: Open user info if JID is already on roster
+	* src/ChatView.cc: Right-click on jabber: JID adds to roster
+	* src/ContactInfoInterface.cc: Lots of extra DnD support
+	* src/ContactInterface.cc: same
+	* src/ContactInterface.hh: same
+	* src/DebugInterface.cc: Starting some debug print stuff
+	* src/DebugInterface.hh: same
+	* src/GCInterface.cc: Lots of extra DnD support
+	* src/GCInterface.hh: same
+	* src/GabberUtility.cc: same
+	* src/GabberUtility.hh: same
+	* src/MessageViews.cc: same
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: same
+	* src/RosterView.hh: same
+	* ui/OOOChat_win.glade: same
+
+2001-09-01  Julian Missig  <julian@jabber.org>
+
+	* src/GCInterface.cc: Drag users to a group chat to invite them
+	* src/GCInterface.hh: same
+	* src/GabberApp.cc: Don't reveal OS version
+	* src/MessageViews.cc: Drag users to a group chat to invite them
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: same
+	* src/RosterView.hh: same
+
+2001-08-30  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Increased the just received message timer
+	* src/RosterView.cc: Patch from bratislav to allow keyboard navigation 
+	  in roster
+	* src/RosterView.hh: same
+
+2001-08-29  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Fix the file://file:// bug
+
+2001-08-28  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Default to %c for date.
+	* src/GabberLogger.cc: Use UTF-8 everywhere.
+	* src/GabberUtility.cc: Allow toUTF8 without a widget, for now
+	* src/GabberUtility.hh: same
+
+2001-08-28  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/ConfigManager.cc: Removed option to auto-popup ooochats. there's 
+	  just one auto-popup option now
+	* src/ConfigManager.hh: same
+	* src/ContactInfoInterface.cc: Don't add contacts to the pseudo-groups
+	* src/MessageManager.cc: Removed option to auto-popup ooochats. there's
+	  just one auto-popup option now
+	* src/PrefsInterface.cc: same
+	* src/PrefsInterface.hh: same
+	* src/xtext.c: fixed warning
+	* ui/Prefs_win.glade: Removed option to auto-popup ooochats. there's
+	  just one auto-popup option now
+
+2001-08-17  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Don't send messages if offline.
+	* src/RosterView.cc: Duplicating code is never good. Copied fix for RosterView to SimpleRosterView.
+	* ui/GC_win.glade: OOOChat is now more default-ish
+	* ui/Gabber_win.glade: same
+	* ui/Message_win.glade: More work on new message dialog(s)
+
+2001-08-15  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/AddContactDruid.cc: Minor fixes
+	* src/ContactInfoInterface.cc: Debug info
+	* src/MessageViews.cc: Warn the user before closing an ooochat right after a message
+	  was received.
+	* src/MessageViews.hh: same
+	* ui/OOOChat_win.glade: same
+
+2001-08-14  Brandon  <brandon@aspect.net>
+
+	* src/MessageManager.cc: fixed cleanup of message manager to cleanup all
+	  views.  
+	* src/RosterView.hh: Fixed case problem in roster with events.  This 
+          should fix problems with events not flashing in the roster.  
+
+2001-08-08  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: Temporary solution to make Gabber not log message events.
+
+2001-08-06  Julian Missig  <julian@jabber.org>
+
+	* Patch from Alexandre N. Safiullin <alex_@unis-ru.com> which fixes many UTF-8 issues
+	* src/MessageViews.cc: Only quote selected text if possible (same patch)
+
+2001-07-25  Julian Missig  <julian@jabber.org>
+
+	* Updated copyrights
+	* src/GabberWin.cc: Fixed bug with presence being offline when roster is empty
+	* src/GabberWin.hh: same
+
+2001-07-23  Julian Missig  <julian@jabber.org>
+
+	* RELEASE: Added info about Debian
+	* configure.in: Upped version
+	* ui/MyContactInfo_win.glade: Re-added Avatar
+
+2001-07-22  Julian Missig  <julian@jabber.org>
+
+	* NEWS: Began section for 0.8.5
+	* RELEASE: This file has instructions on how to release Gabber.
+
+2001-07-22  Julian Missig  <julian@jabber.org>
+
+	* 0.8.4
+
+2001-07-21  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Speel checking
+	* src/ContactInfoInterface.hh: same
+	* src/RosterView.cc: Supposed fix for text cut-offs
+	* src/StatusInterface.cc: Speel checking
+
+2001-07-21  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/MessageManager.cc: Now using jabberoo's setBody()
+	* src/MessageViews.cc: Don't requestComposing() just yet
+	* ui/OOOChat_win.glade: Prepare for requestComposing()
+
+2001-07-19  Julian Missig  <julian@jabber.org>
+
+	* src/MessageManager.cc: Fixed typo in comments
+	* src/StatusInterface.cc: same
+
+2001-07-14  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/AddContactDruid.cc: Preping for iq:gateway
+	* src/GabberApp.cc: Support for message events
+	* src/GabberUtility.cc: Not sure...
+	* src/GabberUtility.hh: same
+	* src/MessageManager.cc: Message events
+	* src/MessageViews.cc: same
+	* src/MessageViews.hh: same
+	* src/PrefsInterface.cc: Fixed some logindlg issues
+	* src/PrefsInterface.hh: same
+	* src/StatusInterface.cc: Not sure
+
+2001-07-11  Konrad Podloucky  <konrad@crunchy-frog.org>
+
+	* jabberoo/src/sha.c: (shahash):
+		* #included <config.h>. D'Oh that was a stupid one...
+		* Empty strings are now hashed correctly
+
+	* src/TCPTransmitter.cc: just cosmetical changes
+
+2001-07-09  Konrad Podloucky  <konrad@crunchy-frog.org>
+
+	* src/TCPTransmitter.cc: 
+		* added code for handling G_IO_ERROR_AGAIN.
+		  Now Gabber should work over SOCKS
+		* had to add a private function _send(), because jabberoo
+		  needs a function with only 1 argument.
+		* Leave socket in non-blocking mode when not using SSL
+
+	* src/TCPTransmitter.hh:
+		* added code for handling G_IO_ERROR_AGAIN.
+
+2001-07-09  Brandon  <brandon@aspect.net>
+
+	* src/GabberApp.cc: moved jabber:x:autoupdate stuff into a message view
+	* src/MessageManager.cc: modifications for and addition of autoupdate
+	  message view.  
+	* src/MessageManager.hh: same
+	* src/MessageViews.cc: made AutoupdateDlg a message view
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: change to use error constant variable instead of number
+
+2001-07-06  Brandon  <brandon@aspect.net>
+
+	* src/MessageManager.cc: bugfix for messages spooled messages loaded when
+	  gabber starts.  
+
+2001-07-05  Brandon  <brandon@aspect.net>
+
+	* src/MessageManager.cc: fix for bug with handling messages with
+	  unkown extension namespaces.  
+
+2001-07-05  Brandon  <brandon@aspect.net>
+
+	* src/MessageManager.cc: fixed bug preventing some people from 
+	  compiling.  
+	* src/MessageManager.hh: same
+	* src/MessageViews.cc: fixed problem in groupchat's register_view
+
+2001-07-04  Brandon  <brandon@aspect.net>
+
+	* src/MessageManager.cc: fixed a bug or two
+
+2001-07-04  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version due to brandon's massive changes ;)
+
+2001-07-04  Brandon  <brandon@aspect.net>
+
+	* src/ConfigManager.cc: No longer use EventCache in ConfigManager since it
+	  didn't work well with the new Message Manager.  
+	* src/ConfigManager.hh: same
+	* src/ContactInterface.cc: updated view to register with new message manager
+	* src/ContactInterface.hh: same
+	* src/ErrorManager.cc: updates for new MM.  Somewhat hackish, needs to be fixed better.   
+	* src/GCInterface.cc: updated view to register with new message manager.  
+	* src/GCInterface.hh: same
+	* src/GPGInterface.cc: added system error message to error message when shmat fails.  
+	* src/GabberApp.cc: use new message manager
+	* src/GabberWin.cc: same
+	* src/MessageManager.cc: redesigned message manager
+	* src/MessageManager.hh: same
+	* src/MessageViews.cc: updated view to register with new message manager.
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: fixed a bug in opening messages flashing in roster.  
+	* src/S10nInterface.cc: updates for new Message Manager.  
+	* src/StatusInterface.cc: same
+
+2001-07-02  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: bratislav's patch for more updates
+	* ui/AUDruid_win.glade: bratislav's patch for layout
+
+2001-06-29  Konrad Podloucky  <konrad@crunchy-frog.org>
+
+	* configure.in: Modified warning message, when OpenSSL is not properly detected. We need the shared libs otherwise detection doesn't work.
+
+2001-06-29  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/AutoAway.cc: Option to set priority to 0 on auto-away
+	* src/AutoAway.hh: same
+	* src/ConfigManager.cc: same
+	* src/ConfigManager.hh: same
+	* src/PrefsInterface.cc: same
+	* src/PrefsInterface.hh: same
+	* ui/Prefs_win.glade: same
+
+2001-06-28  Julian Missig  <julian@jabber.org>
+
+	* TODO: Updated
+	* src/GabberWin.cc: Only send initial presence after roster has been received.
+	* src/GabberWin.hh: same
+
+2001-06-25  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Preparing for proxy settings
+	* src/ConfigManager.hh: same
+	* src/ErrorManager.cc: Spell "occurred" correctly
+	* src/GabberUtility.cc: Preparing for proxy settings
+	* src/GabberUtility.hh: same
+	* src/MessageManager.cc: Spell "occurred" correctly
+	* src/PrefsInterface.cc: Preparing for proxy settings
+	* src/PrefsInterface.hh: same
+	* ui/Login_dlg.glade: same
+
+2001-06-23  Taral  <taral@taral.net>
+
+	* src/TCPTransmitter.cc: Reorder #includes to fix bug.
+
+2001-06-23  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Check for libunicode.a (Hi dekar!)
+	* po/*.po: Updated from CVS GNOME
+
+2001-06-22  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: Updated for new TCPTransmitter connect function
+	* src/SSLAdapter.cc: Now LGPL
+	* src/SSLAdapter.hh: same
+	* src/TCPTransmitter.cc: Now LGPL, some style fixes (No one denied permission to change license)
+	* src/TCPTransmitter.hh: same
+
+2001-06-20  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/ConfigManager.cc: get_server/set_server work properly with disconnects now
+	* src/ConfigManager.hh: same
+	* src/MessageViews.cc: same
+	* src/PrefsInterface.cc: same
+	* src/S10nInterface.cc: same
+	* src/WelcomeDruid.cc: same
+
+2001-06-11  Julian Missig  <julian@jabber.org>
+
+	* src/StatusInterface.cc: ( ) around the number of online users
+	* ui/Gabber_win.glade: same
+
+2001-06-10  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: No presence sounds when first logging in (thanks Matthew Gregg!)
+	* src/GabberWin.hh: same
+	* src/RosterView.cc: same
+	* src/RosterView.hh: same
+
+2001-06-09  Frédéric Crozat  <fred@crozat.net>
+
+	* po/fr.po: Update French translation
+
+2001-06-09  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: New message queue finally works!
+	* src/StatusInterface.cc: same
+	* ui/Filter_dlg.glade: no longer modal
+	* ui/GC_win.glade: Removed the bar with the name, now more space
+	* ui/Gabber_win.glade: New message queue finally works!
+
+2001-06-08  Julian Missig  <julian@jabber.org>
+
+	* ui/ContactInfo_dlg.glade: More UI updates in preparation for Buddy Icons
+	* ui/OOOChat_win.glade: same
+
+2001-06-08  Julian Missig  <julian@jabber.org>
+
+	* src/BaseGabberWindow.hh: Added more convenience templates
+	* src/StatusInterface.cc: Message queue now flashes, but clicks don't work
+	* src/StatusInterface.hh: same
+	* ui/Gabber_win.glade: same
+
+2001-06-08  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/Makefile.am: Added new connect/disconnect icons
+	* pixmaps/connected-ssl.xpm: same
+	* pixmaps/connected.xpm: same
+	* pixmaps/disconnected.xpm: same
+	* src/BaseGabberWindow.hh: Added some helper templates
+	* src/ConfigManager.cc: Made the status toolbar mostly work
+	* src/ConfigManager.hh: same
+	* src/GabberWin.cc: same
+	* src/GabberWin.hh: same
+	* src/PrefsInterface.cc: same
+	* src/PrefsInterface.hh: same
+	* src/RosterView.cc: same
+	* src/StatusInterface.cc: same
+	* src/StatusInterface.hh: same
+	* ui/Gabber_win.glade: same
+	* ui/Prefs_win.glade: same
+
+2001-06-07  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/Makefile.am: Added gabber-about.png
+	* src/AddContactDruid.cc: Only display transports, not just registerable agents
+	* src/AddContactDruid.hh: same
+	* src/AgentInterface.cc: ability to only display transports
+	* src/AgentInterface.hh: same
+	* src/GabberWin.cc: Added gabber-about.png
+	* ui/MyContactInfo_win.glade: Preparing for Buddy Icons
+	* ui/OOOChat_win.glade: same
+
+2001-06-07  Benedikt Roth  <Benedikt.Roth@gmx.net>
+
+	* src/AddContactDruid.cc: Added on_SearchResults_click_column() which sorts the clist after the column title the user clicked
+	* src/AddContactDruid.hh: same
+
+2001-06-07  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version, got rid of GNOMEMM_LIBS and GNOMEMM_CFLAGS
+	* src/AddContactDruid.cc: Changed around the protocol selection to be more flexible
+	* src/AddContactDruid.hh: same
+	* src/GabberApp.cc: No idea
+	* src/Makefile.am: Got rid of GNOMEMM_* and GTKMM_* - reduces cflags and libs, probably speeds up compile
+	* src/PrefsInterface.cc: Set the focus in login dialog
+	* src/PrefsInterface.hh: same
+	* ui/AUDruid_win.glade: Changed around the protocol selection to be more flexible
+
+2001-06-05  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Fixed logic for when to show Add User, added logic for displaying "from groupchat jdev" and such
+
+2001-06-05  Julian Missig  <julian@jabber.org>
+	
+	* configure.in: Added ko
+	* po/es.po: Updated from GNOME CVS
+	* po/ko.po: Added from GNOME CVS
+
+2001-06-04  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/MessageViews.cc: Added GCJoinDlg enter cycle
+	* src/MessageViews.hh: same
+	* src/RosterInterface.cc: Added UTF-8 flag
+	* src/WelcomeDruid.cc: Added some enter cycling
+	* ui/AgentBrowser_dlg.glade: Buttons default to insensitive
+	* ui/GCJoin_dlg.glade: _txt -> _ent
+	* ui/SubscriptionRequest_dlg.glade: No more Yes/No
+	* ui/Welcome_win.glade: A few minor changes, I think
+
+2001-06-04  Brandon  <brandon@aspect.net>
+
+	* src/GabberGPG.cc: fixed problem with passphrase dialog 
+	* src/GabberWin.cc: fixed a problem compiling which doesn't seem to appear in newer
+	  versions of g++ but does in mine.  
+	* src/GroupsInterface.cc: same
+
+2001-06-02  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/GabberWin.cc: Raise only if the window is visible
+	* everything else: Um.... I have no clue :)
+
+2001-06-02  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Raise the main window when a new message is queued
+	* src/GabberWin.hh: same
+	* src/MessageManager.cc: same
+	* src/PrefsInterface.cc: Set the title appropriately for Connection Settings
+
+2001-06-01  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: get_server returns current server, server.server is the server stored in config
+	* src/ConfigManager.hh: same
+	* src/GabberWin.cc: Connection Settings menu item added
+	* src/GabberWin.hh: same
+	* src/PrefsInterface.cc: Login dialog now doubles as Connection Settings
+	* src/PrefsInterface.hh: same
+	* ui/Gabber_win.glade: Connection Settings menu item added
+	* ui/Login_dlg.glade: Login dialog now doubles as Connection Settings
+
+2001-05-31  Taral  <taral@taral.net>
+
+	* src/MessageViews.cc: Fix the file://file://file://etc. bug
+	* src/TCPTransmitter.cc: Extend keepalive to 2.5 minutes now that we have SO_KEEPALIVE
+
+2001-05-30  Julian Missig  <julian@jabber.org>
+
+	* configure.in: upped version. Yeah, it's really fixed now. :)
+	* src/AddContactDruid.cc: Configure groups before adding user! yey!
+	* src/AddContactDruid.hh: same
+	* src/ConfigManager.cc: Save docklet.show!
+	* src/GabberWin.cc: Don't send presence to groupchat if not sending normally
+	* src/GroupsInterface.cc: Abstracted a bit so editting groups can be easily done in other places
+	* src/GroupsInterface.hh: same
+	* src/PrefsInterface.cc: Save docklet.show
+	* ui/AUDruid_win.glade: Configure groups before adding user! yey!
+	* ui/EditGroups_dlg.glade: same
+
+2001-05-30  Taral  <taral@taral.net>
+
+	* configure.in: Trounce that. Nice fix
+
+2001-05-30  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Sorry, last commit of configure.in was broken
+
+2001-05-30  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Added --with-release-libs=PATH so GAL can easily be statically linked when needed
+	* gabber.spec.in: Use --with-release-libs={_prefix}
+
+2001-05-28  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Attempt to make userlist disappearing nicer... doesn't work right yet
+
+2001-05-28  Julian Missig  <julian@jabber.org>
+
+	* NEWS: Updated
+	* src/ConfigManager.cc: Added ability to raise windows when new messages are received
+	* src/ConfigManager.hh: same
+	* src/MessageViews.cc: same
+	* src/PrefsInterface.cc: same
+	* src/PrefsInterface.hh: same
+	* ui/Prefs_win.glade: same
+
+2001-05-28  Julian Missig  <julian@jabber.org>
+
+	* src/AgentInterface.cc: Enter no longer sends browse twice
+	* src/GabberApp.cc: The One True sync() is now in the quit function here
+	* src/GabberWin.cc: Handle exiting a bit better
+	* src/IgnoreInterface.cc: Don't sync()
+	* src/MessageViews.cc: Don't sync()
+	* src/PrefsInterface.cc: Some instant-apply magic
+	* src/PrefsInterface.hh: same
+	* src/RosterView.cc: Don't sync()
+	* src/StatusInterface.cc: Don't sync()
+	* src/WelcomeDruid.cc: Don't sync()
+	* ui/Login_dlg.glade: Slowly morph into Connection Settings
+	* ui/Prefs_win.glade: Remove Connection tab
+
+2001-05-27  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Added ability to show/hide menubar and a right-click menu to do so
+	* src/ConfigManager.hh: same
+	* src/ContactInfoInterface.cc: same
+	* src/GabberWin.cc: same
+	* src/GabberWin.hh: same
+	* src/PrefsInterface.cc: same
+	* src/PrefsInterface.hh: same
+	* ui/Gabber_win.glade: same
+	* ui/Prefs_win.glade: same
+
+2001-05-27  Taral  <taral@taral.net>
+
+	* src/TCPTransmitter.cc: Add SO_KEEPALIVE
+
+2001-05-27  Julian Missig  <julian@jabber.org>
+
+	* NEWS: Updated
+	* configure.in: Upped version
+	* src/ContactInfoInterface.cc: Changed to reflect no longer using PropertyBox
+	* src/ContactInfoInterface.hh: same
+	* src/PrefsInterface.cc: same
+	* src/PrefsInterface.hh: same
+	* ui/*: Rearranged all of the buttons to be more user friendly
+
+2001-05-27  Julian Missig  <julian@jabber.org>
+
+	* src/GabberWin.cc: Now using calls to StatusIndicator instead of directly to DockletWin
+	* src/StatusInterface.*: DockletWin is now a subclass of StatusIndicator. Calls go to StatusIndicator since there may be more indicators than just the docklet
+
+2001-05-26  Julian Missig  <julian@jabber.org>
+
+	* src/AutoAway.hh: Removed unused _oldPriority variable
+	* src/GabberLogger.cc: Log files are now lowercase
+	* src/MessageViews.cc: Attempt to put file:// in from of the logfile
+	* src/RosterInterface.cc: Added UTF-8 encoding attribute to the XML descriptor
+	* src/RosterView.cc: Attempt to put file:// in from of the logfile
+
+2001-05-25  Eliot Landrum  <eliot@landrum.cx>
+
+	* src/AutoAway.cc: Keeps priority the same throughout status changing process.
+
+2001-05-24  Julian Missig  <julian@jabber.org>
+
+	* autogen.sh: Use local macros dir if no other gnome macros dirs are found.
+	* macros/: Re-added macros as a fallback
+
+2001-05-23  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: bratislav's Revert Nickname patch
+	* src/ContactInfoInterface.hh: same
+	* ui/ContactInfo_dlg.glade: same
+
+2001-05-22  Julian Missig  <julian@jabber.org>
+
+	* src/Gabber.hh: Removed <unicode.h>
+	* src/MessageViews.cc: Status messages are now shown for people who are not online
+	* ui/OOOChat_win.glade: same
+
+2001-05-22  Julian Missig  <julian@jabber.org>
+
+	* TODO: Updated
+	* src/RosterInterface.cc: Addy dummy stuff for roster importer
+	* src/RosterInterface.hh: same
+
+2001-05-22  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: Changed vCard version to 2.0
+	* src/ContactInfoInterface.cc: same
+	* src/RosterView.cc: same
+	* ui/Prefs_win.glade: Got rid of unneeded vbox
+
+2001-05-21  Julian Missig  <julian@jabber.org>
+	
+	* configure.in: Upped version
+	* src/ConfigManager.cc: Changed a few defaults
+	* src/GabberWin.cc: Changed a few defaults
+	* src/RosterInterface.cc: Roster export to file
+	* src/RosterInterface.hh: same
+	* src/RosterView.cc: Back to no lines between roster items
+
+2001-05-21  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Escape attempts to close the Normal Message View
+
+2001-05-21  Julian Missig  <julian@jabber.org>
+
+	* po/POTFILES.in: Added new RosterInterface
+	* src/GabberUtility.cc: Fixed up FileSel
+	* src/GabberUtility.hh: same
+	* src/GabberWin.cc: Added Roster submenu
+	* src/GabberWin.hh: same
+	* src/Makefile.am: Added RosterInterface
+	* src/RosterInterface.cc: RosterExportDlg
+	* src/RosterInterface.hh: same
+	* ui/Gabber_win.glade: Added Roster submenu
+	* ui/MyContactInfo_win.glade: Textual changes
+
+2001-05-21  Julian Missig  <julian@jabber.org>
+
+	* src/RosterView.cc: Ctrl key now properly reverses the double-click action on the roster
+
+2001-05-20  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Fixed a bug displaying "Pending" info
+
+2001-05-20  Julian Missig  <julian@jabber.org>
+
+	* autogen.sh: No, Taral, I want the message as I have it in there.
+	* src/ContactInfoInterface.cc: Now display information about "Pending" in the Contact Information.
+
+2001-05-20  Taral  <taral@taral.net>
+
+	* ABOUT-NLS: Really upgrade to gettext-0.10.37
+	* autogen.sh: Fix Julian's update
+	* configure.in: Move to AM_GNOME_GETTEXT and add optimize/debug hack
+	* po/ChangeLog: Really upgrade to gettext-0.10.37
+	* po/Makefile.in.in: Really upgrade to gettext-0.10.37
+	* src/GPGInterface.cc: Add --throw-keyid to reduce data size (experimental)
+
+2001-05-20  Julian Missig  <julian@jabber.org>
+
+	* Makefile.am: Now using gnome-common for macros
+	* README.cvs: same
+	* autogen.sh: same
+	* configure.in: same
+	* macros/*: same
+	* debian/*: No longer needed
+	* src/ConfigManager.cc: Auto-away defaults on
+	* ui/ContactInfo_dlg.glade: Began working on adding "Pending" to Contact Info
+
+2001-05-19  Julian Missig  <julian@jabber.org>
+
+	* NEWS: Updated with latest insights
+	* TODO: same
+	* configure.in: Upped version
+	* src/GroupsInterface.cc: Ignore the "Pending" group
+	* src/MessageViews.cc: Added /whois to groupchats
+	* src/RosterView.cc: Ignore the "Pending" group, but display it
+
+2001-05-19  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/AddContactDruid.cc: Only show searchable agents using view filters for AgentBrowser
+	* src/AgentInterface.cc: Added view filters so only show agents with certain characteristics
+	* src/AgentInterface.hh: same
+
+2001-05-19  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: Back/Next should now work for multiple searches and such
+	* src/AddContactDruid.hh: same
+
+2001-05-19  Brandon  <brandon@aspect.net>
+
+	* jabberoo/include/jabberoo.hh: added JID::Compare struct to be used as
+	  compare function in lists & sets.  
+	* jabberoo/src/jabberoo.cc: same
+	* src/GabberApp.hh: changed GroupChat set to use JID::Compare as compare func.
+	* src/MessageManager.cc: changed several of the map's to use JID:Compare
+	* src/MessageManager.hh: same
+
+2001-05-19  Konrad Podloucky  <konrad@crunchy-frog.org>
+
+	* configure.in: fixed SSL detection
+
+2001-05-19  Julian Missig  <julian@jabber.org>
+
+	* src/AgentInterface.cc: Fixed several crashes due to my recent changes
+	* src/AgentInterface.hh: same
+
+2001-05-18  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/AddContactDruid.cc: Many fixes to searching, back/next, etc
+	* src/AddContactDruid.hh: same
+	* src/AgentInterface.cc: same
+	* src/AgentInterface.hh: same
+	* src/GabberUtility.cc: same
+	* src/GabberUtility.hh: same
+	* src/WelcomeDruid.cc: same
+	* src/WelcomeDruid.hh: same
+	* ui/AUDruid_win.glade: same
+	* ui/EditGroups_dlg.glade: Switched sides for current groups vs. available groups
+
+2001-05-17  Julian Missig  <julian@jabber.org>
+
+	* gabber.spec.in: Install gabber.png
+	* src/AddContactDruid.cc: Fixed "back" for several pages
+	* src/AddContactDruid.hh: same
+	* ui/AUDruid_win.glade: Renamed some widgets
+	* ui/AgentBrowser_dlg.glade: Rearranged dialog
+
+2001-05-16  Taral  <taral@taral.net>
+
+	* src/ConfigManager.cc: Fix the color bugs in sync()
+
+2001-05-16  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Some of the for loops in sync() were not resetting i to 0
+
+2001-05-16  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/ConfigManager.cc: Fixed the same bug brandon did, but a slightly different way
+	* src/ConfigManager.hh: same
+	* src/MessageViews.cc: Recognize the numpad's enter as the normal enter
+
+2001-05-16  Brandon  <brandon@aspect.net>
+
+	* src/ConfigManager.cc: fixed bug with nickname and a couple other things
+	  not being loaded properly.  
+	* src/ConfigManager.hh: same
+	* src/RosterView.cc: changed click action to only open message dialog when
+	  button 1 is clicked.  
+
+2001-05-16  Taral  <taral@taral.net>
+
+	* ABOUT-NLS: Upgrade to gettext-0.10.37
+	* src/GPGInterface.cc: Pretty up a few error messages
+
+2001-05-16  Taral  <taral@taral.net>
+
+	* Makefile.am: Fix missing newline at end
+	* configure.in: Fix --enable-optimize and remove GabberConfig.hh.in
+	* po/ChangeLog: Upgrade to gettext-0.10.37
+	* po/Makefile.in.in: Upgrade to gettext-0.10.37
+	* src/GPGInterface.cc: Fix decode bug
+	* src/GabberConfig.hh: Added static version
+	* src/GabberConfig.hh.in: Removed dynamic version
+	* src/Makefile.am: Added DATADIR define for GabberConfig.hh
+
+2001-05-16  Brandon  <brandon@aspect.net>
+
+	* src/AutoAway.cc: use ConfigManager variables instead of getValue funcs.  
+	* src/ConfigManager.cc: changed preferences to only load from gnome_config once and 
+	  only save when they are changed.  
+	* src/ConfigManager.hh: same
+	* src/ContactInfoInterface.cc: use ConfigManager variables instead of getValue funcs.
+	* src/GPGInterface.cc: same
+	* src/GabberApp.cc: same
+	* src/GabberGPG.cc: same
+	* src/GabberGPG.hh: same
+	* src/GabberLogger.cc: same
+	* src/GabberWin.cc: same
+	* src/IgnoreInterface.cc: same
+	* src/MessageManager.cc: same 
+	* src/MessageViews.cc: same
+	* src/PrefsInterface.cc: same
+	* src/RosterView.cc: same
+	* src/StatusInterface.cc: same
+	* src/TCPTransmitter.cc: same
+	* src/WelcomeDruid.cc: same
+
+2001-05-16  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/MessageViews.cc: Sender entry is now a label
+	* src/MessageViews.hh: same
+	* ui/ContactInfo_dlg.glade: Removed some excess spacing
+	* ui/Message_win.glade: Sender entry is now a label
+
+2001-05-15  Julian Missig  <julian@jabber.org>
+
+	* src/GabberGPG.cc: Don't print out the passphrase to stderr. *Why* the heck was it doing that?
+
+2001-05-14  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/GPGInterface.cc: Applied various GPG fixes from Taral
+	* src/GPGInterface.hh: same
+
+2001-05-13  Frédéric Crozat  <fred@crozat.net>
+
+	* po/fr.po: Update French translation
+
+2001-05-13  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: Don't display messages lacking bodies
+	* src/MessageViews.cc: Don't cut off large text in the roster
+	* src/RosterView.cc: same
+	* src/S10nInterface.cc: Changed uneditable entries to labels
+	* ui/SubscriptionRequest_dlg.glade: same
+
+2001-05-12  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: aspell is now much faster
+	* src/MessageViews.cc: Don't assume all errors are nick conflicts
+
+2001-05-10  Brandon  <brandon@aspect.net>
+
+	* src/GPGInterface.cc: fixed gpg 1.0.5 bug plus a bug that was there
+	  before with the exit status.  
+	* src/GPGInterface.hh: same
+
+2001-05-10  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: Fixed up some update notification stuff
+	* src/Makefile.am: Real alphabetical order :)
+	* src/MessageViews.cc: Fixed up some update notification stuff
+
+2001-05-09  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: Add User Druid's UI redone with help from Jimbob
+	* src/AddContactDruid.hh: same
+	* ui/AUDruid_win.glade: same
+
+2001-05-08  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInterface.cc: Hopefully I fixed the bug relating to adding users.
+	* src/GabberApp.cc: Changed the way Autoupdate is handled
+	* src/GabberApp.hh: same
+	* src/GabberGPG.cc: Fixed pixmap names (thanks bratislav)
+	* src/MessageViews.cc: Changed the way Autoupdate is handled
+	* src/MessageViews.hh: same
+
+2001-05-07  Julian Missig  <julian@jabber.org>
+
+	* acconfig.h: Removed unused variable names
+	* configure.in: Now depend on GAL, remove lots of silly checks for libunicode and iconv. Now using Evolution's GNOME library checking function.
+	* pixmaps/Makefile.am: Add symlinks in a more proper fashion
+	* po/POTFILES.in: Removed non-existant files
+	* src/ConfigManager.hh: Remove some #ifdef's
+	* src/ContactInfoInterface.cc: same
+	* src/Gabber.hh: Add the GNOME window icon header
+	* src/GabberApp.cc: Use the speedup command for aspell
+	* src/GabberGPG.cc: Remove some #ifdef's
+	* src/GabberUtility.cc: Now depend on GAL
+	* src/GroupsInterface.cc: Remove some #ifdef's
+	* src/Makefile.am: Remove iconv/libunicode, since we use GAL
+	* src/MessageViews.cc: Remove some #ifdef's
+	* src/S10nInterface.cc: same
+
+2001-05-06  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/Makefile.am: Force creation of symlinks
+	* src/WelcomeDruid.cc: Send data to the Jabber Users Directory if requested
+	* src/WelcomeDruid.hh: same
+	* ui/Welcome_win.glade: same
+
+2001-05-06  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/Makefile.am: Install symlinks to gnome-* icons which are used by the welcome druid.
+	* src/MessageViews.cc: Missed a few places where we should be converting fromUTF8
+
+2001-05-04  Julian Missig  <julian@jabber.org>
+
+	* src/WelcomeDruid.cc: Welcome Druid redone by James Cape
+	* src/WelcomeDruid.hh: same
+	* ui/Welcome_win.glade: same
+
+2001-05-03  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Scrolled window no longer jumps when the ctree/clist is updated.
+	* src/ContactInterface.cc: same
+	* src/GCInterface.cc: same
+	* src/IgnoreInterface.cc: same
+	* src/MessageViews.cc: same
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: same
+	* src/RosterView.hh: same
+
+2001-05-03  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: "Gabber: title" is now "title - Gabber"
+	* src/ContactInterface.cc: same
+	* src/MessageViews.cc: same
+	* src/PrefsInterface.cc: same
+	* ui/*.glade: same, and various other small UI updates.
+
+2001-05-02  Julian Missig  <julian@jabber.org>
+
+	* Many small UI updates. Non-editable entries are now labels.
+
+2001-05-01  Konrad Podloucky  <konrad@crunchy-frog.org>
+
+	* src/TCPTransmitter.cc: fixed another bug
+
+2001-04-30  Konrad Podloucky  <konrad@crunchy-frog.org>
+
+	* src/TCPTransmitter.cc: fixed a few logic bugs (that's what you get when you do these things at 2 in the morning)
+
+2001-04-30  Konrad Podloucky  <konrad@crunchy-frog.org>
+
+	* src/TCPTransmitter.cc: reworked the 10sec reconnection delay to exponentially increasing delays whenever the connection is dropped after less than a minute. This prevents the Jabber server from being flooded by us
+	* src/TCPTransmitter.hh: same
+
+2001-04-29  Konrad Podloucky  <konrad@crunchy-frog.org>
+
+	* src/TCPTransmitter.cc: Added a 10s delay before auto-reconnecting
+	* src/TCPTransmitter.hh: same
+
+2001-04-26  Julian Missig  <julian@jabber.org>
+
+	* gabber.soundlist: Changed location of sound files
+	* gabber.spec.in: No longer super-generic
+	* sounds/Makefile.am: Changed location of sound files
+	* src/GabberWin.cc: Use new RosterView constructor
+	* src/RosterView.cc: Don't jump back up to the top when updated
+	* src/RosterView.hh: same
+	* ui/Gabber_win.glade: Name the ScrolledWindow around the roster so we can grab it in GabberWin for the new RosterView constructor
+
+2001-04-25  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/AgentInterface.cc: Convert agent names from UTF8
+
+2001-04-23  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Added az and uk languages
+	* gabber.desktop: Updated from GNOME CVS
+	* gabber.soundlist: same
+	* po/ChangeLog: same
+	* po/da.po: same
+	* po/es.po: same
+	* po/nl.po: same
+	* po/sv.po: same
+	* po/tr.po: same
+
+2001-04-11  Brandon  <brandon@aspect.net>
+
+	* src/MessageManager.cc: fixed bug in MessageLoader
+	* src/MessageManager.hh: same
+
+2001-04-04  Julian Missig  <julian@jabber.org>
+	
+	* src/AddContactDruid.cc: Bug fix from Bratislav
+
+2001-04-03  Brandon  <brandon@aspect.net>
+
+	* configure.in: applied mkstemp patch
+	* src/ConfigManager.hh: same
+	* src/GabberGPG.cc: same
+	* src/GabberWin.cc: make sure icon is properly reset after events
+	* src/RosterView.cc: same
+	* src/RosterView.hh: same
+
+2001-04-02  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Added /topic command to group chats
+
+2001-04-02  Julian Missig  <julian@jabber.org>
+
+	* src/RosterView.cc: Transport log in now sends the currently set presence, rather than a default available presence
+
+2001-03-31  Julian Missig  <julian@jabber.org>
+
+	* Makefile.am: Added Gabber manpage created by Norbert Veber <nveber@primusolutions.net>, the Debian Gabber package maintainer
+	* gabber.1: same
+
+2001-03-31  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: Display last logged out/idle seconds if there's nothing previous, otherwise don't display it.
+
+2001-03-31  Julian Missig  <julian@jabber.org>
+	
+	* src/GabberWin.cc: Add Group no longer adds blank entries
+
+2001-03-31  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* src/GabberUtility.cc: case sensitive compare for groupchat
+	* src/GabberUtility.hh: same
+	* src/MessageViews.cc: same
+	* src/MessageViews.hh: same
+
+2001-03-31  Julian Missig  <julian@jabber.org>
+
+	* configure.in: "Glade libraries" now called "libglade"
+	* src/AddContactDruid.cc: Using set_server/get_server in ConfigManager
+	* src/AgentInterface.cc: same
+	* src/ConfigManager.cc: same
+	* src/ConfigManager.hh: same
+	* src/ContactInfoInterface.cc: same
+	* src/GabberApp.cc: same
+	* src/GabberUtility.cc: "Online" is now "Available"
+	* src/MessageViews.cc: Using set_server/get_server in ConfigManager
+	* src/PrefsInterface.cc: same
+	* src/WelcomeDruid.cc: same
+
+2001-03-30  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Fixed gnomemm 1.1.12 detection
+
+2001-03-30  Konrad Podloucky  <konrad@crunchy-frog.org>
+
+	* configure.in: fixed OpenSSL detection routine
+
+2001-03-29  Julian Missig  <julian@jabber.org>
+
+	* TODO: Added items for 0.8.3
+	* configure.in: upped to 0.8.2.10 for now
+	* src/MessageViews.cc: I can't even remember......
+
+2001-03-29  Frédéric Crozat  <fred@crozat.net>
+
+	* po/fr.po: French translation is back
+
+2001-03-28  Julian Missig  <julian@jabber.org>
+
+	* configure.in: 0.8.2 released
+
+2001-03-28  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInterface.cc: Fixed crash when user wasn't on roster (thanks Eliot!)
+
+2001-03-28  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: Fixed display of contacts/group chat invitations when certain message displaying combinations are chosen
+	* src/MessageManager.cc: same
+
+2001-03-28  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Added sv
+	* gabber.desktop: Pulled in from GNOME CVS
+	* gabber.soundlist: same
+	* po/sv.po: same
+
+2001-03-28  Brandon  <brandon@aspect.net>
+
+	* src/MessageManager.cc: fixed messamanager to handle view that use resource.  
+
+2001-03-28  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* po/de.po: updated and fixed translation
+
+2001-03-28  Matthias Wimmer  <mail@matthias-wimmer.de>
+
+	* po/de.po: Updated German translation
+
+2001-03-27  Brandon  <brandon@aspect.net>
+
+	* src/GPGInterface.cc: changed _gpg_path to static so it only searches for 
+	it once and caches the result
+	* src/GPGInterface.hh: same
+	* src/GabberGPG.cc: slightly changed how the enabled() function works.  
+	* src/GabberGPG.hh: same
+	* src/MessageViews.cc: fixed bug in messageview where the resource was
+	not registered in the view registrar for views that needed it.  
+	* src/MessageViews.hh: same
+	* src/PrefsInterface.cc: slightly changed how to check for gpg being enabled.
+	Still prefs issues though.  
+
+2001-03-27  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Updated version
+	* gabber.desktop: Updated from GNOME CVS
+	* gabber.soundlist: same
+	* po: same
+	* src/ChatView.cc: Added render_error
+	* src/ChatView.hh: same
+	* src/ErrorManager.cc: Manage presence errors for ooochats, gcs
+	* src/ErrorManager.hh: same
+	* src/GabberApp.hh: same
+	* src/MessageViews.cc: same
+	* src/MessageViews.hh: same
+
+2001-03-27  Frédéric Crozat  <fred@crozat.net>
+
+	* po/fr.po: French translation updated
+
+2001-03-26  Julian Missig  <julian@jabber.org>
+
+	* po/POTFILES.in: Added autoupdate dialog
+	* src/MessageViews.cc: Added error messages to groupchat
+	* src/MessageViews.hh: same
+
+2001-03-26  Julian Missig  <julian@jabber.org>
+
+	* src/ErrorManager.cc: Default error view (kind of)
+	* src/GabberApp.cc: New autoupdate
+	* src/GabberApp.hh: same
+	* src/MessageViews.cc: same
+	* src/MessageViews.hh: same
+
+2001-03-21  Julian Missig  <julian@jabber.org>
+
+	* pixmaps/Makefile.am: Install the add group icon
+	* src/ErrorManager.cc: Initial commit... it's not that great yet ;)
+	* src/ErrorManager.hh: same
+	* src/GabberApp.cc: Changes for errormanager
+	* src/GabberApp.hh: same
+	* src/GabberUtility.hh: Updated copyright
+	* src/GabberWin.cc: Changes for errormanager
+	* src/GabberWin.hh: same
+	* src/Makefile.am: same
+	* src/MessageManager.cc: same
+	* src/MessageViews.cc: same, plus thread support
+	* src/MessageViews.hh: same
+	* src/PrefsInterface.cc: Spell checking is optional
+	* src/PrefsInterface.hh: same
+	* ui/Gabber_win.glade: Set the icon for add group
+	* ui/Message_win.glade: Added the error frame
+	* ui/Prefs_win.glade: Added the spell checking checkbox
+
+2001-03-20  Julian Missig  <julian@jabber.org>
+
+	* src/GCInterface.cc: "Join" actually works now
+
+2001-03-19  Brandon  <brandon@aspect.net>
+
+	* src/GabberGPG.cc: fixed prefsinterface issues (hopefully)
+	* src/GabberGPG.hh: same
+	* src/GabberWin.cc: added Add Group
+	* src/GabberWin.hh: same
+	* src/PrefsInterface.cc: fixed prefsinterface issues with encryption (hopefully)
+	* src/RosterView.cc: added Add Group
+	* src/RosterView.hh: added Add Group
+
+2001-03-19  Matthias Wimmer  <mail@mawis.net>
+
+	* po/de.po: Updated German translation
+
+2001-03-18  Frédéric Crozat  <fred@crozat.net>
+
+	* po/fr.po: Update french translation
+
+2001-03-16  Julian Missig  <julian@jabber.org>
+
+	* TODO: Updated
+	* src/GabberWin.hh: Gabber no longer crashes on exit if groupchat is open
+	* src/MessageViews.cc: same
+
+2001-03-16  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Added Turkish translation
+	* po/tr.po: same
+
+2001-03-14  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: Spell checking works (!)
+	* src/GabberApp.hh: same
+
+2001-03-14  Julian Missig  <julian@jabber.org>
+
+	* configure.in: 0.8.1.91 development
+	* pixmaps/Makefile.am: Made nicer
+	* ui/Makefile.am: Made nicer
+
+2001-03-14  Julian Missig  <julian@jabber.org>
+
+	* Marked 0.8.1.90
+	* src/AgentInterface.cc: Enter now browses
+	* src/AgentInterface.hh: same
+
+2001-03-14  Julian Missig  <julian@jabber.org>
+	
+	* pixmaps/Makefile.am: added glade-group.xpm
+	* src/RosterView.cc: Using the group icon for DnD
+	* src/e-font.c: Pulled from GAL CVS
+	* src/e-font.h: same
+	* src/e-unicode.c: same
+	* src/e-unicode.h: same
+
+2001-03-14  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version to 0.8.2.90 - apparently letters in version numbers are evil
+	* pixmaps/Makefile.am: New pixmaps from garrett
+	* pixmaps/glade-contact.xpm: same
+	* pixmaps/glade-gci.xpm: same
+	* pixmaps/glade-send-contact-menu.xpm: same
+	* pixmaps/glade-send-gci.xpm: same
+	* src/ConfigManager.cc: Added evGCI
+	* src/ContactInterface.cc: Improved the UI quite a bit
+	* src/GCInterface.cc: Improved the UI quite a bit
+	* src/GCInterface.hh: same
+	* src/GabberApp.cc: evGCI
+	* src/MessageViews.cc: Made Send Contacts work in Group Chats
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: uh... don't think it was anything major
+	* ui/ContactSend_dlg.glade: Improved UI
+	* ui/GC_win.glade: Use Send Contacts icon
+	* ui/Gabber_win.glade: same
+
+2001-03-13  Brandon  <brandon@aspect.net>
+
+	* src/Makefile.am: not sure
+	* src/RosterView.cc: fixed some DnD stuff
+	* src/RosterView.hh: same
+
+2001-03-12  Julian Missig  <julian@jabber.org>
+
+	* NEWS: Added GCI and Contacts info
+	* src/ContactInterface.cc: Minor UI fixes
+	* src/GCInterface.cc: Display subject, room, and server
+	* src/GCInterface.hh: same
+	* src/MessageViews.cc: Now set the default GCI subject
+	* ui/GCIRecv_dlg.glade: UI fixes
+	* ui/GCI_dlg.glade: UI fixes
+
+2001-03-12  Julian Missig  <julian@jabber.org>
+
+	* gabber.desktop: Updated from GNOME CVS
+	* gabber.soundlist: same
+	* po/ChangeLog: same
+	* po/es.po: same
+	* po/fr.po: same
+	* src/ContactInterface.cc: Improved UI, made it look nicer, etc
+	* src/ContactInterface.hh: same
+	* src/Makefile.am: Fix for srcdir/builddir
+	* src/MessageViews.cc: Comment changed
+	* src/xtext.c: Fix for srcdir/builddir
+	* ui/ContactRecv_dlg.glade: Improved UI, made it look nicer, etc
+	* ui/ContactSend_dlg.glade: same
+	* ui/GCIRecv_dlg.glade: same
+	* ui/Login_dlg.glade: same
+	* ui/Makefile.am: One .glade file wasn't in here (?)
+
+2001-03-11  Brandon  <brandon@aspect.net>
+
+	* po/POTFILES.in: Added new file
+
+2001-03-11  Brandon  <brandon@aspect.net>
+
+	* TODO: added some stuff I want to do
+	* src/ContactInterface.cc: not sure what I changed in here
+	* src/GCInterface.cc: added groupchat invite send & recv stuff
+	* src/GCInterface.hh: same
+	* src/Makefile.am: same
+	* src/MessageManager.cc: added message type for groupchat invites
+	* src/MessageManager.hh: same
+	* src/MessageViews.cc: made invite button open the Groupchat Invite Dlg
+	* src/MessageViews.hh: same
+	* ui/GCI_dlg.glade: changed the clist to a ctree
+
+2001-03-10  Konrad Podloucky  <konrad@crunchy-frog.org>
+
+	* configure.in: required Gtk-- version is now 1.2.5
+
+2001-03-07  Julian Missig  <julian@jabber.org>
+
+	* po/POTFILES.in: Added the new files
+	* ui/GC_win.glade: Group Chat Invitation items
+
+2001-03-07  Brandon  <brandon@aspect.net>
+
+	* src/IgnoreInterface.cc: Added IgnoreAddDlg
+	* src/IgnoreInterface.hh: same
+	* src/RosterView.cc: probably a change to DnD code
+	* src/RosterView.hh: same
+	* ui/IgnoreAdd_dlg.glade: seperated IgnoreAdd_dlg since it's easier that way
+	* ui/Makefile.am: same
+
+2001-03-06  Brandon  <brandon@aspect.net>
+
+	* src/ConfigManager.cc: added stuff for Roster event (icons need fixing)
+	* src/ConfigManager.hh: same
+	* src/ContactInterface.cc: Added ContactInterface for sending/recving contacts
+	* src/ContactInterface.hh: same
+	* src/GabberApp.cc: same
+	* src/GabberWin.cc: same
+	* src/GabberWin.hh: same
+	* src/Makefile.am: same
+	* src/MessageManager.cc: redid MessageManager to use different views when
+	a message contains extensions.  
+	* src/MessageManager.hh: same
+	* src/MessageViews.cc: move Contact stuff to ContactInterface
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: changed some of the DnD code
+	* src/RosterView.hh: same
+	* src/S10nInterface.cc: I don't remember changing this file
+	* src/StatusInterface.cc: or this one, probably something to do with the 
+	MessageManager changes...
+	* ui/ContactRecv_dlg.glade: changed clist to ctree
+	* ui/ContactSend_dlg.glade: same
+
+2001-03-06  Julian Missig  <julian@jabber.org>
+
+	* src/AddContactDruid.cc: Much nicer search interface
+	* src/AddContactDruid.hh: same
+	* src/IgnoreInterface.cc: Removed 'apply'
+	* ui/AUDruid_win.glade: Much nicer search interface
+	* ui/Gabber_win.glade: Changed some of the menu items
+	* ui/Ignore_dlg.glade: A little dialog for adding JabberIDs to ignore
+
+2001-03-06  Brandon  <brandon@aspect.net>
+
+	* src/GabberWin.cc: Added Ignore List item to Services menu
+	* src/IgnoreInterface.cc: Added IgnoreInterface, not functional yet
+	* src/IgnoreInterface.hh: same
+	* src/Makefile.am: added IgnoreInterface
+	* src/RosterView.cc: added support to SimpleRosterView for not using groups
+	* src/RosterView.hh: same
+	* ui/Gabber_win.glade: added item to menu
+
+2001-03-06  Brandon  <brandon@aspect.net>
+
+	* src/GabberWin.cc: Added Send Roster Items to popup
+	* src/MessageManager.cc: made display return the MessageView created
+	* src/MessageManager.hh: same
+	* src/MessageViews.cc: More work on Send Roster Items stuff
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: More work on DnD
+	* src/RosterView.hh: same
+	* ui/Gabber_win.glade: Added Send Roster items to popup
+	* ui/Ignore_dlg.glade: changed clist to ctree
+
+2001-03-05  Brandon  <brandon@aspect.net>
+
+	* src/MessageViews.cc: added basic jabber:x:roster support to NormalMessageView
+	* src/MessageViews.hh: same
+	* src/RosterView.cc: added SimpleRosterView for use when all features of RosterView
+	aren't needed.  
+	* src/RosterView.hh: same
+	* ui/Message_win.glade: added basic jabber:x:roster support to NormalMessageView
+
+2001-03-05  Julian Missig  <julian@jabber.org>
+	
+	* src/AgentInterface.cc: Agent Browsing is now its own class
+	* src/AgentInterface.hh: same
+	* ui/AgentBrowser_dlg.glade: _txt -> _ent
+	* ui/GC_win.glade: Removed the _'s from the popup menus
+	* ui/Gabber_win.glade: same
+
+2001-03-04  Konrad Podloucky  <konrad@crunchy-frog.org>
+
+	* src/TCPTransmitter.cc: fixed a race condition. send() now checks if the socket is still connected before trying to send (and causing an error)
+
+2001-03-03  Julian Missig  <julian@jabber.org>
+
+	* INSTALL, README, README.cvs: Added --localstatedir
+	* gabber.spec.in: Added --localstatedir=/var/lib
+	* src/AddContactDruid.cc: Automatically removes spaces and @s
+	* src/GabberLogger.cc: Removed the warnings by changing the ints to
+	string::size_type
+
+2001-02-28  Frédéric Crozat  <fred@crozat.net>
+
+	* po/fr.po: Update french translation
+
+2001-02-28  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Upped version
+	* gabber.spec.in: Now it actually works. Removed the SMP stuff
+	* po/POTFILES.in: Removed Contact_dlg.glade
+	* src/AddContactDruid.cc: Preparing for more intelligent username 
+	parsing.
+	* ui/ContactSend_dlg.glade: Now ready for implementation
+	* ui/Contact_dlg.glade: removed
+	* ui/Makefile.am: Removed Contact_dlg.glade
+	* ui/Prefs_win.glade: Minor changes
+
+2001-02-26  Julian Missig  <julian@jabber.org>
+
+	* AUTHORS: bratislav
+	* Makefile.am: added OMF file
+	* configure.in: added OMF file
+	* doc/C/Makefile.am: added OMF file
+	* doc/C/gabber-C.omf: OMF file
+	* gabber.spec.in: requires openssl
+	* omf-install/Makefile.am: OMF file install
+	* po/POTFILES.in: Removed PresSettings
+	* src/GabberUtility.cc: Preset messages are just too overly complex
+	* src/GabberUtility.hh: same
+	* src/GabberWin.cc: same
+	* src/GabberWin.hh: same
+	* src/PrefsInterface.cc: auto-away moved here
+	* src/PrefsInterface.hh: same
+	* src/StatusInterface.cc: same
+	* src/StatusInterface.hh: same
+	* ui/Makefile.am: Remove PresSettings
+	* ui/Prefs_win.glade: Moved auto-away here
+	* ui/PresSettings_win.glade: removed
+	* ui/Welcome_win.glade: Cleaned up some text
+
+2001-02-25  Julian Missig  <julian@jabber.org>
+
+	* .cvsignore: Ignore the xml-i18n-tools .in files
+	* pixmaps/xa.xpm: Now XA instead of NA (thanks garrett)
+	* src/GabberApp.cc: start/stop gtkspell
+	* src/GabberUtility.cc: Not Available is now Extended Away
+	* src/Makefile.am: gtkspell/gtkurl added
+	* src/MessageViews.cc: gtkspell/gtkurl attach
+	* src/RosterView.cc: Properly clear the expanded groups config
+	* src/gtkspell.c: added - spell checking in GtkText widgets
+	* src/gtkspell.h: added
+	* src/gtkurl.c: added - right-click URLs in GtkText widgets (thanks 
+	bratislav!)
+	* src/gtkurl.h: added
+	* ui/Prefs_win.glade: Not Available is now Extended Away
+	* ui/PresSettings_win.glade: Preparing for presets
+
+2001-02-24  Julian Missig  <julian@jabber.org>
+	
+	* src/AddContactDruid.cc: Updated due to MenuBuilder changes
+	* src/ContactInfoInterface.cc: Idle time now in the same line as the 
+	status
+	* src/GabberUtility.cc: Set the submenus properly - thanks brandon2!
+	* src/GabberUtility.hh: same
+	* src/GabberWin.cc: same
+	* src/GabberWin.hh: same
+	* ui/ContactInfo_dlg.glade: Got rid of the Idle_lbl since it goes in 
+	the Status_lbl now
+	* ui/Gabber_win.glade: Minor Changes
+	* ui/Prefs_win.glade: Minor Changes
+
+2001-02-24  Julian Missig  <julian@jabber.org>
+
+	* NEWS: updated...
+	* src/ContactInfoInterface.cc: Added tooltips to the presence and s10n
+	indicators, to be more consistent UI-wise
+	* src/ContactInfoInterface.hh: same
+	* src/GabberUtility.cc: added change_pixmap hack to change the pixmap 
+	in a Gtk::PixmapMenuItem
+	* src/GabberUtility.hh: same
+	* src/GabberWin.cc: Change the Presence menu pixmaps and use a menu 
+	instead of an Option Menu for the main presence indicator
+	* src/GabberWin.hh: same
+	* ui/ContactInfo_dlg.glade: Added tooltips to the presence and s10n
+	indicators, to be more consistent UI-wise
+	* ui/Gabber_win.glade: Change the Presence menu pixmaps and use a menu 
+	instead of an Option Menu for the main presence indicator
+	* ui/Prefs_win.glade: rename status indicator to presence indicator
+
+2001-02-24  Julian Missig  <julian@jabber.org>
+
+	* AUTHORS: added bratislav
+	* NEWS: Updated
+	* src/MessageViews.cc: eMail-like quoting patch from bratislav
+
+2001-02-23  Julian Missig  <julian@jabber.org>
+
+	* src/GabberUtility.cc, src/GabberUtility.hh, src/GabberWin.cc, 
+	src/GabberWin.hh, src/MessageViews.cc: Beginnings of allowing the 
+	user to preset status messages for away/xa/etc ... now if only
+	set_submenu would work!!!!!!! ARGH!!!
+
+2001-02-23  Julian Missig  <julian@jabber.org>
+	
+	* src/GabberWin.cc: Set the option menu history correctly after 
+	choosing "settings"
+
+2001-02-22  Julian Missig  <julian@jabber.org>
+
+	* po/POTFILES.in: Added ui/PresSettings_win.glade
+	* src/AutoAway.cc: Changed some defaults and key names
+	* src/GabberUtility.cc: Add a separator and the settings item
+	* src/GabberUtility.hh: same
+	* src/GabberWin.cc: Access the PresSettingsWin when settings is 
+	selected
+	* src/MessageViews.cc: Grab the timestamp format from config file
+	* src/PrefsInterface.cc: Minor fixes
+	* src/StatusInterface.cc: PresSettingsWin added
+	* src/StatusInterface.hh: same
+	* ui/Gabber_win.glade: Show as changed to Presence
+	* ui/Login_dlg.glade: Set wrap to no
+	* ui/Makefile.am: Add PresSettings_win.glade
+	* ui/OOOChat_win.glade: Get rid of ooochat icon, move presence icon 
+	there
+	* ui/PresSettings_win.glade: Added
+
+2001-02-22  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Added norwegian translation
+
+2001-02-21  Julian Missig  <julian@jabber.org>
+	
+	* src/MessageViews.cc: Right-click menu in group chat
+	* src/MessageViews.hh: same
+	* ui/GC_win.glade: same
+
+2001-02-21  Julian Missig  <julian@jabber.org>
+
+	* AUTHORS: Spell temas's name correctly
+	* src/AutoAway.cc: Change default auto-away message
+	* src/GabberWin.cc: Spell temas's name correctly
+
+2001-02-19  Brandon  <brandon@aspect.net>
+
+	* src/AutoAway.cc: added handler for evtOnLast
+	* src/AutoAway.hh: same
+
+2001-02-19  Julian Missig  <julian@jabber.org>
+	
+	* configure.in: Upped version
+	* jabberoo/include/jabberoo.hh: evtOnLast(string&) for jabber:iq:last
+	* jabberoo/src/jabberoo-session.cc: same
+	* src/AutoAway.cc: xa time is 15 mins
+	* src/ContactInfoInterface.cc: Display iq:last information
+	* src/ContactInfoInterface.hh: same
+	* src/Makefile.am: alphabetize
+	* ui/ContactInfo_dlg.glade: Display iq:last information
+
+2001-02-17  Brandon  <brandon@aspect.net>
+
+	* src/AutoAway.cc: added option to disable AutoAway and changed it so
+	it defaults to beign disabled.  
+
+2001-02-15  Brandon  <brandon@aspect.net>
+
+	* acconfig.h: Added define for XScreenSaver Extension
+	* configure.in: Added tests for XScreenSaver Extension
+	* src/AutoAway.cc: Added AutoAway support using XSS 
+	* src/AutoAway.hh: same
+	* src/GabberApp.cc: updates to use AA
+	* src/GabberApp.hh: same
+	* src/Makefile.am: same
+	* src/RosterView.cc: flash all nodes for a JID in Roster when message 
+	is waiting.  
+
+2001-02-14  Frédéric Crozat  <fred@crozat.net>
+
+	* po/fr.po: update translation and remove obsolete entries
+
+2001-02-13  Julian Missig  <julian@jabber.org>
+
+	* configure.in: Flagged 0.8.2pre1
+
+2001-02-13  Julian Missig  <julian@jabber.org>
+
+	* src/ConfigManager.cc: Translate the show index with the show enum
+	* src/GabberApp.cc: same
+	* src/GabberUtility.cc: same
+	* src/GabberUtility.hh: same
+	* src/GabberWin.cc: same
+	* src/MessageViews.cc: same
+	* src/PrefsInterface.cc: same
+	* src/StatusInterface.cc: Abstract to a "StatusIndicator" class, which
+	will updated the status docklet and anything else which wishes to
+	indicate the current status
+	* src/StatusInterface.hh: same
+
+2001-02-12  Brandon  <brandon@aspect.net>
+	* jabberoo/configure.in: Set CXXFLAGS when debug is enabled
+	* jabberoo/src/Makefile.am: Set CXXFLAGS properly for debug
+	* jabberoo/src/judo-tagstream.cc: Fixed logout-login bug
+
+2001-02-11  Julian Missig  <julian@jabber.org>
+
+	* AUTHORS: added more recognition for mawis
+	* src/ConfigManager.cc: Saved some variables here with accessors
+	* src/ConfigManager.hh: same
+	* src/ContactInfoInterface.cc: Made changes to respect ConfigManager 
+	variables nick, show, status, priority
+	* src/GabberApp.cc: same
+	* src/GabberWin.cc: same
+	* src/PrefsInterface.cc: same
+	* src/StatusInterface.cc: same
+	* src/WelcomeDruid.cc: same
+	* src/MessageViews.cc: removed close buttons on ooochat and groupchat
+	* ui/GC_win.glade: same
+	* ui/OOOChat_win.glade: same
+	* ui/Welcome_win.glade: Made the size a bit saner
+
+2001-02-11  Julian Missig  <julian@jabber.org>
+
+	* src/ContactInfoInterface.cc: If someone changes one email/country, 
+	it now automatically changes the other.
+	* src/ContactInfoInterface.hh: same
+	* src/PrefsInterface.cc: There was a typo in the config value name for 
+	autoreconnect... that was causing the prefs problems.
+	* ui/MyContactInfo_win.glade: Allow people to edit the other country/
+	email.
+
+2001-02-11  Julian Missig  <julian@jabber.org>
+	
+	* src/BaseGabberWindow.cc, src/BaseGabberWindow.hh: Now has 
+	BaseGabberWidget, which allows widget parts to be extracted instead 
+	of having to be a window.
+	* src/GabberApp.cc, src/GabberApp.hh, src/GabberWin.cc, 
+	src/GabberWin.hh, src/MessageViews.cc, src/RosterView.cc, 
+	src/RosterView.hh, src/StatusInterface.cc, src/StatusInterface.hh,
+	src/TCPTransmitter.cc, ui/Gabber_win.glade: Broke the icky hidden 
+	submenu hack up into seperate menu widgets, using BaseGabberWidget 
+	to extract the widgets.
+	* ui/Login_dlg.glade: Changed a string slightly
+
+2001-02-10  Julian Missig  <julian@jabber.org>
+	
+	* configure.in: Require at least gnomemm 1.1.12
+	* pixmaps/Makefile.am: Install offline.xpm with the glade files
+	* src/AddContactDruid.cc: Now use Gnome::HRef
+	* src/ContactInfoInterface.cc: Now use Gnome::HRef
+	* src/Gabber.hh: Include gnome--/href.h
+	* src/GabberUtility.cc: Function for creating show as items
+	* src/GabberUtility.hh: same
+	* src/GabberWin.cc: Use the function for creating show as items and 
+	create a show as submenu in the main Gabber menu
+	* src/GabberWin.hh: same
+	* ui/Gabber_win.glade: Add an item where the show as submenu can be 
+	hooked up
+
+2001-02-10  Julian Missig  <julian@jabber.org>
+
+	* NEWS: Updated
+	* configure.in: Now includes fi.po
+	* po/POTFILES.in: Previous commit from me made it blank (??)
+	* po/fi.po: Pulled in from gnome-i18n
+
+2001-02-10  Matthias Wimmer <mail@matthias-wimmer.de>
+
+	* src/Makefile.am: Fixed build problem with SuSE
+
+2001-02-10  Julian Missig  <julian@jabber.org>
+	
+	* src/GabberWin.cc: Save/load the expanded roster groups when 
+	appropriate
+	* src/PrefsInterface.cc: Removed expand groups option
+	* src/PrefsInterface.hh: Removed expand groups option
+	* src/RosterView.cc: Now save which groups were expanded
+	* src/RosterView.hh: Now save which groups were expanded
+	* ui/Prefs_win.glade: Removed expand groups option
+
+2001-02-09  Julian Missig  <julian@jabber.org>
+
+	* po/POTFILES.in: Updated for file name changes
+	* src/ContactInfoInterface.cc: Updated for file name changes
+	* src/MessageViews.cc: Nickname now displayed
+	* src/MessageViews.hh: Nickname now displayed
+	* ui/AUDruid_win.glade: Minor updates
+	* ui/ContactInfo_dlg.glade: Changed filename to this
+	* ui/EditUser_dlg.glade: Changed filename from this
+	* ui/GCJoin_dlg.glade: Nickname now displayed
+	* ui/Makefile.am: Updated for filename
+	* ui/MyContactInfo_win.glade: Changed filename to this
+	* ui/UserInfo_win.glade: Changed filename from this
+	* ui/Welcome_win.glade: Minor updates
+
+2001-02-09  Julian Missig  <julian@jabber.org>
+
+	* TODO: Removed some of the notes for the new style.
+	* po/Makefile.in.in: Updated filenames
+	* po/POTFILES.in: Updated filenames
+	* src/AddContactDruid.cc: New name for AddUserDruid
+	* src/AddContactDruid.hh: same
+	* src/AddUserDruid.cc: same
+	* src/AddUserDruid.hh: same
+	* src/AgentInterface.cc: Updated due to class changes
+	* src/ContactInfoInterface.cc: Updated due to class changes
+	* src/DebugInterface.cc: New file
+	* src/DebugInterface.hh: New file
+	* src/GabberApp.cc: Updated due to class changes
+	* src/GabberWin.cc: Updated due to class changes
+	* src/Makefile.am: Updated due to class changes
+	* src/MessageViews.cc: Updated due to class changes
+	* src/PrefsInterface.cc: Updated due to class changes
+	* src/RawXML.cc: Moved to DebugInterface, renamed RawXMLInput
+	* src/RawXML.hh: same
+	* src/RosterView.cc: Updated due to class changes
+	* src/S10nInterface.cc: New file
+	* src/S10nInterface.hh: New file
+	* src/StatusDlg.cc: Moved to StatusInterface
+	* src/StatusDlg.hh: Moved to StatusInterface
+	* src/StatusDock.cc: Moved to StatusInterface
+	* src/StatusDock.hh: Moved to StatusInterface
+	* src/StatusInterface.cc: New file
+	* src/StatusInterface.hh: New file
+	* src/SubscriptionRequestDlg.cc: Moved to S10nInterface
+	* src/SubscriptionRequestDlg.hh: Moved to S10nInterface
+
+2001-02-09  Julian Missig  <julian@jabber.org>
+	
+	* NEWS: Fixed bug searching "small" Jabber Users Directory
+	* src/AddUserDruid.cc: Don't just assume that all searches have keys.
+	I believe the only problem was that the next button logic assumed they 
+	did.
+	* ui/AUDruid_win.glade: Minor string changes.
+
+2001-02-09  Brandon  <brandon@aspect.net>
+	* jabberoo/src/judo-tagstream.cc: Properly reset the DocumentStarted variable.  
+	Doesn't fix the reconnect bug though.  
+	* src/GPGInterface.cc: Updated to new style and fix in detecting errors in shmat.
+	* src/GPGInterface.hh: Updated to new style.  
+	* src/GabberApp.cc: Updated to new style.  
+	* src/GabberGPG.cc: Updated to new style.  
+	* src/GabberGPG.hh: Updated to new style.  
+	* src/GabberWin.cc: Updated to new style.  
+	* src/GabberWin.hh: Updated to new style.  
+	* src/MessageManager.cc: Updated to new style.  (I think)
+	* src/MessageViews.cc: Updated to new style (I think)
+	* src/PrefsInterface.cc: Changes because of updates to GPG files.  
+	* src/RosterView.cc: Changes because of other files.  
+	* src/StatusDlg.cc: Again other files.  
+	* src/StatusDock.cc: Changes in other files.  
+
+2001-02-08  Julian Missig  <julian@jabber.org>
+
+	* src/AddUserDruid.cc: Made the add user druid even simpler; the 
+	contact information page should no longer be confusing.
+	* ui/AUDruid_win.glade: same
+
+2001-02-07  Julian Missig  <julian@jabber.org>
+
+	* src/MessageViews.cc: Removed Keep Open toggle button, now uses "OK"
+	instead of "Cancel" on autoupdate messages.
+	* src/MessageViews.hh: same
+	* ui/Message_win.glade: same
+
+2001-02-06  Julian Missig  <julian@jabber.org>
+
+	* src/GabberApp.cc: Removed unused header
+	* src/e-font.c: (e_font_to_gdk_font), (e_font_to_native),
+	(translate_encoding): Updated from CVS. Fixes some rendering bugs.
+	* src/e-font.h: Updated from CVS for the new functions they added.
+	* src/e-unicode.c: (e_utf8_from_gtk_string_sized),
+	(e_utf8_to_gtk_string_sized): Updated from CVS for the new functions 
+	they added.
+
+2001-02-06  Julian Missig  <julian@jabber.org>
+
+	* NEWS: This is where we store old ChangeLog-like news. Now use 
+	prepare-ChangeLog.pl, which can be wget'd from Gabber's web site.
+	This is standard for most GNOME things now, and prepares the 
+	ChangeLog properly, like its name implies.

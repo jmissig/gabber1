@@ -1,0 +1,7 @@
+Makefile
+Makefile.in
+Gabber.hh
+.deps
+.libs
+gabber
+GabberConfig.hh

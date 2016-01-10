@@ -1,0 +1,35 @@
+<!-- BEGIN: USERINFO -->
+	<chapter id="userinfo">
+		<title>User Information</title>
+		<para>
+			Through the Jabber Users Directory (JUD), Jabber users can store their "vCard" for other users
+			to reference or search. Users are free to not list any information about themselves
+			in the directory. <application>Gabber</application> provides an easy way for the user to
+			list their self in the directory through the <interface>My Information</interface> dialog
+			accessible via the <guimenuitem>My Information</guimenuitem> item on the <guimenu>Gabber</guimenu> menu.
+		</para>
+		<sect1 id="userinfo-jud">
+			<title>JUD</title>
+			<para>
+				To disable publishing personal information to JUD, simply select the
+				<guilabel>Do not publish my information in JUD</guilabel> option in the <interface>JUD</interface>
+				tab and confirm the dialog.
+			</para>
+		</sect1>
+		<sect1 id="userinfo-vcard">
+			<title>vCard Information</title>
+			<para>
+				Information entered on the <interface>General Info</interface>, <interface>Personal Info</interface>,
+				<interface>Location</interface>, <interface>Organization</interface> and <interface>About</interface>
+				tabs are stored on the server in the <wordasword>vCard</wordasword> format.
+				This information is available to other users and for searching for other users. The basic information
+				provided on the General Info tab is also used for Jabber user searching.. To disable public searching of
+				information, see <link linkend="userinfo-jud">above</link>.
+			</para>
+			<para>
+				More information about the vCard XML specification used by Jabber can be found at <ulink type="http"
+				url="http://jabber.org/protocol/vcard-xml/">Jabber.org</ulink>
+			</para>
+		</sect1>
+	</chapter>
+<!-- END: USERINFO -->

@@ -1,0 +1,27 @@
+<!-- BEGIN: FILE -->
+	<chapter id="file">
+		<title>File Transfer</title>
+		<para>
+			<application>Gabber</application> supportes limited file sending
+			and receiving to other Jabber users. To send a file to a user,
+			simply right click on the user in the roster and click
+			<guimenuitem>Send File</guimenuitem> from the <link
+			linkend="main-roster-menu">User Context Menu</link>. A simple
+			file send dialog will then be presented to accept information
+			about the file to send, an optional description and the current
+			IP address. Under normal circumstances, the IP address does not
+			need to be changed.
+		</para>
+		<para>
+			To receive a file, simply accept the request for the file
+			and select a location for the file to be placed.
+		</para>
+		<note>
+			<title>Firewall File Transfer</title>
+			<para><application>Gabber</application> cannot currently send
+			files from behind a firewall. If the client is behind a firewall,
+			it will appear to be preparing to send the file but will not
+			progress.</para>
+		</note>
+	</chapter>
+<!-- END: FILE -->

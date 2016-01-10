@@ -1,0 +1,16 @@
+How to release Gabber version x.y.z:
+
+Check date and time. Debian is updated at 15:00 EST/EDT, notify primus@jabber.com of the release so he can get it updated in Debian ASAP.
+
+Raise version number in configure.in, updates NEWS with the date, commit changes;
+cvs tag gabber-x_y_z;
+./autogen.sh --prefix=/usr --sysconfdir=/etc;
+make;
+make dist;
+ncftpput upload.sourceforge.net /incoming gabber-x.y.z.tar.gz;
+log into sourceforge, Project Admin, Edit/Release Files, Add Release x.y.z, HTML-ize NEWS and paste into ChangeLog, Add gabber-x.y.z.tar.gz;
+update index.php and download.php;
+
+make new release on freshmeat.net;
+make new release on jabbercentral.org;
+update entry on www.gnome.org;

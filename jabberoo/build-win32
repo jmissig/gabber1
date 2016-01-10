@@ -1,0 +1,36 @@
+#!/bin/sh
+
+BUILDDIR="jabberoo-win32"
+
+mkdir -p $BUILDDIR/src
+mkdir $BUILDDIR/expat
+mkdir $BUILDDIR/sigc++
+
+cp LICENSE NEWS README ChangeLog AUTHORS COPYING $BUILDDIR/
+cp -R docs/ $BUILDDIR/
+
+cp *.ds? $BUILDDIR
+cp expat/*.h expat/*.c $BUILDDIR/expat
+cp libsigc++/*.ds* $BUILDDIR/sigc++
+cp libsigc++/sigc++/*.cc $BUILDDIR/sigc++
+cp libsigc++/sigc++/*.h  $BUILDDIR/sigc++
+cp libsigc++/sigc++/config/sigc++config.h $BUILDDIR/sigc++
+cp include/*.h* $BUILDDIR/src
+cp src/*.c* $BUILDDIR/src
+
+# Rename all .cc files to .cpp in src
+for f in $BUILDDIR/src/*.cc
+    do 
+        f2=`echo $f|sed s/.cc/.cpp/`
+        mv $f $f2
+    done       
+
+# Rename all .cc files to .cpp in src
+for f in $BUILDDIR/sigc++/*.cc
+    do 
+        f2=`echo $f|sed s/.cc/.cpp/`
+        mv $f $f2
+    done       
+
+# Create a zip file
+zip -9 -r jabberoo-win32.zip $BUILDDIR/

@@ -1,0 +1,61 @@
+Gabber AUTHORS (and CONTRIBUTORS)
+
+** Julian "x-virge" Missig <julian@jabber.org>
+	Project manager, User Interface, rewrote much of the 
+	build system, and code.
+
+** Dave "DizzyD" Smith <dave@jabber.org>
+	Lots of code, jabberoo, judo, code, and code.
+
+** Brandon Lees <brandon@sci.brooklyn.cuny.edu>
+	Lots of code, including message queuing and gnupg support.
+	Agent searching, new registration druid, many bug fixes,
+	message queuing.
+
+* Eliot "e-t" Landrum <eliot@landrum.cx>
+	Tester, Gabber Manual.
+
+* Thomas "temas" Muldowney <temas@box5.net>
+	Bug fixes, file transfer.
+
+* Konrad Podloucky <konrad@users.sourceforge.net>
+	TCPTransmitter.
+
+* Matthias Wimmer <mawis@users.sourceforge.net>
+	German (de) translation, IPv6, proxy support.
+
+* James Widman <j-widman@cornellcollege.edu>
+	Patches, grunt-work, testing.
+
+* Dave Lee <dave@cherryville.org>
+	XHTML Logging.
+
+* Benedikt "bratislav" Roth <Benedikt.Roth@bratislav.de>
+	eMail-like quoting and right-click URLs in normal messages
+
+Youngjin "artwiz" Hahn <artwiz@artramp.org>
+	Original icons.
+
+Garrett LeSage <garrett@linux.com>
+	Additional icons.
+
+Todd Bradley <ToddBradley@bigfoot.com>
+	Sounds.
+
+David Zoll <gleef@users.sourceforge.net>
+	Small bug fixes, g_asserts.
+
+Jeremy "jwise" Wise <jwise@pathwaynet.com>
+	Patches, gnomeicu.
+
+Karl "kenelson" Nelson
+	libsigc++, gtkmm, and gnomemm improvements.
+
+ERDI "Cactus" Gergo <cactus@cactus.rulez.org>
+	EasyOptionMenu, later renamed MenuBuilder.
+
+Erich "needo" Zigler <need@superhero.org>
+	README.FreeBSD, Gabber FreeBSD port.
+
+Lauris Kaplinski <lauris@helixcode.com>
+	e-font and e-unicode (Taken from CVS GAL).

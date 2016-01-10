@@ -1,0 +1,2200 @@
+<?xml version="1.0"?>
+<GTK-Interface>
+
+<project>
+  <name>Gabber</name>
+  <program_name>Gabber</program_name>
+  <directory></directory>
+  <source_directory>src</source_directory>
+  <pixmaps_directory>pixmaps</pixmaps_directory>
+  <language>C</language>
+  <gnome_support>True</gnome_support>
+  <gettext_support>True</gettext_support>
+  <use_widget_names>True</use_widget_names>
+  <gnome_help_support>True</gnome_help_support>
+</project>
+
+<widget>
+  <class>GnomeApp</class>
+  <name>AUDruid_win</name>
+  <title>Add a Contact to Your Roster - Gabber</title>
+  <type>GTK_WINDOW_TOPLEVEL</type>
+  <position>GTK_WIN_POS_NONE</position>
+  <modal>False</modal>
+  <allow_shrink>False</allow_shrink>
+  <allow_grow>True</allow_grow>
+  <auto_shrink>False</auto_shrink>
+  <wmclass_name>AUDruid</wmclass_name>
+  <wmclass_class>gabber</wmclass_class>
+  <enable_layout_config>False</enable_layout_config>
+
+  <widget>
+    <class>GnomeDock</class>
+    <child_name>GnomeApp:dock</child_name>
+    <name>dock4</name>
+    <allow_floating>True</allow_floating>
+    <child>
+      <padding>0</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+
+    <widget>
+      <class>GnomeDruid</class>
+      <child_name>GnomeDock:contents</child_name>
+      <name>AUDruid_druid</name>
+
+      <widget>
+	<class>GnomeDruidPageStart</class>
+	<name>AUDruid_intro</name>
+	<title>Add a Contact to Your Roster</title>
+	<text>This assistant will help you add a contact to your
+Roster. Click Next to get started.</text>
+	<title_color>255,255,255</title_color>
+	<text_color>0,0,0</text_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<textbox_color>255,255,255</textbox_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>AUDruid_choice</name>
+	<title>Add Method</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox7</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox147</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>6</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkVBox</class>
+	      <name>vbox54</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>0</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkRadioButton</class>
+		<name>AUDruid_search_rdo</name>
+		<can_focus>True</can_focus>
+		<label>Search the user directories for a contact</label>
+		<active>True</active>
+		<draw_indicator>True</draw_indicator>
+		<group>locate_choice</group>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkRadioButton</class>
+		<name>AUDruid_protocol_rdo</name>
+		<can_focus>True</can_focus>
+		<label>Add a contact who uses another instant messaging system by screen name</label>
+		<active>False</active>
+		<draw_indicator>True</draw_indicator>
+		<group>locate_choice</group>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkRadioButton</class>
+		<name>AUDruid_jabberid_rdo</name>
+		<can_focus>True</can_focus>
+		<active>False</active>
+		<draw_indicator>True</draw_indicator>
+		<group>locate_choice</group>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+
+		<widget>
+		  <class>GtkHBox</class>
+		  <name>hbox116</name>
+		  <homogeneous>False</homogeneous>
+		  <spacing>4</spacing>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label528</name>
+		    <label>Add this JabberID:</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0.5</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <child>
+		      <padding>0</padding>
+		      <expand>False</expand>
+		      <fill>False</fill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkEntry</class>
+		    <name>AUDruid_JabberID_ent</name>
+		    <sensitive>False</sensitive>
+		    <can_focus>True</can_focus>
+		    <editable>True</editable>
+		    <text_visible>True</text_visible>
+		    <text_max_length>0</text_max_length>
+		    <text></text>
+		    <child>
+		      <padding>0</padding>
+		      <expand>True</expand>
+		      <fill>True</fill>
+		    </child>
+		  </widget>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame108</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox95</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap1</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label471</name>
+		  <label>You can search user directories of some of the other instant messaging systems.
+
+If you know a contact's screen name, UIN, or ID on another instant messaging system, choose the second option.</label>
+		  <justify>GTK_JUSTIFY_LEFT</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>AUDruid_protocol</name>
+	<title>Select an Instant Messaging System</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox27</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox168</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>6</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkVBox</class>
+	      <name>vbox169</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>4</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label524</name>
+		<label>From what server do you want to get the list of instant message systems?</label>
+		<justify>GTK_JUSTIFY_CENTER</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox114</name>
+		<homogeneous>False</homogeneous>
+		<spacing>4</spacing>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>True</fill>
+		</child>
+
+		<widget>
+		  <class>GnomeEntry</class>
+		  <name>AUDruid_protocol_Server_gent</name>
+		  <history_id>AgentBrowserServer</history_id>
+		  <max_saved>10</max_saved>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+
+		  <widget>
+		    <class>GtkEntry</class>
+		    <child_name>GnomeEntry:entry</child_name>
+		    <name>AUDruid_protocol_Server_ent</name>
+		    <can_focus>True</can_focus>
+		    <editable>True</editable>
+		    <text_visible>True</text_visible>
+		    <text_max_length>0</text_max_length>
+		    <text></text>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkButton</class>
+		  <name>AUDruid_protocol_Browse_btn</name>
+		  <can_focus>True</can_focus>
+		  <label>Browse</label>
+		  <relief>GTK_RELIEF_NORMAL</relief>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label525</name>
+		<label>Which instant messaging system does the contact you want to add use?</label>
+		<justify>GTK_JUSTIFY_CENTER</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkScrolledWindow</class>
+		<name>AUDruid_protocol_scroll</name>
+		<hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+		<vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+		<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+		<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+
+		<widget>
+		  <class>GtkCTree</class>
+		  <name>AUDruid_protocol_ctree</name>
+		  <can_focus>True</can_focus>
+		  <columns>1</columns>
+		  <column_widths>80</column_widths>
+		  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
+		  <show_titles>False</show_titles>
+		  <shadow_type>GTK_SHADOW_IN</shadow_type>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <child_name>CTree:title</child_name>
+		    <name>label526</name>
+		    <label>Available Agents</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		  </widget>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame120</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox115</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap11</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label527</name>
+		  <label>To add a contact, you need to know which instant messaging system they use.</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>AUDruid_normaladd</name>
+	<title>Manually Add a Contact</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox10</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox148</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>6</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkVBox</class>
+	      <name>vbox149</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>4</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label472</name>
+		<label>What is the contact's username or screen name?</label>
+		<justify>GTK_JUSTIFY_CENTER</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkEntry</class>
+		<name>AUDruid_normaladd_username_txt</name>
+		<can_default>True</can_default>
+		<has_default>True</has_default>
+		<can_focus>True</can_focus>
+		<has_focus>True</has_focus>
+		<editable>True</editable>
+		<text_visible>True</text_visible>
+		<text_max_length>255</text_max_length>
+		<text></text>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label478</name>
+		<label>What server does this contact use?</label>
+		<justify>GTK_JUSTIFY_CENTER</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GnomeEntry</class>
+		<name>AUDruid_normaladd_server_gent</name>
+		<history_id>AddUserServer</history_id>
+		<max_saved>10</max_saved>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+
+		<widget>
+		  <class>GtkEntry</class>
+		  <child_name>GnomeEntry:entry</child_name>
+		  <name>AUDruid_normaladd_server_txt</name>
+		  <can_focus>True</can_focus>
+		  <editable>True</editable>
+		  <text_visible>True</text_visible>
+		  <text_max_length>0</text_max_length>
+		  <text></text>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame109</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox96</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap2</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label476</name>
+		  <label>To manually add a contact, you need to know what agent they use, what their user name is, what server they use (if applicable), and be signed up for that agent.</label>
+		  <justify>GTK_JUSTIFY_LEFT</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>AUDruid_agents</name>
+	<title>Search a Directory for a Contact</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox18</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox152</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>6</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkVBox</class>
+	      <name>vbox153</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>4</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label488</name>
+		<label>From what server do you want to get the list of directories?</label>
+		<justify>GTK_JUSTIFY_CENTER</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox98</name>
+		<homogeneous>False</homogeneous>
+		<spacing>4</spacing>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>True</fill>
+		</child>
+
+		<widget>
+		  <class>GnomeEntry</class>
+		  <name>AUDruid_agents_Server_gent</name>
+		  <history_id>AgentBrowserServer</history_id>
+		  <max_saved>10</max_saved>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+
+		  <widget>
+		    <class>GtkEntry</class>
+		    <child_name>GnomeEntry:entry</child_name>
+		    <name>AUDruid_agents_Server_ent</name>
+		    <can_focus>True</can_focus>
+		    <editable>True</editable>
+		    <text_visible>True</text_visible>
+		    <text_max_length>0</text_max_length>
+		    <text></text>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkButton</class>
+		  <name>AUDruid_agents_Browse_btn</name>
+		  <can_focus>True</can_focus>
+		  <label>Browse</label>
+		  <relief>GTK_RELIEF_NORMAL</relief>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label507</name>
+		<label>Which directory would you like to search?</label>
+		<justify>GTK_JUSTIFY_CENTER</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkScrolledWindow</class>
+		<name>AUDruid_agents_scroll</name>
+		<hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+		<vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+		<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+		<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+
+		<widget>
+		  <class>GtkCTree</class>
+		  <name>AUDruid_agents_ctree</name>
+		  <can_focus>True</can_focus>
+		  <columns>1</columns>
+		  <column_widths>80</column_widths>
+		  <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
+		  <show_titles>False</show_titles>
+		  <shadow_type>GTK_SHADOW_IN</shadow_type>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <child_name>CTree:title</child_name>
+		    <name>label379</name>
+		    <label>Available Agents</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		  </widget>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame110</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox97</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap3</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label487</name>
+		  <label>To search for a contact, you need to know which instant messaging system they use.</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>AUDruid_search</name>
+	<title>Search for a Contact</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox9</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox155</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>6</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkVBox</class>
+	      <name>AUDruid_search_outer_vbox</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>4</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox109</name>
+		<homogeneous>False</homogeneous>
+		<spacing>8</spacing>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>True</fill>
+		</child>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label508</name>
+		  <label>Directory:</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>1</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>AUDruid_search_agent_lbl</name>
+		  <label></label>
+		  <justify>GTK_JUSTIFY_LEFT</justify>
+		  <wrap>False</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>AUDruid_search_loading_lbl</name>
+		<label>Loading...</label>
+		<justify>GTK_JUSTIFY_LEFT</justify>
+		<wrap>True</wrap>
+		<xalign>0</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkVBox</class>
+		<name>AUDruid_search_vbox</name>
+		<homogeneous>False</homogeneous>
+		<spacing>0</spacing>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+
+		<widget>
+		  <class>Placeholder</class>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame112</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox101</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap5</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label493</name>
+		  <label>You can fill in any number of fields to search for a contact</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>AUDruid_searchresults</name>
+	<title>Search Results</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox11</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox157</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>6</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkVBox</class>
+	      <name>vbox158</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>4</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox85</name>
+		<homogeneous>False</homogeneous>
+		<spacing>8</spacing>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>True</fill>
+		</child>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label430</name>
+		  <label>Directory:</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>1</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>AUDruid_searchresults_agent_lbl</name>
+		  <label></label>
+		  <justify>GTK_JUSTIFY_LEFT</justify>
+		  <wrap>False</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkScrolledWindow</class>
+		<name>AUDruid_searchresults_results_scroll</name>
+		<height>125</height>
+		<visible>False</visible>
+		<hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+		<vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+		<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+		<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+
+		<widget>
+		  <class>Placeholder</class>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame113</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox103</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap6</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label496</name>
+		  <label>If you didn't find the contact you are looking for, you can click Back and search again.</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>AUDruid_nickname</name>
+	<title>Contact Information and Nickname</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox8</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox159</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>6</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkVBox</class>
+	      <name>vbox160</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>4</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkTable</class>
+		<name>table3750</name>
+		<rows>5</rows>
+		<columns>2</columns>
+		<homogeneous>False</homogeneous>
+		<row_spacing>4</row_spacing>
+		<column_spacing>4</column_spacing>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>True</fill>
+		</child>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label413</name>
+		  <label>JabberID:</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>1</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>AUDruid_nickname_JID</name>
+		  <label></label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>True</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>AUDruid_nickname_FullName_lbl</name>
+		  <label></label>
+		  <justify>GTK_JUSTIFY_LEFT</justify>
+		  <wrap>False</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label237</name>
+		  <label>Full Name:</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>1</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label238</name>
+		  <label>E-mail:</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>1</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>2</top_attach>
+		    <bottom_attach>3</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label359</name>
+		  <label>Web Site:</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>1</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>3</top_attach>
+		    <bottom_attach>4</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label239</name>
+		  <label>Country:</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>1</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>4</top_attach>
+		    <bottom_attach>5</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>AUDruid_nickname_eMail_lbl</name>
+		  <label></label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>2</top_attach>
+		    <bottom_attach>3</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkHBox</class>
+		  <name>hbox75</name>
+		  <homogeneous>False</homogeneous>
+		  <spacing>0</spacing>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>3</top_attach>
+		    <bottom_attach>4</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+
+		  <widget>
+		    <class>GnomeHRef</class>
+		    <name>AUDruid_nickname_WebSite_href</name>
+		    <tooltip>Go to this web site</tooltip>
+		    <can_focus>True</can_focus>
+		    <url>http://gabber.sourceforge.net/</url>
+		    <label></label>
+		    <child>
+		      <padding>0</padding>
+		      <expand>False</expand>
+		      <fill>False</fill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label403</name>
+		    <label></label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0.5</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <child>
+		      <padding>0</padding>
+		      <expand>True</expand>
+		      <fill>True</fill>
+		    </child>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>AUDruid_nickname_Country_lbl</name>
+		  <label></label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>4</top_attach>
+		    <bottom_attach>5</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label500</name>
+		<label>What do you want this contact to be listed as?</label>
+		<justify>GTK_JUSTIFY_CENTER</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkEntry</class>
+		<name>AUDruid_nickname_Nickname_txt</name>
+		<can_default>True</can_default>
+		<has_default>True</has_default>
+		<can_focus>True</can_focus>
+		<has_focus>True</has_focus>
+		<editable>True</editable>
+		<text_visible>True</text_visible>
+		<text_max_length>255</text_max_length>
+		<text></text>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame114</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox105</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap7</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label499</name>
+		  <label>The contact's nickname is what the contact will be listed as in your roster.</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>AUDruid_groups</name>
+	<title>Groups</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox24</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox165</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>6</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkVBox</class>
+	      <name>vbox166</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>0</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox112</name>
+		<homogeneous>False</homogeneous>
+		<spacing>8</spacing>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+
+		<widget>
+		  <class>GtkFrame</class>
+		  <name>frame118</name>
+		  <width>100</width>
+		  <label>Available Groups</label>
+		  <label_xalign>0</label_xalign>
+		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+
+		  <widget>
+		    <class>GtkVBox</class>
+		    <name>vbox167</name>
+		    <border_width>6</border_width>
+		    <homogeneous>False</homogeneous>
+		    <spacing>4</spacing>
+
+		    <widget>
+		      <class>GtkHBox</class>
+		      <name>hbox113</name>
+		      <homogeneous>False</homogeneous>
+		      <spacing>4</spacing>
+		      <child>
+			<padding>0</padding>
+			<expand>False</expand>
+			<fill>True</fill>
+		      </child>
+
+		      <widget>
+			<class>GtkLabel</class>
+			<name>label521</name>
+			<label>_Group:</label>
+			<justify>GTK_JUSTIFY_RIGHT</justify>
+			<wrap>False</wrap>
+			<xalign>1</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+			<default_focus_target>AUDruid_groups_NewGroup_ent</default_focus_target>
+			<child>
+			  <padding>0</padding>
+			  <expand>False</expand>
+			  <fill>False</fill>
+			</child>
+		      </widget>
+
+		      <widget>
+			<class>GtkEntry</class>
+			<name>AUDruid_groups_NewGroup_ent</name>
+			<can_focus>True</can_focus>
+			<editable>True</editable>
+			<text_visible>True</text_visible>
+			<text_max_length>0</text_max_length>
+			<text></text>
+			<child>
+			  <padding>0</padding>
+			  <expand>True</expand>
+			  <fill>True</fill>
+			</child>
+		      </widget>
+		    </widget>
+
+		    <widget>
+		      <class>GtkScrolledWindow</class>
+		      <name>AUDruid_groups_Available_scroll</name>
+		      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+		      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+		      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+		      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+		      <child>
+			<padding>0</padding>
+			<expand>True</expand>
+			<fill>True</fill>
+		      </child>
+
+		      <widget>
+			<class>GtkCList</class>
+			<name>AUDruid_groups_Available_clist</name>
+			<can_focus>True</can_focus>
+			<columns>1</columns>
+			<column_widths>80</column_widths>
+			<selection_mode>GTK_SELECTION_SINGLE</selection_mode>
+			<show_titles>False</show_titles>
+			<shadow_type>GTK_SHADOW_IN</shadow_type>
+
+			<widget>
+			  <class>GtkLabel</class>
+			  <child_name>CList:title</child_name>
+			  <name>label522</name>
+			  <label>label522</label>
+			  <justify>GTK_JUSTIFY_CENTER</justify>
+			  <wrap>False</wrap>
+			  <xalign>0.5</xalign>
+			  <yalign>0.5</yalign>
+			  <xpad>0</xpad>
+			  <ypad>0</ypad>
+			</widget>
+		      </widget>
+		    </widget>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkVButtonBox</class>
+		  <name>vbuttonbox1</name>
+		  <layout_style>GTK_BUTTONBOX_START</layout_style>
+		  <spacing>4</spacing>
+		  <child_min_width>0</child_min_width>
+		  <child_min_height>0</child_min_height>
+		  <child_ipad_x>0</child_ipad_x>
+		  <child_ipad_y>0</child_ipad_y>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <name>AUDruid_groups_Add_btn</name>
+		    <can_focus>True</can_focus>
+		    <label>Add -&gt;</label>
+		    <relief>GTK_RELIEF_NORMAL</relief>
+		  </widget>
+
+		  <widget>
+		    <class>GtkButton</class>
+		    <name>AUDruid_groups_Remove_btn</name>
+		    <can_focus>True</can_focus>
+		    <label>&lt;- Remove</label>
+		    <relief>GTK_RELIEF_NORMAL</relief>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkFrame</class>
+		  <name>frame119</name>
+		  <width>100</width>
+		  <label>Current Groups</label>
+		  <label_xalign>0</label_xalign>
+		  <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+
+		  <widget>
+		    <class>GtkScrolledWindow</class>
+		    <name>AUDruid_groups_Current_scroll</name>
+		    <border_width>6</border_width>
+		    <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+		    <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+		    <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+		    <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+
+		    <widget>
+		      <class>GtkCList</class>
+		      <name>AUDruid_groups_Current_clist</name>
+		      <can_focus>True</can_focus>
+		      <columns>1</columns>
+		      <column_widths>80</column_widths>
+		      <selection_mode>GTK_SELECTION_SINGLE</selection_mode>
+		      <show_titles>False</show_titles>
+		      <shadow_type>GTK_SHADOW_IN</shadow_type>
+
+		      <widget>
+			<class>GtkLabel</class>
+			<child_name>CList:title</child_name>
+			<name>label523</name>
+			<label>label523</label>
+			<justify>GTK_JUSTIFY_CENTER</justify>
+			<wrap>False</wrap>
+			<xalign>0.5</xalign>
+			<yalign>0.5</yalign>
+			<xpad>0</xpad>
+			<ypad>0</ypad>
+		      </widget>
+		    </widget>
+		  </widget>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame117</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox111</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap10</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label520</name>
+		  <label>You can place this contact in one or more groups. Organizing contacts into groups makes it easier to find people in your roster.</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>AUDruid_request</name>
+	<title>Request Message</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox17</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox161</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>6</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkVBox</class>
+	      <name>vbox162</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>4</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label504</name>
+		<label>What request do you want Gabber to send this contact?</label>
+		<justify>GTK_JUSTIFY_CENTER</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkScrolledWindow</class>
+		<name>AUDruid_s10nrequest_scroll</name>
+		<hscrollbar_policy>GTK_POLICY_NEVER</hscrollbar_policy>
+		<vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+		<hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+		<vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+
+		<widget>
+		  <class>GtkText</class>
+		  <name>AUDruid_s10nrequest_txt</name>
+		  <height>120</height>
+		  <can_focus>True</can_focus>
+		  <editable>True</editable>
+		  <text>I would like to add you to my roster.</text>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame115</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox107</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap8</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label503</name>
+		  <label>Gabber needs to ask contacts if you can add them to your roster. You can attach your own message to this request above.</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>AUDruid_final</name>
+	<title>Final Configuration</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox23</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox163</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>6</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkVBox</class>
+	      <name>vbox164</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>4</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkCheckButton</class>
+		<name>AUDruid_confirm_Groups_chk</name>
+		<visible>False</visible>
+		<sensitive>False</sensitive>
+		<can_focus>True</can_focus>
+		<label>Display the group configuration for this contact.</label>
+		<active>True</active>
+		<draw_indicator>True</draw_indicator>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkCheckButton</class>
+		<name>AUDruid_confirm_Again_chk</name>
+		<can_focus>True</can_focus>
+		<label>Add another contact when this is finished</label>
+		<active>False</active>
+		<draw_indicator>True</draw_indicator>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame116</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox108</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap9</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label506</name>
+		  <label>Gabber organizes contacts in the roster by what group they are in.</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageFinish</class>
+	<name>AUDruid_finish</name>
+	<title>Completed</title>
+	<text>Gabber has sent this contact a request to add
+them to your roster.</text>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<textbox_color>255,255,255</textbox_color>
+	<text_color>0,0,0</text_color>
+	<title_color>255,255,255</title_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+      </widget>
+    </widget>
+  </widget>
+
+  <widget>
+    <class>GnomeAppBar</class>
+    <child_name>GnomeApp:appbar</child_name>
+    <name>AUDruid_Status_bar</name>
+    <has_progress>True</has_progress>
+    <has_status>True</has_status>
+    <child>
+      <padding>0</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+  </widget>
+</widget>
+
+</GTK-Interface>

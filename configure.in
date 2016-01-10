@@ -1,0 +1,572 @@
+AC_INIT(src/main.cc)
+
+AM_CONFIG_HEADER(config.h)
+AM_INIT_AUTOMAKE(gabber, 0.8.8)
+AM_MAINTAINER_MODE
+AC_PREFIX_DEFAULT(/usr/local)
+AC_PROG_INTLTOOL
+
+dnl Pick up the Gnome macros.
+if test -z "$ACLOCAL_FLAGS" ; then
+  if test -d "$acldir/gnome-macros" -a -r "$acldir/gnome-macros/autogen.sh" ; then
+    AM_ACLOCAL_INCLUDE($acldir/gnome-macros)
+   elif test -d "$acldir/gnome" -a -r "$acldir/gnome/autogen.sh" ; then
+     AM_ACLOCAL_INCLUDE($acldir/gnome)
+   elif test -d "$srcdir/macros" -a -r "$srcdir/macros/autogen.sh" ; then
+     AM_ACLOCAL_INCLUDE($srcdir/macros)
+   fi
+fi
+
+AM_CONDITIONAL(INSIDE_GNOME_COMMON, false)
+
+GNOME_COMMON_INIT
+
+GNOME_INIT
+
+AC_PROG_CC
+AC_PROG_CXX
+
+AC_ISC_POSIX
+AC_HEADER_STDC
+AM_PROG_LIBTOOL
+
+dnl add this back if we ever figure out how to 
+dnl use mkstemp with gcc3 STL
+dnl AC_CHECK_FUNCS(mkstemp)
+
+GNOME_CXX_WARNINGS
+GNOME_COMPILE_WARNINGS
+
+GNOME_X_CHECKS
+
+dnl Check for gnome-config
+AC_PATH_PROG(GNOME_CONFIG, gnome-config, no)
+
+dnl **************************************************
+dnl * Operating System selection
+dnl * allows for ifdef's based on OS
+dnl **************************************************
+case "$host_os" in
+	darwin*) 
+	AC_DEFINE(MACOSX, 1, [Define if workarounds are needed for MacOS X])
+	MACOSX="yes"
+	;;
+	solaris* | sysv5*)
+	AC_DEFINE(SOLARIS, 1, [Define if workarounds are needed for Solaris])
+	SOLARIS="yes"
+	;;
+esac
+
+dnl **************************************************
+dnl * Lib checker so blatantly ripped from evolution
+dnl * that I'll even keep the function name
+dnl **************************************************
+AC_DEFUN(EVO_CHECK_LIB, [
+	dispname="$1"
+	dispvers="$2"
+	pkgname="$3"
+
+	AC_MSG_CHECKING(for $dispname >= $dispvers)
+	cmpvers=`echo $dispvers | awk -F. '{ print $[]1 * 1000000 + $[]2 * 10000 + $[]3 * 100 + $[]4;}'`
+	if $GNOME_CONFIG --libs $pkgname > /dev/null 2>&1; then
+		pkgvers=`$GNOME_CONFIG --modversion $pkgname | sed -e 's/^[[^0-9]]*//'`
+	else
+		pkgvers=not
+	fi
+	AC_MSG_RESULT($pkgvers found)
+
+	pkgvers=`echo $pkgvers | awk -F. '{ print $[]1 * 1000000 + $[]2 * 10000 + $[]3 * 100 + $[]4;}'`
+	if test "$pkgvers" -lt $cmpvers; then
+	AC_MSG_ERROR([
+""
+"You need $dispname $dispvers or later to build Gabber"])
+	fi
+])
+
+EVO_CHECK_LIB(gnome-libs, 1.2.1, gnome)
+
+
+dnl ******************************
+dnl * Here are the LANGuages
+dnl ******************************
+ALL_LINGUAS="az ca da de el es fi fr ja ko lt ms nl no pl pt ro ru sk sv tr uk zh_TW"
+GETTEXT_PACKAGE=gabber
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [The name of the gettext package])
+AM_GLIB_GNU_GETTEXT
+
+EVO_CHECK_LIB(libglade, 0.11, libglade)
+EVO_CHECK_LIB(GAL, 0.3, gal)
+
+AM_PATH_GTKMM(1.2.5,,AC_MSG_ERROR([Cannot find gtkmm 1.2.5 or greater.]))
+
+dnl ******************************
+dnl gnomemm checking
+dnl ******************************
+AC_MSG_CHECKING(for gnomemm >= 1.1.12)
+if $GNOME_CONFIG --libs gnomemm > /dev/null 2>&1; then 
+    vers=`$GNOME_CONFIG --modversion gnomemm | sed -e "s/gnomemm-//" -e 's/cvs$//' -e 's/pre$//' | \
+        awk 'BEGIN { FS = "."; } { printf "%d", (($1 * 1000 + $2) * 1000 + $3) * 1000;}'`
+    if test "$vers" -ge 1001012000; then
+        AC_MSG_RESULT(found)
+    else
+        AC_MSG_ERROR(You need at least gnomemm 1.1.12. http://gtkmm.sourceforge.net/)
+    fi
+else
+    AC_MSG_ERROR(Did not find gnomemm. http://gtkmm.sourceforge.net/)
+fi
+
+dnl ******************************
+dnl The LIBS and CFLAGS for gnome libraries
+dnl ******************************
+AC_MSG_CHECKING(whether to statically link some libraries)
+AC_ARG_WITH(release-libs,
+	[  --with-release-libs=PATH     Specify path to static GAL libs ],
+	[ tmp="$withval" ],
+	[ tmp="no" ]
+)
+if test "x$tmp" != "xno" ; then
+	release_prefix=$tmp
+	if ! test -f $release_prefix/libgal.a ; then
+		AC_MSG_ERROR([libgal.a (GAL development library) not found. Please install if you wish to use --with-release-libs=$release_prefix])
+	fi
+	if ! test -f $release_prefix/libunicode.a ; then
+		AC_MSG_ERROR([libunicode.a (libunicode development library) not found. Please install if you wish to use --with-release-libs=$release_prefix])
+	fi
+	EXTRA_GNOME_LIBS="$release_prefix/libgal.a `$GNOME_CONFIG --libs libglade gnomeui gnomemm`"
+	EXTRA_GNOME_CFLAGS="`$GNOME_CONFIG --cflags libglade gnomeui gnomemm gal`"
+	AC_MSG_RESULT(yes)
+else
+	EXTRA_GNOME_LIBS="`$GNOME_CONFIG --libs libglade gnomeui gnomemm gal`"
+	EXTRA_GNOME_CFLAGS="`$GNOME_CONFIG --cflags libglade gnomeui gnomemm gal`"
+	AC_MSG_RESULT(no)
+fi
+AC_SUBST(EXTRA_GNOME_LIBS)
+AC_SUBST(EXTRA_GNOME_CFLAGS)
+
+
+dnl **************************************************
+dnl * C++ STL checks
+dnl **************************************************
+AC_LANG_CPLUSPLUS
+
+dnl AC_CXX_IN_STD(IDENTIFIER, HEADER, MACRO)
+dnl   tests the C++ for the presence of IDENTIFIER in namespace std.
+dnl   If IDENTIFIER is _not_ in namespace std, MACRO is #defined to
+dnl   'namespace std {using ::IDENTIFIER;}', otherwise empty.
+dnl
+dnl   This should be used in configure.in
+dnl     e.g. AC_CXX_IN_STD([string],[string],GTKMM_USING_STD_STRING)
+dnl
+AC_DEFUN([AC_CXX_IN_STD],
+[
+  AC_CACHE_CHECK([if C++ environment has $1 in std],[gtkmm_cv_cxx_$1_in_std],
+  [
+    AC_TRY_COMPILE(
+      [#include <]ifelse($2,,$1,$2)[>],
+      [using std::$1;],
+      [gtkmm_cv_cxx_$1_in_std="yes"],
+      [gtkmm_cv_cxx_$1_in_std="no"]
+    )
+  ])
+  if test "x${gtkmm_cv_cxx_$1_in_std}" = "xyes"; then
+    AC_DEFINE([$3],1, [Define if std::$1 exists])
+  fi
+])
+
+AC_CXX_IN_STD([ostringstream],[sstream],HAVE_STD_SSTREAM)
+
+
+dnl **************************************************
+dnl * Static Gabber Build
+dnl **************************************************
+AC_ARG_ENABLE(static-gabber,
+	      [  --enable-static-gabber   compile gabber with libraries statically linked ],
+	      [ case "$enableval" in
+                yes) static_gabber=yes ;;
+                no) static_gabber=no ;;
+		esac
+	      ],
+	      static_gabber=no)
+
+if test "x$static_gabber" = "xyes" ; then
+	dnl Is there a better way to find the path of the library .la files?  This code is ugly
+	config_dir=`dirname $ac_cv_path_GTKMM_CONFIG`
+	GTKMM_PREFIX=`dirname $config_dir`
+
+	if ! test -f $GTKMM_PREFIX/lib/libgnomemm.a ; then
+		AC_MSG_ERROR([Could not find gnomemm static libraries.  Please ensure that they are installed.])
+	fi
+	GABBER_STATIC_LIBS="$GTKMM_PREFIX/lib/libgnomemm.a"
+
+	if ! test -f $GTKMM_PREFIX/lib/libgtkmm.a ; then
+		AC_MSG_ERROR([Could not find gtkmm static libraries.  Please ensure that they are installed.])
+	fi
+	GABBER_STATIC_LIBS="$GNOMEMM_LIBS $GTKMM_PREFIX/lib/libgtkmm.a $GTKMM_PREFIX/lib/libgdkmm.a"
+
+	AM_PATH_SIGC(1.0.0,,)
+	SIGC_PREFIX=`$ac_cv_path_SIGC_CONFIG --prefix`
+	if ! test -f $SIGC_PREFIX/lib/libsigc.la ; then
+		AC_MSG_ERROR([Could not find sigc++ static libraries.  Please ensure that they are installed.])
+	fi
+	GABBER_STATIC_LIBS="$GNOMEMM_LIBS $SIGC_PREFIX/lib/libsigc.a $SIGC_PREFIX/lib/libpthread.a "
+	GABBER_STATIC="-Wl,-Bstatic -lstdc++ -Wl,-Bdynamic"
+	AC_SUBST(GABBER_STATIC_LIBS)
+	AC_SUBST(GABBER_STATIC)
+fi
+
+dnl *************************************************
+dnl * Check if we have gethostbyname_r
+dnl *************************************************
+
+dnl we need this, otherwise AC_CHECK_FUNC doesn't work properly
+AC_LANG_C
+AC_CHECK_FUNC(gethostbyname_r,
+  [
+
+  dnl  First check for the glibc variant of gethostbyname_r
+
+  AC_MSG_CHECKING(for glibc gethostbyname_r)
+  AC_TRY_LINK([	#include <netdb.h>],[
+	  struct hostent result_buf;
+	  char buf[1024];
+	  struct hostent* result;
+	  int h_errnop;
+
+	  gethostbyname_r("localhost", &result_buf, buf, sizeof(buf),
+	                  &result, &h_errnop);
+	], [
+
+	  dnl Have glibc gethostbyname_r
+
+	  AC_MSG_RESULT(yes)
+	  AC_DEFINE(HAVE_GETHOSTBYNAME_R_GLIBC, 1, [Define if gethostbyname_r is in glibc])
+	  HAVE_GETHOSTBYNAME_R=yes
+
+        ], [
+
+  dnl  If we don't have glibc gethostbyname_r, check
+  dnl  for Solaris/Irix gethostbyname_r
+
+  AC_MSG_RESULT(no)
+  AC_MSG_CHECKING(for Solaris/Irix gethostbyname_r)
+  AC_TRY_LINK([ #include <netdb.h>],[
+	  struct hostent result;
+	  char buf[1024];
+	  int h_errnop;
+
+	  gethostbyname_r("localhost", &result, buf, sizeof(buf), &h_errnop);
+
+	], [
+
+	  dnl Have Solaris/Irix gethostbyname_r
+
+  	  AC_MSG_RESULT(yes)
+	  AC_DEFINE(HAVE_GETHOSTBYNAME_R_SOLARIS, 1, [Define for the Solaris version of gethostbyname_r])
+	  HAVE_GETHOSTBYNAME_R=yes
+
+	], [
+  dnl  If don't have Solaris/Irix gethostbyname_r, check
+  dnl  for HP-UX gethostbyname_r
+
+  AC_MSG_RESULT(no)
+  AC_MSG_CHECKING(for HP-UX gethostbyname_r)
+  AC_TRY_LINK([ #include <netdb.h>],[
+	  struct hostent result;
+	  char buf[1024];
+          gethostbyname_r("localhost", &result, buf);
+        ], [
+        
+          dnl Have HP-UX gethostbyname_r
+
+          AC_MSG_RESULT(yes)
+	  AC_DEFINE(HAVE_GETHOSTBYNAME_R_HPUX, 1, [Define for the HP-UX version of gethostbyname_r])
+	  HAVE_GETHOSTBYNAME_R=yes
+
+	]
+     )]
+  )]
+)])
+
+
+dnl If we don't have gethostbyname_r, try to use Glib mutexes
+if test -z "$HAVE_GETHOSTBYNAME_R"; then
+
+  AM_PATH_GLIB(1.2.0, AC_DEFINE(HAVE_GETHOSTBYNAME_R_GLIB_MUTEX, 1, [Define for glib threads]), [
+      AC_MSG_WARN(You have neither Glib threads nor the function gethostbyname_r.
+This means that calls to gethostbyname (used for address resolution) will
+not be thread safe so could malfunction in programs that use threads.)
+    ])
+fi
+
+
+dnl ******************************
+dnl Check for socklen_t
+dnl ******************************
+AC_LANG_C
+AC_MSG_CHECKING(for socklen_t)
+  AC_TRY_COMPILE([
+ 	#include <sys/types.h>
+ 	#include <sys/socket.h>
+	socklen_t somesocket;
+	],[
+	],[
+  	  AC_MSG_RESULT(yes)
+	  AC_DEFINE(HAVE_SOCKLEN_T, 1, [Define if type socklen_t exists])
+	], [
+	  AC_TRY_COMPILE([
+		#include <sys/types.h>
+		#include <sys/socket.h>
+		int accept(int, struct sockaddr*, size_t*);
+	  ],[
+	  ],[
+	    AC_MSG_RESULT(size_t)
+	    AC_DEFINE(USE_SOCKLEN_T_SIZE_T, 1, [Define if size_t should be used for socklen_t])
+	  ],[
+	    AC_MSG_RESULT(int)
+	    AC_DEFINE(USE_SOCKLEN_T_INT, 1, [Define if int should be used for socklen_t])
+	  ])
+	]
+  )
+
+
+dnl ******************************
+dnl CFLAGS for release and devel versions
+dnl ******************************
+AC_ARG_ENABLE(debug,
+        [  --enable-debug          compile with debugging (for development)],
+        debug=$enable_debug,
+	debug=no
+)
+AC_MSG_CHECKING(for debugging)
+if test "x$debug" = xyes; then
+        AC_MSG_RESULT(yes)
+        BUILD_TYPE="$BUILD_TYPE Debug"
+        CFLAGS="$CFLAGS -g"
+        CXXFLAGS="$CXXFLAGS -g"
+else
+        AC_MSG_RESULT(no)
+	if test "x$MACOSX" = xyes ; then
+dnl *** What does MacOS X use instead of -s ???
+        	CFLAGS="$CFLAGS"
+        	CXXFLAGS="$CXXFLAGS"
+	else
+        	CFLAGS="$CFLAGS -s"
+        	CXXFLAGS="$CXXFLAGS -s"
+	fi
+fi
+
+dnl **************************************************
+dnl * OpenSSL check (directory check blatantly ripped
+dnl * from OpenSSH's configure.in)
+dnl **************************************************
+AC_ARG_ENABLE(ssl, [  --disable-ssl           disables OpenSSL support [ default=enabled ]],SSL="no",SSL="yes")
+
+AC_MSG_CHECKING(whether to enable SSL support)
+if test "$SSL" = "yes"; then
+	AC_MSG_RESULT(yes)
+
+	# The big search for OpenSSL
+	AC_ARG_WITH(ssl-dir,
+		[  --with-ssl-dir=PATH     Specify path to OpenSSL installation ],
+		[
+			if test "x$withval" != "$xno" ; then
+				tryssldir=$withval
+			fi
+		]
+	)
+
+	saved_LDFLAGS="$LDFLAGS"
+	saved_CFLAGS="$CFLAGS"
+	if test "x$prefix" != "xNONE" ; then
+		tryssldir="$tryssldir $prefix"
+	fi
+	AC_CACHE_CHECK([for OpenSSL directory], ac_cv_openssldir, [
+
+		for ssldir in "" $tryssldir /usr/local/openssl /usr/lib/openssl /usr/local/ssl /usr/lib/ssl /usr/local /usr/pkg /opt /opt/openssl ; do
+			if test ! -z "$ssldir" ; then
+				LDFLAGS="$saved_LDFLAGS -L$ssldir/lib -L$ssldir"
+				CFLAGS="$saved_CFLAGS -I$ssldir/include"
+				if test ! -z "$need_dash_r" ; then
+					LDFLAGS="$LDFLAGS -R$ssldir/lib -R$ssldir"
+				fi
+			else
+				LDFLAGS="$saved_LDFLAGS"
+				CFLAGS="$saved_CFLAGS"
+			fi
+
+			LDFLAGS="$LDFLAGS"
+			LIBS="-lssl -lcrypto"
+			# Basic test to check for compatible version and correct linking
+			# *does not* test for RSA - that comes later.
+			AC_TRY_RUN(
+			[
+	#include <string.h>
+	#include <openssl/rand.h>
+	int main(void) 
+	{
+		char a[2048];
+		memset(a, 0, sizeof(a));
+		RAND_add(a, sizeof(a), sizeof(a));
+		return(RAND_status() <= 0);
+	}
+				],
+				[
+					found_crypto=1
+					break;
+				], [], [
+					AC_MSG_ERROR(This won't work when cross-compiling, sorry!)
+					break;
+					]
+			)
+
+			if test ! -z "$found_crypto" ; then
+				break;
+			fi
+		done
+
+		if test -z "$found_crypto" ; then
+			AC_MSG_WARN([Could not find working OpenSSL libraries, will be disabled. Are you sure you've installed OpenSSL's SHARED libraries and set LD_LIBRARY_PATH to the correct path?])	
+			SSL="no"
+		else
+			if test -z "$ssldir" ; then
+				ssldir="(system)"
+			fi
+
+			ac_cv_openssldir=$ssldir
+		fi
+	])
+
+	if (test ! -z "$ac_cv_openssldir" && test "x$ac_cv_openssldir" != "x(system)") ; then
+		dnl Need to recover ssldir - test above runs in subshell
+		ssldir=$ac_cv_openssldir
+		SSL_CFLAGS="-I$ssldir/include -DWITH_SSL"
+		SSL_LIBS="-L$ssldir/lib -L$ssldir"
+		if test ! -z "$need_dash_r" ; then
+			SSL_LIBS="-R$ssldir/lib -R$ssldir"
+		fi
+		if test ! -z "$blibpath" ; then
+			blibpath="$blibpath:$ssldir:$ssldir/lib"
+		fi
+		SSL_LIBS="$SSL_LIBS -lssl -lcrypto"
+	elif test "x$ac_cv_openssldir" = "x(system)"; then
+		SSL_LIBS="-lssl -lcrypto"
+		SSL_CFLAGS="-DWITH_SSL"
+	else
+		SSL_LIBS=""
+		SSL_CFLAGS=""
+		CFLAGS=$saved_CFLAGS
+		LDFLAGS=$saved_LDFLAGS
+	fi
+	AC_SUBST(SSL_CFLAGS)
+	AC_SUBST(SSL_LIBS)
+else
+	AC_MSG_RESULT(no)
+fi
+AM_CONDITIONAL(BUILD_SSL, test x$SSL = xyes)
+
+dnl Type of pgp to use for encryption
+msg_crypto=None
+AC_PATH_PROG(GPG, gpg)
+if test -n "$GPG"; then
+	AC_DEFINE_UNQUOTED(GPG_PATH, "$GPG", [Path to GPG])
+	AC_DEFINE(PGP_PROGRAM, "GPG", [Which PGP/GPG variant is being used])
+	msg_crypto="GNU PG"
+else
+	AC_PATH_PROG(PGP5, pgpv)
+	if test -n "$PGP5"; then
+		AC_DEFINE_UNQUOTED(PGP5_PATH, "$PGP5", [Path to PGP5])
+		AC_DEFINE(PGP_PROGRAM, "PGP")
+		msg_crypto="PGP5 (unsupported)"
+	else
+		AC_PATH_PROG(PGP, pgp)
+		if test -n "$PGP"; then
+			AC_DEFINE_UNQUOTED(PGP_PATH, "$PGP", [Path to PGP])
+			AC_DEFINE(PGP_PROGRAM, "PGP")
+			msg_crypto="PGP (unsupported)"
+		fi
+	fi
+fi
+
+AC_ARG_ENABLE(screensaver,   [  --disable-screensaver   compile without X screensaver extension],enable_xss=no,enable_xss=yes)
+dnl Check for XScreenSaver
+if test "x$enable_xss" = "xyes" ; then
+	XSS_LIBS="no"
+	XSS_HEADERS="no"
+	AC_CHECK_LIB(Xext, XScreenSaverRegister,[XSS_LIBS=""],[],[-lX11 -lXext -lm])
+	AC_CHECK_LIB(Xss, XScreenSaverRegister,[XSS_LIBS="-lXss"],[],[$GNOME_LIBDIR -lX11 -lXext -lm])
+	if test \! "$XSS_LIBS" = "no"; then
+		AC_TRY_COMPILE([
+#include <X11/extensions/scrnsaver.h>
+				],[],[enable_xss=no],[
+				AC_DEFINE(HAVE_XSS, 1, [Define if libXss for screensaver extensions is usable])
+				])
+	else
+		XSS_LIBS=""
+		enable_xss=no
+	fi
+else
+	XSS_LIBS=""
+	enable_xss=no
+fi
+AC_SUBST(XSS_LIBS)
+
+AC_ARG_ENABLE(ipv6, [  --enable-ipv6           enables IPv6 support], [
+	AC_CHECK_FUNC(inet_ntop, [
+		AC_MSG_CHECKING(for IPv6)
+		AC_TRY_LINK([
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+			],[
+			struct sockaddr_in6 addr;
+			inet_pton(AF_INET6, "localhost", &addr.sin6_addr);
+			], enable_ipv6=yes, enable_ipv6=no)
+		AC_MSG_RESULT($enable_ipv6)
+		])
+	], enable_ipv6=no)
+	
+if test "x$enable_ipv6" = "xyes"; then
+	AC_DEFINE(WITH_IPV6, 1, [Define if IPv6 support should be compiled in])
+fi
+
+AC_ARG_ENABLE(xmms, [  --disable-xmms          compile without XMMS music info support],enable_xmms=no,enable_xmms=yes)
+dnl Check for XMMS
+XMMS_LIBS=""
+XMMS_CFLAGS=""
+if test "x$enable_xmms" = "xyes" ; then
+	AM_PATH_XMMS(1.2.0,AC_DEFINE(HAVE_XMMS, 1, [Define for XMMS extension]),enable_xmms=no)
+fi
+AC_SUBST(XMMS_LIBS)
+AC_SUBST(XMMS_CFLAGS)
+
+AC_CONFIG_SUBDIRS(jabberoo)
+
+AC_SUBST(CFLAGS)
+AC_SUBST(CPPFLAGS)
+AC_SUBST(CXXFLAGS)
+AC_SUBST(LDFLAGS)
+
+AC_OUTPUT([
+gabber.spec 
+Makefile 
+src/Makefile 
+ui/Makefile 
+po/Makefile.in 
+pixmaps/Makefile 
+sounds/Makefile 
+doc/Makefile 
+doc/C/Makefile 
+omf-install/Makefile 
+])
+
+echo "
+Configuration:
+  Install path:			  ${prefix}
+  Debugging symbols:              $debug
+  Static build:			  $static_gabber
+  Enable OpenSSL support:         $SSL
+  GPG Encryption Program:	  $msg_crypto
+  XScreenSaver Extension:	  $enable_xss
+  XMMS Music Info support:        $enable_xmms
+  IPv6 support:                   $enable_ipv6" 

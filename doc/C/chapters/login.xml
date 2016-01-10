@@ -1,0 +1,69 @@
+<!-- BEGIN: LOGIN -->
+<chapter id="login">
+	<title>Logging In</title>
+	<para>
+		After <application>Gabber</application> is loaded, the first
+		thing to do is connect and log in to a Jabber server. <xref linkend="figure-login"/>
+		shows the default <interface>Login</interface> dialog where
+		information about a user account can be entered. 
+		<screenshot id="figure-login">
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="login.png" format="PNG"/>
+				</imageobject>
+				<textobject>
+					<phrase>A screenshot of the login dialog.</phrase>
+				</textobject>
+				<caption>
+					<para>Login</para>
+				</caption>
+			</mediaobject>
+		</screenshot>
+	</para>
+	<para>
+		After entering user information into the required <guilabel>Username</guilabel>,
+		<guilabel>Server</guilabel> and <guilabel>Password</guilabel> fields, click
+		<guibutton>Login</guibutton> to connect and authenticate to the <link
+		linkend="login-server-def">server</link>. The <guilabel>Resource</guilabel> field is
+		required (<link linkend="login-resource-def">see below</link>). Unless some unique circumstances
+		are involved, the <guilabel>Port</guilabel> field should equal 5222, Jabber's default port.
+		The priority option is not required to be changed unless desired (<link linkend="login-priority-def">see
+		the definition below</link>).
+	</para>
+	<para>
+		All of the information on the <interface>Login</interface> dialog can be edited from the <interface>Connection
+		Settings</interface> dialog, accessible from the <guimenu>Gabber</guimenu> menu.
+	</para>
+	<variablelist>
+		<varlistentry id="login-server-def">
+			<term>Server</term>
+			<listitem><para>
+				As Jabber is a distributed architecture like the Internet's email
+				system, the <guilabel>Server</guilabel> field is required.
+				If no other Jabber server is available, the jabber.com server is currently
+				available for public, stable use.
+			</para></listitem>
+		</varlistentry>
+		<varlistentry id="login-resource-def">
+			<term>Resource</term>
+			<listitem><para>
+				A <wordasword>Resource</wordasword> in Jabber is used to
+				differentiate between different account connections. It can be any value such as
+				"Gabber" or "Home" as long as it is unique for the account. By having unique
+				Resources, a user can login to the same server using the same Jabber account
+				numerous times.
+			</para></listitem>
+		</varlistentry>
+		<varlistentry id="login-priority-def">
+			<term>Priority</term>
+			<listitem><para>
+				Using priorities, another client can be connected to take lower or higher priority than
+				existing clients. For instance, if <application>Gabber</application> is connected at
+				priority 0 and another <application>Gabber</application> session is initiated at
+				priority 1, the client with priority 0 will receive incoming messages (unless the
+				message is bound specifically to the lower priority client).
+			</para></listitem>
+		</varlistentry>
+	</variablelist>
+</chapter>
+<!-- END: LOGIN -->

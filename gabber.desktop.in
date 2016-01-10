@@ -1,0 +1,7 @@
+[Desktop Entry]
+_Name=Gabber
+_Comment=Send and receive instant messages using the Jabber system
+Exec=gabber
+Icon=gabber.png
+Terminal=0
+Type=Application

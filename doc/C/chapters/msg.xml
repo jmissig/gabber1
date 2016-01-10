@@ -1,0 +1,413 @@
+<!-- BEGIN: MSG -->
+	<chapter id="msg">
+		<title>Messaging and Chatting</title>
+		<para>
+			Since the first instant messaging client, there have been numerous ways to send and receive messages
+			with other users. Two distinct interfaces have been developed for one-on-one communication, and nearly
+			all commercial and open source clients now adhere to these two <quote>standards.</quote> For group communication,
+			a style similar to GUI IRC chat has developed.
+		</para>
+		<sect1 id="msg-encrypt">
+			<title>Encrypted Messages</title>
+			<para>
+				Through the use of <ulink type="http" url="http://www.gnupg.org">GnuPG</ulink>, a free software replacement
+				for PGP, <application>Gabber</application> can send and receive encrypted messages with other Jabber clients capable of message
+				encryption. Before being able to use encryption, GnuPG must already be configured and a public key must
+				already be sent to a public key repository. Refer to GnuPG's <ulink type="http"
+				url="http://www.gnupg.org">web site</ulink> for complete information about this process.
+			</para>
+			<para>
+				To start using encryption, it must be enabled on the <interface>Encryption</interface> tab in the <link
+				linkend="pref">Preferences dialog</link>. After selecting a secret key to use, apply the changes and close
+				the dialog. The passphrase will then be requested for the key. After receiving the correct passphrase,
+				<application>Gabber</application> will notify users on the roster that encrypted messages can be sent 
+				and received.
+			</para>
+			<para>
+				The option to send encrypted messages is given on each message dialog. If an incoming message or conversation
+				is encrypted, a locked padlock will be shown. Otherwise, an unlocked padlock will be shown in the dialog.
+			</para>
+		</sect1>
+		<sect1 id="msg-que">
+			<title>Message Queueing</title>
+			<para>
+				By default all messages are queued in <application>Gabber</application>'s spool. This means that
+				the message will not automatically show on screen but will instead wait to be opened. If
+				<application>Gabber</application> is closed before messages are viewed, it will store them
+				until the next time <application>Gabber</application> is run. When a new message is received from
+				a user on the roster, the user's name will flash with an alternate color and the status icon
+				will change to a flashing message. To access the message, just double click the user. If the group
+				the user is in is not expanded, the group name will flash. In addition to roster visual notifications,
+				the GNOME status docklet icon will indicate a new message. Double click the icon and the new message
+				will be viewable.
+			</para>
+			<para>
+				Customization of queueing behavior is available from the Messages <link linkend="pref">Preferences</link>.
+			</para>
+		</sect1>
+		<sect1 id="msg-normal">
+			<title>Normal Messages</title>
+			<para>
+				The most common format is modeled after Mirabilis ICQ's send and receive dialogs. This format is similar
+				to email messages in that the entire conversation is not contained (or shown) within a window, but only
+				the current message.
+			</para>
+			<sect2 id="msg-normal-send">
+				<title>Sending a New Message</title>
+				<para>
+					To send a normal message to a user in <application>Gabber</application>, right click on
+					a user in the <link linkend="users">roster</link> and select <guimenuitem>Message</guimenuitem>. A <interface>Send
+					Message</interface> dialog appears (shown in <xref linkend="figure-msg-normal-send"/>) for the user to type a message.
+
+					<screenshot id="figure-msg-normal-send">
+						<mediaobject>
+							<imageobject>
+								<imagedata fileref="msg-normal.png" format="PNG"/>
+							</imageobject>
+							<textobject>
+								<phrase>A screenshot of a normal message dialog.</phrase>
+							</textobject>
+							<caption>
+								<para>Send Message</para>
+							</caption>
+						</mediaobject>
+					</screenshot>
+				</para>
+			</sect2>
+			<sect2 id="msg-normal-reply">
+				<title>Responding to Messages</title>
+				<para>
+					When a normal message is received, a new window will be created to contain the received message
+					and a text entry box for the user to input a response. If more messages are received from the same
+					person, the <guibutton>Read Next</guibutton> button will become active to allow the user to view the next
+					received message. To turn display of received messages off, simply toggle the <guibutton>Received Message</guibutton>
+					button on the message toolbar. After typing a message into the <guilabel>Reply to:</guilabel> entry box, simply click
+					<guibutton>Send</guibutton> to send the message. If the <guibutton>Don't close this dialog</guibutton> button on the toolbar
+					is toggled, the message will be sent and the message entry dialog box will be cleared for a new message. If the option is not
+					toggled, the dialog will then close and any unviewed messages will be lost.
+				</para>
+			</sect2>
+			<sect2 id="msg-normal-options">
+				<title>Options</title>
+				<para>
+					<application>Gabber</application> provides several options when sending a normal message. These
+					options are available via the simple toolbar at the top of each normal message. The following options
+					are available (some options are only available when responding to a message):
+					<itemizedlist>
+						<listitem><para>
+							Quote Received Message in Reply - Copies the received message into the send message text box for editing.
+						</para></listitem>
+						<listitem><para>
+							Send as One-on-One Chat - Specifies that upon receiving a response from the receiver,
+							<application>Gabber</application> should load the rest of the conversation in a <link linkend="msg-ooo">One-on-One chat</link>.
+						</para></listitem>
+						<listitem><para>
+							Encrypt this message - If <link linkend="msg-encrypt">encryption</link> is configured and enabled properly,
+							this option will be available to allow the message to be encrypted. If the recipient does not have
+							a public key, <application>Gabber</application> will respond with an error and ask if it is acceptable
+							to send the message without encryption.
+						</para></listitem>
+						<listitem><para>
+							Show/Hide Advanced Options - Toggles viewing of more advanced options.
+						</para></listitem>
+						<listitem><para>
+							Don't close this dialog - After sending the current message, <application>Gabber</application>
+							will clear the text and allow for a new message to be entered from the same dialog.
+						</para></listitem>
+						<listitem><para>
+							Show/Hide Received Message - Toggles viewing of received message.
+						</para></listitem>
+						<listitem><para>
+							Add this User to Roster - Loads the <link linkend="users-adduser">Add User</link> dialog to
+							add the current user to the roster.
+						</para></listitem>
+						<listitem><para>
+							View Contact Info - Loads the <link linkend="users-edituser">Contact Information</link>
+							and queries the server for this user's information.
+						</para></listitem>
+						<listitem><para>
+							Message History - Loads the history dialog with the complete message history of this user.
+						</para></listitem>
+					</itemizedlist>
+				</para>
+			</sect2>
+		</sect1>
+		<sect1 id="msg-ooo">
+			<title>One-on-One Chats</title>
+			<para>
+				Another popular format for sending and receiving messages is styled after America Online's Instant
+				Messenger. One window is loaded with the entire conversation contained in the window. The window
+				contains one main area for the conversation, different options for sending a message may be shown
+				and a small input line for entering the messages is at the bottom of the window.
+				Each message is prepended with the author's user name in brackets (&lt;&gt;).
+			</para>
+			<para>
+				To start a one-one-one chat with a user in the <link linkend="users">roster</link>, right click on
+				their name and select <guimenuitem>One-on-One Chat</guimenuitem>. Once the <interface>One-on-One</interface>
+				window is loaded, simply type a message in the lower entry box and press <keycap>Enter</keycap>.
+				Messages that the user sends will be prepended with the user name and
+				messages from the other user will be prepended with their nickname.
+				<screenshot id="figure-msg-ooo">
+					<mediaobject>
+						<imageobject>
+							<imagedata fileref="msg-ooo.png" format="PNG"/>
+						</imageobject>
+						<textobject>
+							<phrase>A screenshot of a one-on-one chat window.</phrase>
+						</textobject>
+						<caption>
+							<para>One-on-One Chat</para>
+						</caption>
+					</mediaobject>
+				</screenshot>
+			</para>
+			<sect2 id="msg-ooo-info">
+				<title>Information Indicators</title>
+				<para>
+					Below the toolbar is a line of text and graphical
+					information pertinent to the user and conversation. To 
+					find out more information about each icon, hover over
+					the icon for a few second.
+					<itemizedlist>
+						<listitem><para>Current status - The availability status
+						of the user is displayed to the left of the user's
+						name.</para></listitem>
+						<listitem><para>User name - The user's name and resource
+						is displayed next to the Current Status
+						indicator.</para></listitem>
+						<listitem><para>Music information - If the user is
+						using a Jabber client that supports the music
+						information, a music indicator will appear to the right
+						side of the user's name. By hovering over the icon
+						with the mouse, information about the song the user
+						is listening to will be displayed.
+						<application>Gabber</application> will send this
+						information to other users if the option is enabled at
+						compile time.</para></listitem>
+						<listitem><para>Encryption information - The status
+						of encryption for this chat will be shown to the far
+						right. If the padlock is unlocked, the messages are not
+						being encrypted.</para></listitem>
+					</itemizedlist>
+				</para>
+			</sect2>
+			<sect2 id="msg-ooo-options">
+				<title>Options</title>
+				<para>
+					Like normal messages, one-on-one chats have several options available from a toolbar along the 
+					top of the chat window. The following options are available:
+					<itemizedlist>
+						<listitem><para>
+							Send as Normal Message - If enabled, messages sent to the user are sent as <link
+							linkend="msg-normal">normal messages</link>. This is useful, for instance, to 
+							gain the receiver's attention since the message will probably appear in front
+							of any other windows that are open on their desktop.
+						</para></listitem>
+						<listitem><para>
+							Encrypt this message - Similarly to normal message encryption, if <link linkend="msg-encrypt">encryption</link>
+							is configured and enabled properly, this option will be available to allow the conversation to be encrypted.
+							If the recipient does not have a public key, <application>Gabber</application> will respond with an error
+							and ask if it is acceptable to send the message without encryption.
+						</para></listitem>
+						<listitem><para>
+							Add this User to Roster - Loads the <link linkend="users-adduser">Add User</link> dialog to
+							add the current user to the roster.
+						</para></listitem>
+						<listitem><para>
+							View Contact Info - Loads the <link linkend="users-edituser">Contact Info</link> dialog
+							and queries the server for this user's information.
+						</para></listitem>
+						<listitem><para>
+							Message History - Loads the history dialog to view the entire history of messages
+							with this user.
+						</para></listitem>
+					</itemizedlist>
+				</para>
+			</sect2>
+		</sect1>
+		<sect1 id="msg-gc">
+			<title>Group Chats</title>
+			<para>Group chats allow any number of people to connect with each
+			other and discuss various topics. Similar interfaces are available
+			in other instant messaging systems and the famous IRC service.</para>
+			<sect2 id="msg-gc-join">
+				<title>Joining a Group Chat</title>
+				<para>
+					Upon initiating <guimenuitem>Group Chat</guimenuitem> from the <guimenu>Services</guimenu> menu,
+					the <interface>Join Group Chat</interface> dialog
+					will load for the user to fill in the required group chat information. After filling in the
+					desired information, click <guibutton>Join Room</guibutton> to join the discussion.
+				</para>
+				<sect3 id="msg-gc-join-jabber">
+					<title>Jabber Group Chat</title>
+					<para>
+						To join a Jabber group chat the room and the group chat server. Jabber.org runs a
+						public group chat server at conference.jabber.org. The protocol should be set to
+						"Jabber Group Chat".
+					</para>
+					<note id="msg-gc-join-jabber-backlog">
+						<title>Jabber Group Chat Backlog</title>
+						<para>
+							The Jabber group chat server will send the last 20 messages that were sent in
+							the room to any users joining. This is a highly useful feature that allows new
+							joiners to see what is being discussed instead of just being thrown right into
+							the conversation.
+						</para>
+					</note>
+				</sect3>
+				<sect3 id="msg-gc-join-irc">
+					<title>IRC</title>
+					<para>
+						To join an Internet Relay Chat (IRC) channel, set the server to "irc.jabber.org",
+						change the protocol to "IRC" and set the IRC server to whichever IRC server is desired.
+						The channel name must be prefixed with an ampersand (&amp;) or a hash (#).
+					</para>
+					<para>
+						As an example, to join the main GNOME IRC channel with <application>Gabber</application>,
+						enter "#gnome" for the room, enter "irc.jabber.org" for
+						the server, change the protocol to "IRC" and input "irc.gimp.net" in the IRC server field.
+					</para>
+				</sect3>
+			</sect2>
+			<sect2 id="msg-gc-main">
+				<title>The Main Attraction</title>
+				<para>
+					After logging into group chat, the main <interface>Group Chat</interface> window is shown.
+					Along the top is the <link linkend="msg-gc-main-toolbar">toolbar</link> with various commands to manipulate the group
+					chat. In the center of the window, there are two text areas. The left text box is the main chat
+					area where all the messages are passed back and forth among the chat members. To the right of that
+					area is the list of current participants in the chat and their current status. To change the 
+					status of the user in the group chat session, simply select the desired state from the drop down box
+					beneath the list of group chat participants. On the bottom left is an input text box where the user
+					can type messages. After pressing <keycap>Enter</keycap>, the message will be
+					sent to all the participants and will appear in the main chat box. 
+				</para>
+				<sect3 id="msg-gc-main-toolbar">
+					<title>Group Chat Toolbar</title>
+					<para>
+						<itemizedlist>
+							<listitem><para>
+								Invite Contacts - Loads a dialog to allow contacts to be invited to the
+								discussion.
+							</para></listitem>
+							<listitem><para>
+								Show/Hide Users in Group - Allows the side panel of group chat participants to be
+								toggled on and off.
+							</para></listitem>
+							<listitem><para>
+								Message History - Loads the history dialog to view the entire history of messages
+								with this group.
+							</para></listitem>
+						</itemizedlist>					
+					</para>
+				</sect3>
+				<sect3 id="msg-gc-main-subject">
+					<title>Subject</title>
+					<para>
+						To change the subject (or topic) of the current group, type or edit the subject
+						in the <guilabel>Subject:</guilabel> text box and press the <keycap>Enter</keycap> key.
+					</para>
+				</sect3>
+			</sect2>
+		</sect1>
+		<sect1 id="msg-rules">
+			<title>Jabber Message Rules</title>
+			<para>
+				Unique to Jabber is the ability to setup message rules. Message rules allow incoming messages
+				to be handled differently based upon criteria such as current presence status; message type;
+				incoming message type, subject, sender or receiver. The current interface in
+				<application>Gabber</application> for message rule editing is designed for quick editing and
+				is not the final interface for rule editing. To access the <interface>Jabber Message Rules
+				List</interface> dialog, select <guimenuitem>Jabber Message Rules...</guimenuitem> from the
+				<guimenu>Services</guimenu> menu.
+			</para>
+			<para>
+				The <interface>Jabber Message Rules List</interface> dialog is largely self-explanatory.
+				A rule is listed by an arbitrary title in the main list and can be set to a higher or lower
+				priority with the <guibutton>Up</guibutton> and <guibutton>Down</guibutton> buttons. A
+				rule can be edited or removed with the <guibutton>Edit...</guibutton> and
+				<guibutton>Remove</guibutton> buttons. Since the edit rule dialog is the same as the
+				add rule dialog, it will not be explained. After all edits to the rules are completed (including
+				adding, removing and changing the priority), click the <guibutton>Save Changes</guibutton>
+				button and then close the dialog.
+			</para>
+			<para>
+				Jabber Message Rules are stored on the server and are processed entirely by the server.
+				Because of this, a Jabber client does not need to support Jabber Message Rules to be affected
+				by them. Also, some rules will be processed even while the user is not connected to the Jabber
+				server.
+			</para>
+			<sect2 id="msg-rules-add">
+				<title>Adding a Jabber Message Rule</title>
+				<para>
+					To add a new rule, click the <guibutton>Add...</guibutton> button on the <interface>Jabber
+					Message Rules List</interface> to bring up the <interface>Add a Jabber Message
+					Rule</interface> dialog. First, enter a unique identifying name for the rule in the
+					rule name text box. Then add at least one condition for the rule to be enacted upon by
+					clicking the <guibutton>Add</guibutton> button in the <interface>Condition</interface>
+					area. A blank condition will appear to allow editing or removal. Simply set the drop down
+					box to the desired condition and if necessary, type a string in the text box next to the
+					selection box. For instance, if the rule is "If the message is from..." then the user's
+					JID (e.g., user@host) would be typed in the text box.
+				</para>
+				<para>
+					The following is a current list of options for "my status is..." and "the message type
+					is..." These are actual pieces of the Jabber protocol and must be entered exactly as shown.
+					<variablelist>
+						<title>Status Types</title>
+						<varlistentry>
+							<term>away</term>
+							<listitem><para>Away</para></listitem>
+						</varlistentry>
+						<varlistentry>
+							<term>chat</term>
+							<listitem><para>Free to chat</para></listitem>
+						</varlistentry>
+						<varlistentry>
+							<term>xa</term>
+							<listitem><para>Not Available</para></listitem>
+						</varlistentry>
+						<varlistentry>
+							<term>dnd</term>
+							<listitem><para>Busy</para></listitem>
+						</varlistentry>
+						<varlistentry>
+							<term>invisible</term>
+							<listitem><para>Invisible</para></listitem>
+						</varlistentry>
+					</variablelist>
+					<variablelist>
+						<title>Message Types</title>
+						<varlistentry>
+							<term>normal</term>
+							<listitem><para>A "normal" message, see <xref linkend="msg-normal"/>.</para></listitem>
+						</varlistentry>
+						<varlistentry>
+							<term>chat</term>
+							<listitem><para>An One-on-One chat message, see <xref linkend="msg-ooo"/>.</para></listitem>
+						</varlistentry>
+						<varlistentry>
+							<term>groupchat</term>
+							<listitem><para>A groupchat message, see <xref linkend="msg-gc"/>.</para></listitem>
+						</varlistentry>
+						<varlistentry>
+							<term>headline</term>
+							<listitem><para>A headline message. There is not currently an interface in
+							<application>Gabber</application> to handle headline messages properly.</para></listitem>
+						</varlistentry>
+					</variablelist>
+				</para>
+				<para>
+					After selecting at least one condition for the rule to be acted upon (more than one condition
+					can be specified), actions can be added. Adding an action works the same way as adding a
+					condition. Message types are the same as above and when forwarding a message, a valid
+					JID must be entered. Again, multiple actions may be entered.
+				</para>
+				<para>
+					To remove any condition or action, simply click the <guibutton>Remove</guibutton> button to
+					the right of the condition or action.
+				</para>
+			</sect2>	
+		</sect1>
+	</chapter>
+<!-- END: MSG -->

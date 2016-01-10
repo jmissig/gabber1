@@ -1,0 +1,99 @@
+Summary:	A Gnome client for the Jabber instant messaging system.
+Name:		@PACKAGE@
+Version:	@VERSION@
+Release:	1
+Group:		Applications/Communications
+License:	GPL
+URL:		http://gabber.sourceforge.net/
+Source:		%{name}-%{version}.tar.gz
+BuildRoot:	%{_tmppath}/%{name}-root
+
+Requires: 	gnome-libs >= 1.2.0
+Requires:	libglade >= 0.11
+Requires: 	libsigc++ >= 1.0.0
+Requires:	gtkmm >= 1.2.1
+Requires:       gnomemm >= 1.2.0
+Requires:       openssl >= 0.9.5a
+
+BuildRequires:  gnome-libs-devel
+BuildRequires:  libglade-devel
+BuildRequires: 	libsigc++-devel
+BuildRequires:  gtkmm-devel
+BuildRequires:  gnomemm-devel
+BuildRequires:  gal >= 0.7
+BuildRequires:  gal-devel
+BuildRequires:  openssl-devel
+
+%description
+Gabber is a Gnome client for the distributed Open Source instant messaging 
+system called Jabber. Gabber is one of the most complete Jabber clients, 
+while still remaining one of the easiest to use. Jabber allows communication 
+with a multitude of other instant messaging systems, such as AIM, ICQ, 
+Yahoo!, MSN, and even IRC.
+
+%prep
+%setup -q
+
+%build
+if [ ! -f configure ]; then
+  ./autogen.sh --prefix=%{_prefix} --sysconfdir=%{_sysconfdir}
+--localstatedir=/var/lib --with-release-libs=%{_libdir} --disable-xmms
+fi
+%configure --localstatedir=/var/lib --with-release-libs=%{_libdir} --disable-xmms
+make
+
+%install
+rm -rf %{buildroot}
+%makeinstall
+rm -rf %{buildroot}/${_localstatedir}/scrollkeeper
+
+%clean
+rm -rf %{buildroot}
+
+%files
+%defattr(-, root, root)
+%doc AUTHORS COPYING* ChangeLog NEWS README README.proxy TODO
+%{_sysconfdir}/sound/events/%{name}.soundlist
+%{_bindir}/%{name}
+%{_datadir}/%{name}
+%{_datadir}/gnome/apps/Internet/%{name}.desktop
+%{_datadir}/gnome/help/%{name}
+%{_datadir}/locale/*/LC_MESSAGES/%{name}.mo
+%{_datadir}/omf/%{name}
+%{_datadir}/pixmaps/%{name}*
+%{_datadir}/sounds/%{name}
+%{_mandir}/man1/%{name}.1*
+
+%changelog
+* Wed May 30 2001 Julian Missig <julian@jabber.org>
+- Added configure variable to statically link GAL at buildtime, generated RPM no longer depends on it.
+
+* Thu Apr 26 2001 Julian Missig <julian@jabber.org>
+
+- No longer super-generic .spec since Matthias pointed out that RPM tries to remove every directory on uninstall (but fortunately fails to do so)
+
+* Sun Jan 21 2001 Gregory Leblanc <gleblanc@cu-portland.edu>
+- some cleanups, trying to make it easier for people to adapt to their
+particular distribution.
+
+* Tue Oct 10 2000 Konrad Podloucky <konrad@users.sourceforge.net>
+- removed gnet dependency
+
+* Fri May 19 2000  Julian Missig  <julian@linuxpower.org>
+- Now using a super generic .spec file. If anyone can tell me why I shouldn't do this, I'll stop.
+
+* Wed May 03 2000  Julian Missig  <julian@linuxpower.org>
+- Now using make install-strip to generate a small binary. Much nicer. :)
+
+* Wed Apr 26 2000  Julian Missig  <julian@linuxpower.org>
+- Made sure everything seems OK for 0.5.
+- Moved to libsigc++ 1.0.0, since older versions are binary incompatible. :(
+
+* Thu Apr 06 2000  Julian Missig  <julian@linuxpower.org>
+- Updated to install i18n support
+
+* Sun Apr 02 2000  Julian Missig  <julian@linuxpower.org>
+- Updated to install Gabber Manual
+
+* Sat Apr 01 2000  Julian Missig  <julian@linuxpower.org>
+- First version of the spec file. It seems to work.

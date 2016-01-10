@@ -1,0 +1,910 @@
+<?xml version="1.0"?>
+<GTK-Interface>
+
+<project>
+  <name>Gabber</name>
+  <program_name>Gabber</program_name>
+  <directory></directory>
+  <source_directory>src</source_directory>
+  <pixmaps_directory>pixmaps</pixmaps_directory>
+  <language>C</language>
+  <gnome_support>True</gnome_support>
+  <gettext_support>True</gettext_support>
+  <use_widget_names>True</use_widget_names>
+  <gnome_help_support>True</gnome_help_support>
+</project>
+
+<widget>
+  <class>GnomeApp</class>
+  <name>RegDruid_win</name>
+  <title>Agent Registration - Gabber</title>
+  <type>GTK_WINDOW_TOPLEVEL</type>
+  <position>GTK_WIN_POS_NONE</position>
+  <modal>False</modal>
+  <allow_shrink>False</allow_shrink>
+  <allow_grow>True</allow_grow>
+  <auto_shrink>False</auto_shrink>
+  <wmclass_name>regdruid</wmclass_name>
+  <wmclass_class>Gabber</wmclass_class>
+  <enable_layout_config>True</enable_layout_config>
+
+  <widget>
+    <class>GnomeDock</class>
+    <child_name>GnomeApp:dock</child_name>
+    <name>dock10</name>
+    <allow_floating>True</allow_floating>
+    <child>
+      <padding>0</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+
+    <widget>
+      <class>GnomeDruid</class>
+      <child_name>GnomeDock:contents</child_name>
+      <name>RegDruid_druid</name>
+
+      <widget>
+	<class>GnomeDruidPageStart</class>
+	<name>RegDruid_intro</name>
+	<title>Register with an Agent</title>
+	<text>This druid will step you through registering with an agent.</text>
+	<title_color>255,255,255</title_color>
+	<text_color>0,0,0</text_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<textbox_color>255,255,255</textbox_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>RegDruid_loading</name>
+	<title>Loading Registration Information</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox36</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox137</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>6</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkVBox</class>
+	      <name>vbox131</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>8</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkTable</class>
+		<name>table3752</name>
+		<rows>3</rows>
+		<columns>2</columns>
+		<homogeneous>False</homogeneous>
+		<row_spacing>4</row_spacing>
+		<column_spacing>4</column_spacing>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>False</fill>
+		</child>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label432</name>
+		  <label>Agent JID:</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>1</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>RegDruid_loading_jid_lbl</name>
+		  <label></label>
+		  <justify>GTK_JUSTIFY_LEFT</justify>
+		  <wrap>False</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>0</top_attach>
+		    <bottom_attach>1</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>True</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label433</name>
+		  <label>Service Provided:</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>1</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>RegDruid_loading_Description_lbl</name>
+		  <label></label>
+		  <justify>GTK_JUSTIFY_LEFT</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>2</top_attach>
+		    <bottom_attach>3</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>RegDruid_loading_Service_lbl</name>
+		  <label></label>
+		  <justify>GTK_JUSTIFY_LEFT</justify>
+		  <wrap>False</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>1</left_attach>
+		    <right_attach>2</right_attach>
+		    <top_attach>1</top_attach>
+		    <bottom_attach>2</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>False</yfill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label434</name>
+		  <label>Description:</label>
+		  <justify>GTK_JUSTIFY_CENTER</justify>
+		  <wrap>False</wrap>
+		  <xalign>1</xalign>
+		  <yalign>0</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <left_attach>0</left_attach>
+		    <right_attach>1</right_attach>
+		    <top_attach>2</top_attach>
+		    <bottom_attach>3</bottom_attach>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <xexpand>False</xexpand>
+		    <yexpand>False</yexpand>
+		    <xshrink>False</xshrink>
+		    <yshrink>False</yshrink>
+		    <xfill>True</xfill>
+		    <yfill>True</yfill>
+		  </child>
+		</widget>
+	      </widget>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label422</name>
+		<label></label>
+		<justify>GTK_JUSTIFY_CENTER</justify>
+		<wrap>False</wrap>
+		<xalign>0.5</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame1</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox91</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap1</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label464</name>
+		  <label>Gabber is now trying to load the information needed to register with this agent.</label>
+		  <justify>GTK_JUSTIFY_LEFT</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>RegDruid_fields</name>
+	<title>Register with an Agent</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox35</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox138</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>6</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkHBox</class>
+	      <name>hbox86</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>8</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label435</name>
+		<label>Agent JID:</label>
+		<justify>GTK_JUSTIFY_RIGHT</justify>
+		<wrap>False</wrap>
+		<xalign>1</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>True</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>RegDruid_fields_jid_lbl</name>
+		<label></label>
+		<justify>GTK_JUSTIFY_LEFT</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>RegDruid_fields_frame</name>
+	      <label>Register with an Agent</label>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkVBox</class>
+		<name>RegDruid_fields_vbox</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>8</spacing>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>RegDruid_Instr_lbl</name>
+		  <label></label>
+		  <justify>GTK_JUSTIFY_FILL</justify>
+		  <wrap>True</wrap>
+		  <xalign>0.5</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>RegDruid_fields_loading_lbl</name>
+		  <label>Loading list of fields...</label>
+		  <justify>GTK_JUSTIFY_LEFT</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>Placeholder</class>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>RegDruid_AgentReplace_frame</name>
+	      <visible>False</visible>
+	      <label>Agent Replacement</label>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkVBox</class>
+		<name>vbox139</name>
+		<homogeneous>False</homogeneous>
+		<spacing>0</spacing>
+
+		<widget>
+		  <class>GtkTable</class>
+		  <name>table3753</name>
+		  <border_width>6</border_width>
+		  <rows>1</rows>
+		  <columns>2</columns>
+		  <homogeneous>False</homogeneous>
+		  <row_spacing>4</row_spacing>
+		  <column_spacing>4</column_spacing>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+
+		  <widget>
+		    <class>GtkLabel</class>
+		    <name>label463</name>
+		    <label>Replace the agent with JID:</label>
+		    <justify>GTK_JUSTIFY_CENTER</justify>
+		    <wrap>False</wrap>
+		    <xalign>0</xalign>
+		    <yalign>0.5</yalign>
+		    <xpad>0</xpad>
+		    <ypad>0</ypad>
+		    <child>
+		      <left_attach>0</left_attach>
+		      <right_attach>1</right_attach>
+		      <top_attach>0</top_attach>
+		      <bottom_attach>1</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>False</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+		  </widget>
+
+		  <widget>
+		    <class>GtkEntry</class>
+		    <name>RegDruid_AgentReplace_ent</name>
+		    <can_focus>True</can_focus>
+		    <editable>True</editable>
+		    <text_visible>True</text_visible>
+		    <text_max_length>0</text_max_length>
+		    <text></text>
+		    <child>
+		      <left_attach>1</left_attach>
+		      <right_attach>2</right_attach>
+		      <top_attach>0</top_attach>
+		      <bottom_attach>1</bottom_attach>
+		      <xpad>0</xpad>
+		      <ypad>0</ypad>
+		      <xexpand>True</xexpand>
+		      <yexpand>False</yexpand>
+		      <xshrink>False</xshrink>
+		      <yshrink>False</yshrink>
+		      <xfill>True</xfill>
+		      <yfill>False</yfill>
+		    </child>
+		  </widget>
+		</widget>
+
+		<widget>
+		  <class>GtkCheckButton</class>
+		  <name>RegDruid_Unregister_chk</name>
+		  <can_focus>True</can_focus>
+		  <label>Unregister this agent (must be checked for replacement to work)</label>
+		  <active>False</active>
+		  <draw_indicator>True</draw_indicator>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>False</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>RegDruid_registering</name>
+	<title>Attempting to Register</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox39</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox140</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>8</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkHBox</class>
+	      <name>hbox90</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>8</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label462</name>
+		<label>Agent JID:</label>
+		<justify>GTK_JUSTIFY_RIGHT</justify>
+		<wrap>False</wrap>
+		<xalign>1</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>True</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>RegDruid_registering_jid_lbl</name>
+		<label></label>
+		<justify>GTK_JUSTIFY_LEFT</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkLabel</class>
+	      <name>label466</name>
+	      <label></label>
+	      <justify>GTK_JUSTIFY_CENTER</justify>
+	      <wrap>False</wrap>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>frame2</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox92</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap2</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label465</name>
+		  <label>The agent is now processing your registration information.</label>
+		  <justify>GTK_JUSTIFY_LEFT</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageStandard</class>
+	<name>RegDruid_registered</name>
+	<title>Registration Successful</title>
+	<title_color>255,255,255</title_color>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+
+	<widget>
+	  <class>GtkVBox</class>
+	  <child_name>GnomeDruidPageStandard:vbox</child_name>
+	  <name>druid-vbox37</name>
+	  <homogeneous>False</homogeneous>
+	  <spacing>0</spacing>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkVBox</class>
+	    <name>vbox141</name>
+	    <border_width>12</border_width>
+	    <homogeneous>False</homogeneous>
+	    <spacing>8</spacing>
+	    <child>
+	      <padding>0</padding>
+	      <expand>True</expand>
+	      <fill>True</fill>
+	    </child>
+
+	    <widget>
+	      <class>GtkHBox</class>
+	      <name>hbox87</name>
+	      <homogeneous>False</homogeneous>
+	      <spacing>8</spacing>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>label436</name>
+		<label>Agent JID:</label>
+		<justify>GTK_JUSTIFY_RIGHT</justify>
+		<wrap>False</wrap>
+		<xalign>1</xalign>
+		<yalign>0.5</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>False</expand>
+		  <fill>True</fill>
+		</child>
+	      </widget>
+
+	      <widget>
+		<class>GtkLabel</class>
+		<name>RegDruid_registered_jid_lbl</name>
+		<label></label>
+		<justify>GTK_JUSTIFY_LEFT</justify>
+		<wrap>False</wrap>
+		<xalign>0</xalign>
+		<yalign>0</yalign>
+		<xpad>0</xpad>
+		<ypad>0</ypad>
+		<child>
+		  <padding>0</padding>
+		  <expand>True</expand>
+		  <fill>True</fill>
+		</child>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkLabel</class>
+	      <name>RegDruid_registered_explain_lbl</name>
+	      <label>Successful!</label>
+	      <justify>GTK_JUSTIFY_LEFT</justify>
+	      <wrap>True</wrap>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <child>
+		<padding>0</padding>
+		<expand>True</expand>
+		<fill>True</fill>
+	      </child>
+	    </widget>
+
+	    <widget>
+	      <class>GtkFrame</class>
+	      <name>RegDruid_Success_frame</name>
+	      <label_xalign>0</label_xalign>
+	      <shadow_type>GTK_SHADOW_ETCHED_IN</shadow_type>
+	      <child>
+		<padding>0</padding>
+		<expand>False</expand>
+		<fill>True</fill>
+	      </child>
+
+	      <widget>
+		<class>GtkHBox</class>
+		<name>hbox93</name>
+		<border_width>6</border_width>
+		<homogeneous>False</homogeneous>
+		<spacing>6</spacing>
+
+		<widget>
+		  <class>GnomePixmap</class>
+		  <name>pixmap3</name>
+		  <filename>gnome-info.png</filename>
+		  <child>
+		    <padding>0</padding>
+		    <expand>False</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+
+		<widget>
+		  <class>GtkLabel</class>
+		  <name>label468</name>
+		  <label>Registration with this agent was successful.</label>
+		  <justify>GTK_JUSTIFY_LEFT</justify>
+		  <wrap>True</wrap>
+		  <xalign>0</xalign>
+		  <yalign>0.5</yalign>
+		  <xpad>0</xpad>
+		  <ypad>0</ypad>
+		  <child>
+		    <padding>0</padding>
+		    <expand>True</expand>
+		    <fill>True</fill>
+		  </child>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+
+      <widget>
+	<class>GnomeDruidPageFinish</class>
+	<name>RegDruid_finish</name>
+	<title></title>
+	<text>The agent has logged in successfully
+and has been added to your roster.</text>
+	<background_color>0,71,107</background_color>
+	<logo_background_color>0,71,107</logo_background_color>
+	<textbox_color>255,255,255</textbox_color>
+	<text_color>0,0,0</text_color>
+	<title_color>255,255,255</title_color>
+	<logo_image>glade-gabber-logo.png</logo_image>
+      </widget>
+    </widget>
+  </widget>
+
+  <widget>
+    <class>GnomeAppBar</class>
+    <child_name>GnomeApp:appbar</child_name>
+    <name>RegDruid_Status_bar</name>
+    <has_progress>True</has_progress>
+    <has_status>True</has_status>
+    <child>
+      <padding>0</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+  </widget>
+</widget>
+
+</GTK-Interface>

@@ -1,0 +1,59 @@
+List of Changes for Gabber 2
+
+jabberoo
+	- possibly switch to JECL's event system
+		- wrap events to libsigc++ (possibly in separate lib?)
+	- dynamically link or static?
+	- make sure browsing is in and is cool
+
+prefs
+	- Use GConf
+	- no need to cache things locally
+	- hook into the changed signals where appropriate and use them
+	- group the hidden config values under an advanced directory?
+	- generalize sound settings (events) beyond Just GNOME
+		- Allow any command to be run
+		- generalize to the point of having an event API?
+		- plugin system??
+
+text widget
+	- get rid of evil evil xtext
+	- let me repeat, WE'RE NOT USING XTEXT
+	- would GtkTextView or gtkhtml2 be better?
+		- investigate possibility of XHTML-Basic and CSS1 support
+		- XHTML-Basic and CSS1 display and generation will be needed
+		- since I wrote the spec, I need to support it...
+		- gtkhtml1 does not generate nice enough HTML...
+		- nor does it support CSS
+		- gleblanc tells me gtkhtml2 is unmaintained
+	- right-click menus should be consistent and existent everywhere
+	- spell check?
+		- a lot of users like this feature in gabber1...
+
+docklet
+	- we need one
+	- really, it's not just my want, we NEED one
+	- gnome2 doesn't have anything
+		- that can be started from a non-panel application
+	- ARGH
+
+commandline options
+	- figure out what is *needed*
+	- look into CORBA support or something to allow for gabber remote:
+		- gabber --message julian@jabber.org "hello julian"
+			- or something of the like
+		- gabber --adduser someguy@someserver.ext
+
+encryption
+	- either remove GPG support completely
+		- or switch to GPGME (assuming it actually works)
+	- temas should get going on the new Jabber encryption standard
+		- and we should support that primarily
+
+backend
+	- separate MessageManager into:
+		- queue generic objects (presence, message, errors, etc)
+		- message router (figures out message stuff and sends to queue)
+	- ErrorManager
+		- figure out a better way to handle errors nicely
+	- move many things to be more iq:browse-based

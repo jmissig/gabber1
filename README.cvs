@@ -1,0 +1,71 @@
+Please read the README first.
+
+If you use CVS Gabber regularly, you really should be on Gabber's 
+mailing list to stay informed of what's going on.
+
+You need to have the common GNOME macros installed. In Debian, this is
+package libgnome-dev. Another name for it is gnome-common.
+We have binaries and tarballs available on 
+http://gabber.sourceforge.net/cvsinfo.php
+It is also available in GNOME CVS, module gnome-common
+
+xml-i18n-tools aka intltools is required to autogen Gabber CVS.
+
+Those of you new to using GNOME-like apps out of CVS: it is highly 
+recommended that you first check that you have files in 
+/usr/share/gettext/intl/ (If you don't, reinstall gettext). 
+'make uninstall' is pretty broken with gettext, and 
+will remove those files, thus breaking the ./intl/ directory for all CVS 
+applications which use it.
+
+If you do not have all of the dependancies properly installed, including 
+their .m4 files, you WILL get macro errors.
+
+!!! New and Important !!!
+Around mid-may 2002, the GNU and GNOME internationalization people decided 
+to make changes to intltools and gettext that changed the way GNOME programs 
+use those same packages.  Thus, in using the new i18n stuff, Gabber cannot 
+use the old i18n packages.  Once you update those packages, though, you will
+still get macro errors.  That's because only glib2 and glib2-devel (you
+need both) has the ones Gabber needs.  So to sum up, you now need the
+latest versions of:
+	gettext intltools glib2 glib2-devel
+Since it's not feasible for many people to do that, Julian will continue
+releasing pre-releases which do not require those packages to the 
+gabber-discuss@lists.sourceforge.net mailing list.  Good luck.
+
+
+If you would like to build the Gabber manual, you will need sgmltools, 
+jade, and the GDP's PNG DTD and GDP's stylesheets. Released builds do not 
+require this, because 'make dist' will generate the HTML files and put 
+them in the proper places. Please see www.gnome.org/gdp and be sure that 
+you have the proper stylesheet and DTD installed.
+
+scrollkeeper is now also required if you want to make a distribution of 
+Gabber. scrollkeeper is responsible for properly installing information 
+about Gabber's Manual in a standardized fashion (OMF). 
+
+Compiling
+---------
+Given ${prefix} is your prefix, such as /usr, /usr/local, or /opt/gnome 
+and that /etc is the place you have sound/events :
+./autogen.sh --prefix=${prefix} --sysconfdir=/etc --localstatedir=/var/lib
+make
+su
+make install
+
+If you get this error:
+./configure: syntax error near unexpected token `AM_INIT_AUTOMAKE(gabber,0.5pre1)'
+./configure: ./configure: line 525: `AM_INIT_AUTOMAKE(gabber,0.5pre1)'
+
+Make sure that the environment variable $ACLOCAL_FLAGS includes the path 
+to your automake variables (e.g., '-I /usr/share/aclocal')
+
+Debugging
+---------
+Doing a `gdb gabber` and then 'run' may not allow you to connect to Jabber.
+If this is the case, run Gabber first, then get its PID (via 
+`ps -ax | grep gabber`), and then run `gdb gabber` -- once in gdb, type
+'attach PID' where PID is the PID you found, and when that's done, type
+'continue' - you now have gdb attached to Gabber and can get a 'bt' when
+it crashes.

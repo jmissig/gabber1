@@ -1,0 +1,40 @@
+Some notes on hacking Gabber (and even bits of info on hacking C++ in general)
+
+STL:
+    Gabber, jabberoo, libjudo, libsigc++, gtkmm, gnomemm, etc. all make use of 
+    C++'s Standard Template Library. There are tons of references and 
+    tutorials on the subject if you just search google. I prefer, as a 
+    reference, /The C++ Standard Template Library: A Tutorial and Reference/ 
+    by Nicolai M. Josuttis. Here are some important notes I've collected:
+	- When using iterators, use ++it over it++ when possible, because
+	  ++it is slightly faster.
+	- The empty() member function is almost always preferred to comparing 
+	  size() == 0.
+	- Strings are cool ;) -- just be careful because some older STL 
+	  implementations don't like "" as much as string() -- use empty() 
+	  rather than comparing a string to ""
+
+Jabberoo/Gabber style:
+    K&R style. Private variables are prefixed with _. Usually Gabber variables
+    take the form _sorttypenameVariableName (_btnOK, _entryUsername, etc)
+    We generally make member functions protected rather than private.
+    Member functions typically follow the form on_object_event, (on_OK_clicked)
+
+UTF-8 (icky stuff which will hopefully be gone with gabber2):
+    Everything coming out of and going to jabberoo should be assumed to be 
+    UTF-8. Variables should store in UTF-8 except when they're extremely 
+    temporary variables and it doesn't make sense to waste the conversion on.
+    Call toUTF8(somewidget, somewidget->get_text()) whenever possible instead 
+    of the toUTF8(somewidget->get_text()) functions.
+
+Dealing with Gabber's .glade files:
+    ln -s ./pixmaps ./ui/pixmaps
+    ln -s /usr/share/pixmaps/gnome-globe.png ./pixmaps/gnome-globe.png
+    ln -s /usr/share/pixmaps/gnome-info.png ./pixmaps/gnome-info.png
+    ln -s /usr/share/pixmaps/gnome-lockscreen.png ./pixmaps/gnome-lockscreen.png
+    ln -s /usr/share/pixmaps/gnome-modem.png ./pixmaps/gnome-modem.png
+    ln -s /usr/share/pixmaps/gnome-question.png ./pixmaps/gnome-question.png
+    And make sure your copy of glade is compiled with GNOME support.
+
+If you feel like adding something, go ahead. If you're wrong I'll just change 
+it. :)

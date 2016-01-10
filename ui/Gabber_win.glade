@@ -1,0 +1,1047 @@
+<?xml version="1.0"?>
+<GTK-Interface>
+
+<project>
+  <name>Gabber</name>
+  <program_name>Gabber</program_name>
+  <directory></directory>
+  <source_directory>src</source_directory>
+  <pixmaps_directory>pixmaps</pixmaps_directory>
+  <language>C</language>
+  <gnome_support>True</gnome_support>
+  <gettext_support>True</gettext_support>
+  <use_widget_names>True</use_widget_names>
+  <gnome_help_support>True</gnome_help_support>
+</project>
+
+<widget>
+  <class>GnomeApp</class>
+  <name>Gabber_win</name>
+  <visible>False</visible>
+  <title>Gabber</title>
+  <type>GTK_WINDOW_TOPLEVEL</type>
+  <position>GTK_WIN_POS_NONE</position>
+  <modal>False</modal>
+  <default_width>185</default_width>
+  <default_height>270</default_height>
+  <allow_shrink>False</allow_shrink>
+  <allow_grow>True</allow_grow>
+  <auto_shrink>False</auto_shrink>
+  <wmclass_name>gabber</wmclass_name>
+  <wmclass_class>Gabber</wmclass_class>
+  <enable_layout_config>True</enable_layout_config>
+
+  <widget>
+    <class>GnomeDock</class>
+    <child_name>GnomeApp:dock</child_name>
+    <name>Gabber_Dock</name>
+    <allow_floating>True</allow_floating>
+    <child>
+      <padding>0</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+
+    <widget>
+      <class>GnomeDockItem</class>
+      <name>Gabber_Menu_dockitem</name>
+      <border_width>2</border_width>
+      <placement>GNOME_DOCK_TOP</placement>
+      <band>0</band>
+      <position>0</position>
+      <offset>0</offset>
+      <locked>False</locked>
+      <exclusive>True</exclusive>
+      <never_floating>False</never_floating>
+      <never_vertical>True</never_vertical>
+      <never_horizontal>False</never_horizontal>
+      <shadow_type>GTK_SHADOW_OUT</shadow_type>
+
+      <widget>
+	<class>GtkMenuBar</class>
+	<name>Gabber_Menu_bar</name>
+	<shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+	<widget>
+	  <class>GtkMenuItem</class>
+	  <name>Gabber_User_menu</name>
+	  <label>_Gabber</label>
+	  <right_justify>False</right_justify>
+
+	  <widget>
+	    <class>GtkMenu</class>
+	    <name>Gabber_User_menu_menu</name>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_Showas_menu</name>
+	      <label>Presence</label>
+	      <right_justify>False</right_justify>
+	      <icon>offline.xpm</icon>
+
+	      <widget>
+		<class>GtkMenu</class>
+		<name>Gabber_Showas_menu_menu</name>
+
+		<widget>
+		  <class>GtkMenuItem</class>
+		  <name>itemfoo</name>
+		  <label>.</label>
+		  <right_justify>False</right_justify>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_Login_item</name>
+	      <accelerator>
+		<modifiers>GDK_CONTROL_MASK</modifiers>
+		<key>GDK_L</key>
+		<signal>activate</signal>
+	      </accelerator>
+	      <label>_Log in...</label>
+	      <right_justify>False</right_justify>
+	      <icon>connected.xpm</icon>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_Logout_item</name>
+	      <label>Log _out</label>
+	      <right_justify>False</right_justify>
+	      <icon>disconnected.xpm</icon>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_LogoutReason_item</name>
+	      <label>Log out _with Reason...</label>
+	      <right_justify>False</right_justify>
+	      <icon>disconnected.xpm</icon>
+	    </widget>
+
+	    <widget>
+	      <class>GtkMenuItem</class>
+	      <name>separator11</name>
+	      <right_justify>False</right_justify>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_Roster_menu</name>
+	      <label>_Roster</label>
+	      <right_justify>False</right_justify>
+	      <stock_icon>GNOME_STOCK_MENU_INDEX</stock_icon>
+
+	      <widget>
+		<class>GtkMenu</class>
+		<name>Gabber_Roster_menu_menu</name>
+
+		<widget>
+		  <class>GtkPixmapMenuItem</class>
+		  <name>Gabber_Export_item</name>
+		  <label>_Export Roster...</label>
+		  <right_justify>False</right_justify>
+		  <stock_icon>GNOME_STOCK_MENU_SAVE_AS</stock_icon>
+		</widget>
+
+		<widget>
+		  <class>GtkPixmapMenuItem</class>
+		  <name>Gabber_Import_item</name>
+		  <label>_Import Roster...</label>
+		  <right_justify>False</right_justify>
+		  <stock_icon>GNOME_STOCK_MENU_OPEN</stock_icon>
+		</widget>
+
+		<widget>
+		  <class>GtkMenuItem</class>
+		  <name>Gabber_---0_item</name>
+		  <right_justify>False</right_justify>
+		</widget>
+
+		<widget>
+		  <class>GtkCheckMenuItem</class>
+		  <name>Gabber_HideOffline_item</name>
+		  <accelerator>
+		    <modifiers>GDK_CONTROL_MASK</modifiers>
+		    <key>GDK_H</key>
+		    <signal>activate</signal>
+		  </accelerator>
+		  <label>Hide _Offline Contacts</label>
+		  <active>False</active>
+		  <always_show_toggle>True</always_show_toggle>
+		</widget>
+
+		<widget>
+		  <class>GtkCheckMenuItem</class>
+		  <name>Gabber_HideAgents_item</name>
+		  <label>Hide _Agents</label>
+		  <active>False</active>
+		  <always_show_toggle>True</always_show_toggle>
+		</widget>
+	      </widget>
+	    </widget>
+
+	    <widget>
+	      <class>GtkMenuItem</class>
+	      <name>separator9</name>
+	      <right_justify>False</right_justify>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_ConnectionSettings_item</name>
+	      <label>_Connection Settings...</label>
+	      <right_justify>False</right_justify>
+	      <stock_icon>GNOME_STOCK_MENU_LINE_IN</stock_icon>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_UserInfo_item</name>
+	      <label>_My Information...</label>
+	      <right_justify>False</right_justify>
+	      <icon>glade-edit-user-menu.xpm</icon>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_Preferences_item</name>
+	      <stock_item>GNOMEUIINFO_MENU_PREFERENCES_ITEM</stock_item>
+	    </widget>
+
+	    <widget>
+	      <class>GtkMenuItem</class>
+	      <name>Gabber_---2_item</name>
+	      <right_justify>False</right_justify>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_Exit_item</name>
+	      <stock_item>GNOMEUIINFO_MENU_EXIT_ITEM</stock_item>
+	    </widget>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkMenuItem</class>
+	  <name>Gabber_Services_menu</name>
+	  <label>_Actions</label>
+	  <right_justify>False</right_justify>
+
+	  <widget>
+	    <class>GtkMenu</class>
+	    <name>Gabber_Services_menu_menu</name>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_BlankMessage_item</name>
+	      <label>Send _Message...</label>
+	      <right_justify>False</right_justify>
+	      <icon>glade-message.xpm</icon>
+	    </widget>
+
+	    <widget>
+	      <class>GtkMenuItem</class>
+	      <name>separator3</name>
+	      <right_justify>False</right_justify>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_AddUser_item</name>
+	      <accelerator>
+		<modifiers>GDK_CONTROL_MASK</modifiers>
+		<key>GDK_U</key>
+		<signal>activate</signal>
+	      </accelerator>
+	      <label>_Add Contact...</label>
+	      <right_justify>False</right_justify>
+	      <icon>glade-new-user-menu.xpm</icon>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_AddGroup_item</name>
+	      <label>Add _Group...</label>
+	      <right_justify>False</right_justify>
+	      <icon>glade-add-group-menu.xpm</icon>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_Agents_item</name>
+	      <accelerator>
+		<modifiers>GDK_CONTROL_MASK</modifiers>
+		<key>GDK_B</key>
+		<signal>activate</signal>
+	      </accelerator>
+	      <label>_Browse Agents/IM Systems...</label>
+	      <right_justify>False</right_justify>
+	      <stock_icon>GNOME_STOCK_MENU_CONVERT</stock_icon>
+	    </widget>
+
+	    <widget>
+	      <class>GtkMenuItem</class>
+	      <name>Gabber_ManageGroups_item</name>
+	      <visible>False</visible>
+	      <label>Manage Groups...</label>
+	      <right_justify>False</right_justify>
+	    </widget>
+
+	    <widget>
+	      <class>GtkMenuItem</class>
+	      <name>separator6</name>
+	      <right_justify>False</right_justify>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_GroupChat_item</name>
+	      <accelerator>
+		<modifiers>GDK_CONTROL_MASK</modifiers>
+		<key>GDK_C</key>
+		<signal>activate</signal>
+	      </accelerator>
+	      <label>Join Group _Chat...</label>
+	      <right_justify>False</right_justify>
+	      <icon>glade-groupchat-menu.xpm</icon>
+	    </widget>
+
+	    <widget>
+	      <class>GtkMenuItem</class>
+	      <name>Gabber_IgnoreList_item</name>
+	      <visible>False</visible>
+	      <label>_Ignore List...</label>
+	      <right_justify>False</right_justify>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_Filters_item</name>
+	      <label>Edit Jabber Message _Rules...</label>
+	      <right_justify>False</right_justify>
+	      <stock_icon>GNOME_STOCK_MENU_ALIGN_LEFT</stock_icon>
+	    </widget>
+
+	    <widget>
+	      <class>GtkCheckMenuItem</class>
+	      <name>Gabber_ShowHeadlines_item</name>
+	      <visible>False</visible>
+	      <label>Show _Headlines</label>
+	      <active>False</active>
+	      <always_show_toggle>True</always_show_toggle>
+	    </widget>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkMenuItem</class>
+	  <name>Gabber_Help_menu</name>
+	  <stock_item>GNOMEUIINFO_MENU_HELP_TREE</stock_item>
+
+	  <widget>
+	    <class>GtkMenu</class>
+	    <name>Gabber_Help_menu_menu</name>
+
+	    <widget>
+	      <class>GtkMenuItem</class>
+	      <name>Gabber_Manual_item</name>
+	      <label>Gabber _Manual...</label>
+	      <right_justify>False</right_justify>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_About_item</name>
+	      <stock_item>GNOMEUIINFO_MENU_ABOUT_ITEM</stock_item>
+	    </widget>
+
+	    <widget>
+	      <class>GtkPixmapMenuItem</class>
+	      <name>Gabber_Debug_menu</name>
+	      <label>_Debug</label>
+	      <right_justify>False</right_justify>
+	      <stock_icon>GNOME_STOCK_MENU_EXEC</stock_icon>
+
+	      <widget>
+		<class>GtkMenu</class>
+		<name>Gabber_Debug_menu_menu</name>
+
+		<widget>
+		  <class>GtkPixmapMenuItem</class>
+		  <name>Gabber_RawXML_item</name>
+		  <label>_Raw XML Input...</label>
+		  <right_justify>False</right_justify>
+		  <stock_icon>GNOME_STOCK_MENU_ALIGN_LEFT</stock_icon>
+		</widget>
+	      </widget>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GnomeDockItem</class>
+      <name>Gabber_Toolbar_dockitem</name>
+      <border_width>2</border_width>
+      <visible>False</visible>
+      <placement>GNOME_DOCK_TOP</placement>
+      <band>1</band>
+      <position>0</position>
+      <offset>0</offset>
+      <locked>False</locked>
+      <exclusive>True</exclusive>
+      <never_floating>False</never_floating>
+      <never_vertical>False</never_vertical>
+      <never_horizontal>False</never_horizontal>
+      <shadow_type>GTK_SHADOW_OUT</shadow_type>
+
+      <widget>
+	<class>GtkToolbar</class>
+	<name>Gabber_Common_toolbar</name>
+	<orientation>GTK_ORIENTATION_HORIZONTAL</orientation>
+	<type>GTK_TOOLBAR_ICONS</type>
+	<space_size>8</space_size>
+	<space_style>GTK_TOOLBAR_SPACE_LINE</space_style>
+	<relief>GTK_RELIEF_NONE</relief>
+	<tooltips>True</tooltips>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <child_name>Toolbar:button</child_name>
+	  <name>Gabber_AddUser_btn</name>
+	  <tooltip>Add Contact...</tooltip>
+	  <label>Add Contact</label>
+	  <icon>glade-new-user.xpm</icon>
+	</widget>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <child_name>Toolbar:button</child_name>
+	  <name>Gabber_BrowseAgents_btn</name>
+	  <tooltip>Browse Agents/IM Systems...</tooltip>
+	  <label>Browse Agents</label>
+	  <stock_pixmap>GNOME_STOCK_PIXMAP_CONVERT</stock_pixmap>
+	</widget>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <child_name>Toolbar:button</child_name>
+	  <name>Gabber_GroupChat_btn</name>
+	  <tooltip>Join a Group Chat...</tooltip>
+	  <label>Join Group Chat</label>
+	  <icon>glade-groupchat.xpm</icon>
+	  <child>
+	    <new_group>True</new_group>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkButton</class>
+	  <child_name>Toolbar:button</child_name>
+	  <name>Gabber_Manual_btn</name>
+	  <tooltip>Gabber Manual...</tooltip>
+	  <label>Gabber Manual</label>
+	  <stock_pixmap>GNOME_STOCK_PIXMAP_HELP</stock_pixmap>
+	  <child>
+	    <new_group>True</new_group>
+	  </child>
+	</widget>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GnomeDockItem</class>
+      <name>Gabber_Presence_dockitem</name>
+      <border_width>2</border_width>
+      <placement>GNOME_DOCK_BOTTOM</placement>
+      <band>0</band>
+      <position>0</position>
+      <offset>0</offset>
+      <locked>False</locked>
+      <exclusive>True</exclusive>
+      <never_floating>False</never_floating>
+      <never_vertical>True</never_vertical>
+      <never_horizontal>False</never_horizontal>
+      <shadow_type>GTK_SHADOW_OUT</shadow_type>
+
+      <widget>
+	<class>GtkMenuBar</class>
+	<name>Gabber_Presence_bar</name>
+	<shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+	<widget>
+	  <class>GtkPixmapMenuItem</class>
+	  <name>Gabber_Presence_menu</name>
+	  <label>Offline</label>
+	  <right_justify>False</right_justify>
+	  <icon>offline.xpm</icon>
+
+	  <widget>
+	    <class>GtkMenu</class>
+	    <name>Gabber_Presence_menu_menu</name>
+
+	    <widget>
+	      <class>GtkMenuItem</class>
+	      <name>item1</name>
+	      <label>.</label>
+	      <right_justify>False</right_justify>
+	    </widget>
+	  </widget>
+	</widget>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GnomeDockItem</class>
+      <name>Gabber_Status_dockitem</name>
+      <border_width>2</border_width>
+      <visible>False</visible>
+      <placement>GNOME_DOCK_BOTTOM</placement>
+      <band>1</band>
+      <position>0</position>
+      <offset>0</offset>
+      <locked>False</locked>
+      <exclusive>True</exclusive>
+      <never_floating>False</never_floating>
+      <never_vertical>True</never_vertical>
+      <never_horizontal>False</never_horizontal>
+      <shadow_type>GTK_SHADOW_IN</shadow_type>
+
+      <widget>
+	<class>GtkHBox</class>
+	<name>Gabber_Status_hbox</name>
+	<homogeneous>False</homogeneous>
+	<spacing>4</spacing>
+
+	<widget>
+	  <class>GtkEventBox</class>
+	  <name>Gabber_Status_queue_evt</name>
+	  <tooltip>Queued messages</tooltip>
+	  <events>GDK_BUTTON_PRESS_MASK</events>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkFrame</class>
+	    <name>Gabber_Status_queue_frame</name>
+	    <label_xalign>0</label_xalign>
+	    <shadow_type>GTK_SHADOW_NONE</shadow_type>
+
+	    <widget>
+	      <class>GtkPixmap</class>
+	      <name>Gabber_Status_queue_pix</name>
+	      <filename>glade-blank.xpm</filename>
+	      <xalign>0.5</xalign>
+	      <yalign>0.5</yalign>
+	      <xpad>0</xpad>
+	      <ypad>0</ypad>
+	      <build_insensitive>True</build_insensitive>
+	    </widget>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>label171</name>
+	  <label></label>
+	  <justify>GTK_JUSTIFY_CENTER</justify>
+	  <wrap>False</wrap>
+	  <xalign>0.5</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkEventBox</class>
+	  <name>Gabber_Status_contacts_evt</name>
+	  <tooltip>Number of online contacts</tooltip>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>False</fill>
+	  </child>
+
+	  <widget>
+	    <class>GtkLabel</class>
+	    <name>Gabber_Status_contacts_lbl</name>
+	    <label>(0)</label>
+	    <justify>GTK_JUSTIFY_CENTER</justify>
+	    <wrap>False</wrap>
+	    <xalign>0.5</xalign>
+	    <yalign>0.5</yalign>
+	    <xpad>0</xpad>
+	    <ypad>0</ypad>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <name>label172</name>
+	  <label></label>
+	  <justify>GTK_JUSTIFY_CENTER</justify>
+	  <wrap>False</wrap>
+	  <xalign>0.5</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	  <child>
+	    <padding>0</padding>
+	    <expand>True</expand>
+	    <fill>True</fill>
+	  </child>
+	</widget>
+
+	<widget>
+	  <class>GtkEventBox</class>
+	  <name>Gabber_Status_xmms_evt</name>
+	  <visible>False</visible>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GnomePixmap</class>
+	    <name>Gabber_Status_xmms_pix</name>
+	    <filename>xmms.xpm</filename>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkEventBox</class>
+	  <name>Gabber_Status_signed_evt</name>
+	  <tooltip>Presence is not signed</tooltip>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GnomePixmap</class>
+	    <name>Gabber_Status_signed_pix</name>
+	    <filename>gpg-unsigned.xpm</filename>
+	  </widget>
+	</widget>
+
+	<widget>
+	  <class>GtkEventBox</class>
+	  <name>Gabber_Status_connected_evt</name>
+	  <tooltip>Disconnected</tooltip>
+	  <child>
+	    <padding>0</padding>
+	    <expand>False</expand>
+	    <fill>True</fill>
+	  </child>
+
+	  <widget>
+	    <class>GnomePixmap</class>
+	    <name>Gabber_Status_connected_pix</name>
+	    <filename>disconnected.xpm</filename>
+	  </widget>
+	</widget>
+      </widget>
+    </widget>
+
+    <widget>
+      <class>GtkScrolledWindow</class>
+      <child_name>GnomeDock:contents</child_name>
+      <name>Gabber_RosterScroll</name>
+      <hscrollbar_policy>GTK_POLICY_AUTOMATIC</hscrollbar_policy>
+      <vscrollbar_policy>GTK_POLICY_AUTOMATIC</vscrollbar_policy>
+      <hupdate_policy>GTK_UPDATE_CONTINUOUS</hupdate_policy>
+      <vupdate_policy>GTK_UPDATE_CONTINUOUS</vupdate_policy>
+
+      <widget>
+	<class>GtkCTree</class>
+	<name>Gabber_RosterTree</name>
+	<can_focus>True</can_focus>
+	<columns>2</columns>
+	<column_widths>80,80</column_widths>
+	<selection_mode>GTK_SELECTION_BROWSE</selection_mode>
+	<show_titles>False</show_titles>
+	<shadow_type>GTK_SHADOW_IN</shadow_type>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <child_name>CTree:title</child_name>
+	  <name>label168</name>
+	  <label>label168</label>
+	  <justify>GTK_JUSTIFY_CENTER</justify>
+	  <wrap>False</wrap>
+	  <xalign>0.5</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	</widget>
+
+	<widget>
+	  <class>GtkLabel</class>
+	  <child_name>CTree:title</child_name>
+	  <name>label169</name>
+	  <label>label169</label>
+	  <justify>GTK_JUSTIFY_CENTER</justify>
+	  <wrap>False</wrap>
+	  <xalign>0.5</xalign>
+	  <yalign>0.5</yalign>
+	  <xpad>0</xpad>
+	  <ypad>0</ypad>
+	</widget>
+      </widget>
+    </widget>
+  </widget>
+
+  <widget>
+    <class>GtkEventBox</class>
+    <child_name>GnomeApp:appbar</child_name>
+    <name>Gabber_Statusbar_evt</name>
+    <child>
+      <padding>0</padding>
+      <expand>True</expand>
+      <fill>True</fill>
+    </child>
+
+    <widget>
+      <class>GnomeAppBar</class>
+      <child_name>GnomeApp:appbar</child_name>
+      <name>Gabber_statusbar</name>
+      <has_progress>False</has_progress>
+      <has_status>True</has_status>
+    </widget>
+  </widget>
+</widget>
+
+<widget>
+  <class>GtkMenu</class>
+  <name>ManageUser_menu</name>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageUser_OOOChat_item</name>
+    <accelerator>
+      <modifiers>GDK_CONTROL_MASK</modifiers>
+      <key>GDK_O</key>
+      <signal>activate</signal>
+    </accelerator>
+    <label>One-on-One Chat...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-ooochat.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageUser_Message_item</name>
+    <accelerator>
+      <modifiers>GDK_CONTROL_MASK</modifiers>
+      <key>GDK_M</key>
+      <signal>activate</signal>
+    </accelerator>
+    <label>Message...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-message.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkMenuItem</class>
+    <name>separator10</name>
+    <right_justify>False</right_justify>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageUser_SendRoster_item</name>
+    <label>Send Contacts...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-send-contact-menu.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageUser_SendFile_item</name>
+    <label>Send File...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-send-file-menu.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkMenuItem</class>
+    <name>separator4</name>
+    <right_justify>False</right_justify>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageUser_EditUser_item</name>
+    <accelerator>
+      <modifiers>GDK_CONTROL_MASK</modifiers>
+      <key>GDK_I</key>
+      <signal>activate</signal>
+    </accelerator>
+    <label>View Contact Info...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-edit-user-menu.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageUser_EditGroups_item</name>
+    <label>Edit Groups...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-edit-group-menu.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageUser_History_item</name>
+    <label>View History...</label>
+    <right_justify>False</right_justify>
+    <stock_icon>GNOME_STOCK_MENU_INDEX</stock_icon>
+  </widget>
+
+  <widget>
+    <class>GtkMenuItem</class>
+    <name>separator4</name>
+    <right_justify>False</right_justify>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageUser_Rerequest_item</name>
+    <label>Resubscribe</label>
+    <right_justify>False</right_justify>
+    <icon>glade-s10n.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkMenuItem</class>
+    <name>separator8</name>
+    <right_justify>False</right_justify>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageUser_DeleteUser_item</name>
+    <accelerator>
+      <modifiers>GDK_CONTROL_MASK</modifiers>
+      <key>GDK_D</key>
+      <signal>activate</signal>
+    </accelerator>
+    <label>Remove Contact</label>
+    <right_justify>False</right_justify>
+    <icon>glade-delete-user-menu.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageUser_AddUsertoRoster_item</name>
+    <label>Add this Contact...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-new-user-menu.xpm</icon>
+  </widget>
+</widget>
+
+<widget>
+  <class>GtkMenu</class>
+  <name>ManageAgent_menu</name>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageAgent_Message_item</name>
+    <label>Message...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-message.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageAgent_OOOChat_item</name>
+    <label>One-on-One Chat...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-ooochat.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkMenuItem</class>
+    <name>separatorbignumber</name>
+    <right_justify>False</right_justify>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageAgent_ALogin_item</name>
+    <label>Log into Agent</label>
+    <right_justify>False</right_justify>
+    <stock_icon>GNOME_STOCK_MENU_BOOK_OPEN</stock_icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageAgent_ALogout_item</name>
+    <label>Log out of Agent</label>
+    <right_justify>False</right_justify>
+    <stock_icon>GNOME_STOCK_MENU_BOOK_BLUE</stock_icon>
+  </widget>
+
+  <widget>
+    <class>GtkMenuItem</class>
+    <name>separator7</name>
+    <right_justify>False</right_justify>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageAgent_AInfo_item</name>
+    <label>Agent Information...</label>
+    <right_justify>False</right_justify>
+    <stock_icon>GNOME_STOCK_MENU_PROP</stock_icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageAgent_AEditGroups_item</name>
+    <label>Edit Groups...</label>
+    <right_justify>False</right_justify>
+    <icon>glade-edit-group-menu.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkMenuItem</class>
+    <name>separator8</name>
+    <right_justify>False</right_justify>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>ManageAgent_ARemove_item</name>
+    <label>Remove Agent</label>
+    <right_justify>False</right_justify>
+    <stock_icon>GNOME_STOCK_MENU_TRASH</stock_icon>
+  </widget>
+</widget>
+
+<widget>
+  <class>GtkMenu</class>
+  <name>Docklet_menu</name>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>Docklet_Show_menu</name>
+    <label>Presence</label>
+    <right_justify>False</right_justify>
+    <icon>offline.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>Docklet_Login_item</name>
+    <label>Login...</label>
+    <right_justify>False</right_justify>
+    <icon>connected.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>Docklet_Logout_item</name>
+    <label>Logout</label>
+    <right_justify>False</right_justify>
+    <icon>disconnected.xpm</icon>
+  </widget>
+
+  <widget>
+    <class>GtkMenuItem</class>
+    <name>separator7</name>
+    <right_justify>False</right_justify>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>Docklet_Preferences_item</name>
+    <label>Preferences...</label>
+    <right_justify>False</right_justify>
+    <stock_icon>GNOME_STOCK_MENU_PREF</stock_icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>Docklet_About_item</name>
+    <label>About...</label>
+    <right_justify>False</right_justify>
+    <stock_icon>GNOME_STOCK_MENU_ABOUT</stock_icon>
+  </widget>
+
+  <widget>
+    <class>GtkMenuItem</class>
+    <name>separator8</name>
+    <right_justify>False</right_justify>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>Docklet_Hide_item</name>
+    <label>Hide Main Window</label>
+    <right_justify>False</right_justify>
+    <stock_icon>GNOME_STOCK_MENU_TIMER_STOP</stock_icon>
+  </widget>
+
+  <widget>
+    <class>GtkPixmapMenuItem</class>
+    <name>Docklet_Show_item</name>
+    <label>Show Main Window</label>
+    <right_justify>False</right_justify>
+    <stock_icon>GNOME_STOCK_MENU_TIMER</stock_icon>
+  </widget>
+</widget>
+
+<widget>
+  <class>GtkMenu</class>
+  <name>Toolbar_menu</name>
+
+  <widget>
+    <class>GtkCheckMenuItem</class>
+    <name>Toolbar_Menubar_item</name>
+    <label>Show menubar</label>
+    <active>False</active>
+    <always_show_toggle>True</always_show_toggle>
+  </widget>
+
+  <widget>
+    <class>GtkCheckMenuItem</class>
+    <name>Toolbar_Toolbar_item</name>
+    <label>Show common actions toolbar</label>
+    <active>False</active>
+    <always_show_toggle>True</always_show_toggle>
+  </widget>
+
+  <widget>
+    <class>GtkCheckMenuItem</class>
+    <name>Toolbar_Presence_item</name>
+    <label>Show presence indicator</label>
+    <active>False</active>
+    <always_show_toggle>True</always_show_toggle>
+  </widget>
+
+  <widget>
+    <class>GtkCheckMenuItem</class>
+    <name>Toolbar_Status_item</name>
+    <label>Show extra information</label>
+    <active>False</active>
+    <always_show_toggle>True</always_show_toggle>
+  </widget>
+</widget>
+
+</GTK-Interface>

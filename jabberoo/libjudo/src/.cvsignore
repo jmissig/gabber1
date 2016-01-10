@@ -1,0 +1,8 @@
+.deps
+.libs
+Element.lo
+ElementStream.lo
+Makefile.in
+Makefile
+judo.lo
+libjudo.la

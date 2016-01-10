@@ -1,0 +1,32 @@
+<!-- BEGIN: FIRST -->
+<chapter id="first">
+	<title>First Run</title>
+	<para>
+		The first time <application>Gabber</application> is run, it will present the
+		user with a step-by-step "druid" (or wizard) to help guide the user through
+		setting up an account with Jabber or adding an existing account. After
+		filling in the requested information, <application>Gabber</application> will
+		be completely ready to run. <xref linkend="figure-first" /> shows
+		one of the steps in the setup druid.
+		<screenshot id="figure-first">
+			<mediaobject>
+				<imageobject>
+					<imagedata fileref="first.png" format="PNG"/>
+				</imageobject>
+				<textobject>
+					<phrase>A screenshot of a druid to help the user set
+						Gabber up.</phrase>
+				</textobject>
+				<caption>
+					<para>Setup</para>
+				</caption>
+			</mediaobject>
+		</screenshot>
+	</para>
+	<para>
+		Information given through the setup druid is stored and used for future
+		<application>Gabber</application> sessions. This information can be modified
+		from the <link linkend="login"><interface>Login</interface> dialog</link>.
+	</para>
+</chapter>
+<!-- END: FIRST -->
